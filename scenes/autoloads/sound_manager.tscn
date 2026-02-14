@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dtmt1bfgjvr2l"]
+
+[ext_resource type="Script" uid="uid://dirjky0nby5ro" path="res://scripts/autoload/sound_manager.gd" id="1_6que3"]
+[ext_resource type="AudioStream" uid="uid://ck4aw0qmj1c4h" path="res://assets/sounds/maintheme-perhaps.mp3" id="2_ldc1e"]
+
+[node name="SoundManager" type="Node" unique_id=1483278228]
+script = ExtResource("1_6que3")
+
+[node name="MainAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1595932030]
+stream = ExtResource("2_ldc1e")
+autoplay = true

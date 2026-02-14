@@ -20,6 +20,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 SignalBus="*uid://cgpi886dlxi3i"
 SceneChanger="*uid://io5eox7sw5pg"
+SoundManager="*uid://dtmt1bfgjvr2l"
 Global="*uid://df8uf0gxajuvf"
 
 [display]
