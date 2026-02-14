@@ -12,19 +12,13 @@ config_version=5
 
 config/name="Godot-TreeLoverJourney"
 config/description="Tree climbing is his passion"
-run/main_scene="res://levels/Main.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
-
-[layer_names]
-
-2d_physics/layer_1="Player"
 
 [rendering]
 
