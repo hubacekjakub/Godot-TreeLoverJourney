@@ -14,10 +14,10 @@ var automove: bool = false
 var current_target: RestingPlace
 
 func _ready() -> void:
-	global.On_new_resting_place_set.connect(handle_new_resting_place_set)
+	SignalBus.new_resting_place_set.connect(handle_new_resting_place_set)
 
 func _physics_process(delta):
-	
+
 	var direction = Vector3.ZERO
 
 	if Input.is_action_pressed("move_right"):
@@ -28,15 +28,15 @@ func _physics_process(delta):
 		direction.x -= 1
 	if Input.is_action_pressed("move_forward"):
 		direction.x += 1
-		
+
 	if automove:
 		var direction_to_target = self.global_position.direction_to(current_target.global_position)
 		direction = direction_to_target
-		
+
 		var distance_to_target = self.global_position.distance_squared_to(current_target.global_position)
 		print(distance_to_target)
 		if(distance_to_target < distance_check):
-			global.on_resting_place_reached.emit()
+			SignalBus.resting_place_reached.emit()
 			automove = false
 
 	if direction != Vector3.ZERO:
@@ -51,11 +51,11 @@ func _physics_process(delta):
 	# Vertical Velocity
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
-	
+
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
-	
+
 func handle_new_resting_place_set(new_resting_place: RestingPlace):
 	current_target = new_resting_place
 	automove = true
