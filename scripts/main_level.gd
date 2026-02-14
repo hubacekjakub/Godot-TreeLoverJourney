@@ -6,4 +6,4 @@ class_name MainLevel
 @onready var nositka: Stretcher = $Nositka
 
 func _enter_tree() -> void:
-	global.resting_places = resting_places
+	Global.resting_places = resting_places
