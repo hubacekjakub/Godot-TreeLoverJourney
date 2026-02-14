@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Godot-QuickStart"
-config/description="A quickstart game template made with Godot 4"
+config/name="Godot-TreeLoverJourney"
+config/description="Tree climbing is his passion"
 run/main_scene="res://levels/Main.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -25,8 +25,6 @@ window/size/resizable=false
 [layer_names]
 
 2d_physics/layer_1="Player"
-2d_physics/layer_2="Ball"
-2d_physics/layer_3="Walls"
 
 [rendering]
 
