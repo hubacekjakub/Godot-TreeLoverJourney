@@ -22,3 +22,7 @@ func handle_on_resting_place_reached():
 		print("sending new resting place: ", current_resting_place_index)
 	else:
 		print("there is no resting place")
+
+
+func get_game_version() -> Variant:
+	return ProjectSettings.get_setting("application/config/version")

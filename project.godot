@@ -12,7 +12,8 @@ config_version=5
 
 config/name="Godot-TreeLoverJourney"
 config/description="Tree climbing is his passion"
-run/main_scene="uid://cy8unddt2maqp"
+config/version="0.0.4"
+run/main_scene="uid://day083c7paac0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
