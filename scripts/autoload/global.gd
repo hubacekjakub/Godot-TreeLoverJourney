@@ -19,7 +19,7 @@ func handle_on_resting_place_reached():
 	
 	current_resting_place_index = current_resting_place_index+1
 	
-	if resting_places[current_resting_place_index]:
+	if resting_places[current_resting_place_index] != null:
 		On_new_resting_place_set.emit(resting_places[current_resting_place_index])
 		print("sending new resting place: ", current_resting_place_index)
 	else:
