@@ -1,5 +1,8 @@
 extends Node3D
 
+# Exports
+@export var start_level : String = "res://levels/MainLevel.tscn"
+
 # UI elements
 @onready var version_label: Label = %VersionLabel
 @onready var start_button: Button = %StartButton
@@ -17,7 +20,7 @@ func _ready() -> void:
 		quit_button.pressed.connect(_on_quit_button_pressed)
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://levels/MainLevel.tscn")
+	SceneChanger.goto_scene(start_level)
 
 
 func _on_quit_button_pressed():
