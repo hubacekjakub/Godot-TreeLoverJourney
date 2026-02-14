@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/hubacekjakub/Godot-TreeLoverJourney/blob/main/LICENSE)
 [![Godot 4.6](https://img.shields.io/badge/Godot-4.6-blue)](https://godotengine.org/)
 
-** A story about a bird who really loves trees. What could go wrong?
+## A story about a bird who really loves trees. What could go wrong?
 
 <!-- 🎮 **[Try Live Demo](https://hubacekjakub.itch.io/godot-quick-start)** --> 
 
