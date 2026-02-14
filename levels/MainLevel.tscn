@@ -1,0 +1,2606 @@
+[gd_scene format=3 uid="uid://cy8unddt2maqp"]
+
+[ext_resource type="Script" uid="uid://lo4tayiyp12h" path="res://scripts/main_level.gd" id="1_3348v"]
+[ext_resource type="Script" uid="uid://dn6wyhkgg5766" path="res://scripts/stretcher.gd" id="1_hkwxo"]
+[ext_resource type="Script" uid="uid://bi6voduouexrj" path="res://scripts/resting_place.gd" id="2_mt7cn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx02y"]
+sky_top_color = Color(0.09900001, 0.28691673, 0.55, 1)
+sky_horizon_color = Color(0.6629216, 0.6891689, 0.17501381, 1)
+sky_energy_multiplier = 2.0
+sky_cover_modulate = Color(0.8362401, 0.51149136, 0.091232605, 1)
+ground_horizon_color = Color(0.9637994, 0.5533655, 0.09069619, 1)
+
+[sub_resource type="Sky" id="Sky_s5j47"]
+sky_material = SubResource("ProceduralSkyMaterial_nx02y")
+
+[sub_resource type="Environment" id="Environment_hkwxo"]
+background_mode = 2
+background_energy_multiplier = 0.6
+sky = SubResource("Sky_s5j47")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mt7cn"]
+albedo_color = Color(0.5705418, 0.33949167, 0.057097085, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3348v"]
+albedo_color = Color(0.115, 0.46, 0.18975002, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nx02y"]
+albedo_color = Color(1, 0.120000005, 0.120000005, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hkwxo"]
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkwxo"]
+transparency = 1
+albedo_color = Color(0, 0.7833333, 1, 0.4627451)
+
+[node name="MainLevel" type="Node3D" unique_id=316296849 node_paths=PackedStringArray("resting_places")]
+script = ExtResource("1_3348v")
+resting_places = [NodePath("Node3D/Pitstop"), NodePath("Node3D/Pitstop2"), NodePath("Node3D/Pitstop3"), NodePath("Node3D/Pitstop4"), NodePath("Node3D/Pitstop5"), NodePath("Node3D/Pitstop6")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=771073023]
+environment = SubResource("Environment_hkwxo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881367806]
+transform = Transform3D(-0.90943223, 0.36013862, -0.20792606, 2.7805946e-08, 0.49999994, 0.8660255, 0.41585225, 0.78759146, -0.45471606, -7.297886, 20.759865, -54.782143)
+light_color = Color(0.84, 0.574, 0, 1)
+light_energy = 1.695
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=790646881]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1875798264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.60436, -4.668952, 0.20705414)
+size = Vector3(355.58524, 0.40722656, 118.12608)
+
+[node name="Stromy" type="Node3D" parent="CSGCombiner3D" unique_id=947279330]
+transform = Transform3D(0.8220447, 0, 0.569423, 0, 1, 0, -0.569423, 0, 0.8220447, 0, -5.01961, 0)
+
+[node name="Strom" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1822796201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.639406, 1.4192171, -11.820593)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom" unique_id=295118379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom3" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1326635011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.599468, 1.4192171, -6.9214587)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom3" unique_id=1848660008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom4" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=432776309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6873341, 1.4192171, 16.61868)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom4" unique_id=1236128518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom5" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2120881430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03749, 1.4192171, 16.040733)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom5" unique_id=402749066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom6" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1838163533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0515013, 1.4192171, 10.289024)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom6" unique_id=917442219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom7" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=281022631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.682143, 1.4192171, 26.18053)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom7" unique_id=1972786908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom8" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2140515925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.37097, 1.419219, 20.670921)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom8" unique_id=1410008619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom9" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1563740676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.50696, 1.4192171, -1.0324421)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom9" unique_id=1646528061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom2" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=615938947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.193752, 1.4192171, -8.451632)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom2" unique_id=2134032056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom10" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1723058681]
+transform = Transform3D(0.28908193, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.28908193, 13.013616, 1.4192171, -18.54293)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom10" unique_id=2138159005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom11" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1060469919]
+transform = Transform3D(0.28908193, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.28908193, 10.815988, 1.4192171, -14.166429)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom11" unique_id=66964797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom12" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=237410481]
+transform = Transform3D(0.28908193, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.28908193, 8.023019, 1.4192171, -18.122215)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom12" unique_id=1063248117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom13" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=607187691]
+transform = Transform3D(0.2890819, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.2890819, -5.32362, 1.4192171, -26.21746)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom13" unique_id=1357742937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom14" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=981120797]
+transform = Transform3D(0.2890819, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.2890819, -6.0279016, 1.4192171, -30.548956)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom14" unique_id=1203018162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom15" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=26839111]
+transform = Transform3D(0.28908193, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.28908193, -1.517909, 1.4192171, -25.562792)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom15" unique_id=207121148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom16" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=970871874]
+transform = Transform3D(0.2890819, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.2890819, -14.882293, 1.4192171, 4.6135535)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom16" unique_id=1137084562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom17" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=733048277]
+transform = Transform3D(0.2890819, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.2890819, -10.276037, 1.419219, 0.8083291)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom17" unique_id=1311594111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom18" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1273455433]
+transform = Transform3D(0.28908193, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.28908193, -6.507224, 1.4192171, 5.7925396)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom18" unique_id=526324339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom19" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1102258320]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, -4.2171674, 1.4192171, 12.036424)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom19" unique_id=584539102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom20" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1918902485]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, -3.2460744, 1.4192171, 7.1231775)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom20" unique_id=1816177993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom21" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=19211141]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 16.783485, 1.4192171, -17.333353)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom21" unique_id=342377894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom22" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1466163266]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 21.141323, 1.4192171, -16.816511)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom22" unique_id=725834961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom23" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1213866001]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 14.133738, 1.4192171, -10.965894)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom23" unique_id=1565384185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom24" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1504099479]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 3.2811537, 1.4192171, -26.706665)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom24" unique_id=1592855482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom25" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1556849930]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 5.669409, 1.419219, -21.23003)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom25" unique_id=165353187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom26" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=760335876]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, -13.780167, 1.4192171, -3.1090446)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom26" unique_id=1703331869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom27" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1623176890]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, -7.8184366, 1.4192171, 8.7176695)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom27" unique_id=1151422245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom28" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=295725923]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 2.4963703, 1.4192171, 17.8176)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom28" unique_id=1214553202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom29" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=894865763]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 4.6323714, 1.4192171, 13.410694)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom29" unique_id=995071460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom30" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=411669598]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 7.480573, 1.4192171, 17.3269)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom30" unique_id=306039960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom31" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=979428905]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 23.98656, 1.4192171, 25.328762)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom31" unique_id=1341701880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom32" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=784767472]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 24.751564, 1.4192171, 29.649952)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom32" unique_id=376575561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom33" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1705076161]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 17.124971, 1.4192171, 24.632866)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom33" unique_id=143444554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom34" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1789519135]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 31.241377, 1.4192171, -5.0245943)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom34" unique_id=855785951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom35" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1983120869]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 26.688957, 1.419219, -1.1551151)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom35" unique_id=76676647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom36" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1232533373]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 22.89767, 1.4192171, -5.9432335)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom36" unique_id=1231113868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom37" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=377563387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.268547, 1.4192171, 15.5090065)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom37" unique_id=1586860423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom38" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1201681607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.918392, 1.4192171, 14.931058)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom38" unique_id=66288452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom39" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1607058442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.00738, 1.4192171, 9.17935)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom39" unique_id=370694005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom40" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1784159812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.638023, 1.4192171, 25.070862)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom40" unique_id=277439694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom41" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=987747096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.32685, 1.419219, 19.561249)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom41" unique_id=166006071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom42" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1283506346]
+transform = Transform3D(0.2890819, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.2890819, 32.07359, 1.4192171, 3.5038795)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom42" unique_id=93933258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom43" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=187530929]
+transform = Transform3D(0.2890819, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.2890819, 36.679844, 1.419219, -0.30134392)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom43" unique_id=2117091205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom44" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=822202851]
+transform = Transform3D(0.2890819, 0, -0.9573044, 0, 1, 0, 0.9573044, 0, 0.2890819, 40.448658, 1.4192171, 4.682863)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom44" unique_id=1408171425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom45" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=554882749]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 42.738712, 1.4192171, 10.926748)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom45" unique_id=583935237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom46" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1547771531]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 43.709805, 1.4192171, 6.013504)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom46" unique_id=590907547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom47" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=667815776]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 33.175716, 1.4192171, -4.2187204)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom47" unique_id=1831641675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom48" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1497441368]
+transform = Transform3D(-0.99990153, 0, -0.014032036, 0, 1, 0, 0.014032036, 0, -0.99990153, 39.137447, 1.4192171, 7.607997)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom48" unique_id=2107555094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom49" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1073406875]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 49.452255, 1.4192171, 16.707926)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom49" unique_id=1611529523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom50" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2005673792]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 51.588253, 1.4192171, 12.30102)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom50" unique_id=513193814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom51" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2049634414]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 54.436455, 1.4192171, 16.217228)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom51" unique_id=789105955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom52" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1220568872]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 70.942444, 1.4192171, 24.219086)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom52" unique_id=2021461101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom53" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=983199319]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 71.70744, 1.4192171, 28.540272)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom53" unique_id=1083666146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom54" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=591276505]
+transform = Transform3D(-0.30248627, 0, 0.95315367, 0, 1, 0, -0.95315367, 0, -0.30248627, 64.08086, 1.4192171, 23.523188)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom54" unique_id=868658087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom55" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=858358697]
+transform = Transform3D(-0.9950434, 0, -0.09944135, 0, 1, 0, 0.09944135, 0, -0.9950434, 33.92847, 1.4192095, 40.52512)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom55" unique_id=2083423145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom56" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=257867175]
+transform = Transform3D(-0.9950434, 0, -0.09944135, 0, 1, 0, 0.09944135, 0, -0.9950434, 34.47608, 1.4192095, 35.546856)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom56" unique_id=1518413781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom57" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=845006849]
+transform = Transform3D(-0.9950434, 0, -0.09944135, 0, 1, 0, 0.09944135, 0, -0.9950434, 30.002344, 1.4192095, 30.075592)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom57" unique_id=2026406857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom58" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1296751622]
+transform = Transform3D(-0.9950434, 0, -0.09944135, 0, 1, 0, 0.09944135, 0, -0.9950434, 30.056723, 1.4192095, 37.526306)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom58" unique_id=170669140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom59" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=240385409]
+transform = Transform3D(-0.38284454, 0, 0.92381275, 0, 1, 0, -0.92381275, 0, -0.38284454, 42.18495, 1.4192095, 46.45582)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom59" unique_id=1985994151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom60" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=452995069]
+transform = Transform3D(-0.38284454, 0, 0.92381275, 0, 1, 0, -0.92381275, 0, -0.38284454, 43.93649, 1.4192095, 41.882473)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom60" unique_id=1890087339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom61" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1625690279]
+transform = Transform3D(-0.38284454, 0, 0.92381275, 0, 1, 0, -0.92381275, 0, -0.38284454, 47.10897, 1.4192095, 45.540916)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom61" unique_id=559573991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom62" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1458915150]
+transform = Transform3D(-0.38284454, 0, 0.92381275, 0, 1, 0, -0.92381275, 0, -0.38284454, 61.19446, 1.4192095, 52.268837)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom62" unique_id=42796716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom63" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=139730824]
+transform = Transform3D(-0.38284454, 0, 0.92381275, 0, 1, 0, -0.92381275, 0, -0.38284454, 62.325974, 1.4192095, 56.50882)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom63" unique_id=973515684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom64" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=545191394]
+transform = Transform3D(-0.38284454, 0, 0.92381275, 0, 1, 0, -0.92381275, 0, -0.38284454, 57.34251, 1.4192095, 51.995857)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom64" unique_id=1478626017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom65" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=515718228]
+transform = Transform3D(0.9935503, 0, 0.11339402, 0, 1, 0, -0.11339402, 0, 0.9935503, 38.313473, 1.4192095, 45.62712)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom65" unique_id=1939410634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom66" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=409058394]
+transform = Transform3D(0.9935503, 0, 0.11339402, 0, 1, 0, -0.11339402, 0, 0.9935503, 33.925842, 1.4192095, 45.546185)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom66" unique_id=657554048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom67" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=694964599]
+transform = Transform3D(0.9935503, 0, 0.11339402, 0, 1, 0, -0.11339402, 0, 0.9935503, 40.316906, 1.4192095, 39.027733)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom67" unique_id=1561878264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom68" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2044393713]
+transform = Transform3D(0.9935503, 0, 0.11339402, 0, 1, 0, -0.11339402, 0, 0.9935503, 52.680977, 1.4192095, 53.611282)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom68" unique_id=1863452292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom69" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1516305664]
+transform = Transform3D(0.9935503, 0, 0.11339402, 0, 1, 0, -0.11339402, 0, 0.9935503, 49.759953, 1.4192114, 48.399284)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom69" unique_id=561477649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom70" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=102595252]
+transform = Transform3D(0.39576975, 0, -0.9183496, 0, 1, 0, 0.9183496, 0, 0.39576975, 31.096941, 1.4192095, 34.901455)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom70" unique_id=751998461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom71" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=168547120]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 118.94252, 1.4192171, 95.14636)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom71" unique_id=569032167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom72" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1976816813]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 119.9137, 1.4192171, 90.23313)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom72" unique_id=1873690332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom73" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=943667531]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 115.92406, 1.4192171, 84.399475)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom73" unique_id=752041144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom74" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1740696366]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 115.34131, 1.4192171, 91.82756)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom74" unique_id=1310127467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom75" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1369315208]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 126.661766, 1.4192171, 101.761185)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom75" unique_id=890163623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom76" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=235394862]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 128.79782, 1.4192171, 97.35431)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom76" unique_id=822098102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom77" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1043531423]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 131.646, 1.4192171, 101.27056)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom77" unique_id=450599558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom78" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1726803039]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 145.10475, 1.4192171, 109.17797)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom78" unique_id=1003707966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom79" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1197389476]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 145.86967, 1.4192171, 113.49916)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom79" unique_id=326672238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom80" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=664881979]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 141.29025, 1.4192171, 108.5767)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom80" unique_id=1553098778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom81" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=867592914]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 122.87531, 1.4192171, 100.60455)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom81" unique_id=680764658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom82" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=561886639]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 118.510666, 1.4192171, 100.14883)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom82" unique_id=1300948817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom83" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1226830843]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 125.435585, 1.4192171, 94.200584)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom83" unique_id=1981937631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom84" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1838996247]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 136.50769, 1.4192171, 109.78772)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom84" unique_id=2084424812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom85" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1320498513]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 134.04291, 1.419219, 104.34511)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom85" unique_id=1329753123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom86" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1334126111]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 108.24635, 1.4192171, 88.49963)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom86" unique_id=1019530573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom87" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=858731757]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 112.7441, 1.419219, 84.566734)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom87" unique_id=553584692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom88" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1340611827]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 116.60212, 1.4192171, 89.30124)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom88" unique_id=2013913557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom89" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1125540503]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 93.932785, 1.4192171, 68.164635)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom89" unique_id=855398898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom90" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=775741964]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 98.29063, 1.4192171, 68.681564)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom90" unique_id=1654156523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom91" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=86127618]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 91.28291, 1.4192171, 74.53203)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom91" unique_id=2123768238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom92" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1621396444]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 80.43061, 1.4192171, 58.791084)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom92" unique_id=495325705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom93" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=332418724]
+transform = Transform3D(-0.99990183, 0, -0.014014751, 0, 1, 0, 0.014014751, 0, -0.99990183, 82.81878, 1.419219, 64.26776)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom93" unique_id=1734422593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom94" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2125614420]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 107.294685, 1.4192171, 79.98365)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom94" unique_id=313788460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom95" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=999626710]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 102.74222, 1.419219, 83.85306)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom95" unique_id=1436197540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom96" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1196155404]
+transform = Transform3D(-0.30246988, 0, 0.953159, 0, 1, 0, -0.953159, 0, -0.30246988, 98.90392, 1.4192171, 78.922165)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom96" unique_id=895228094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom97" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2054471847]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 96.52656, 1.4192171, 72.71097)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom97" unique_id=555132712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom98" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=519556860]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 95.624466, 1.4192171, 77.637344)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom98" unique_id=473544775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom99" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1442533162]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 106.300896, 1.4192171, 87.72095)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom99" unique_id=322459282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom100" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2046016632]
+transform = Transform3D(0.9996067, 0, 0.028044045, 0, 1, 0, -0.028044045, 0, 0.9996067, 100.17399, 1.4192171, 75.978935)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom100" unique_id=282887161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom101" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=134772773]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 89.73269, 1.4192171, 67.024475)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom101" unique_id=1216239045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom102" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1633871854]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 87.65864, 1.4192171, 71.46088)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom102" unique_id=2142234218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom103" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1281421849]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 84.75584, 1.4192171, 67.58496)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom103" unique_id=699849060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom104" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1284271902]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 68.13934, 1.4192171, 59.815212)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom104" unique_id=1357382529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom105" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1695922828]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 67.31385, 1.4192171, 55.505177)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom105" unique_id=713136547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom106" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1260462206]
+transform = Transform3D(0.3158146, 0, -0.9488207, 0, 1, 0, 0.9488207, 0, 0.3158146, 75.01001, 1.4192171, 60.414886)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom106" unique_id=111834867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom107" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=754248282]
+transform = Transform3D(-0.99958086, 0, -0.02895084, 0, 1, 0, 0.02895084, 0, -0.99958086, 128.94283, 1.4192171, 61.499245)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom107" unique_id=685408573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom108" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2062010044]
+transform = Transform3D(-0.99958086, 0, -0.02895084, 0, 1, 0, 0.02895084, 0, -0.99958086, 133.30788, 1.4192171, 61.950996)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom108" unique_id=875220726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom109" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1137989979]
+transform = Transform3D(-0.99958086, 0, -0.02895084, 0, 1, 0, 0.02895084, 0, -0.99958086, 126.388374, 1.4192171, 67.90553)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom109" unique_id=678628745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom110" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2107891500]
+transform = Transform3D(-0.99958086, 0, -0.02895084, 0, 1, 0, 0.02895084, 0, -0.99958086, 115.30212, 1.4192171, 52.328445)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom110" unique_id=1874683579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom111" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1113183843]
+transform = Transform3D(-0.99958086, 0, -0.02895084, 0, 1, 0, 0.02895084, 0, -0.99958086, 117.77183, 1.419219, 57.768833)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom111" unique_id=790918242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom112" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1988491681]
+transform = Transform3D(-0.31667557, 0, 0.948534, 0, 1, 0, -0.948534, 0, -0.31667557, 142.4798, 1.4192171, 73.11732)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom112" unique_id=1839796504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom113" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1200822955]
+transform = Transform3D(-0.31667557, 0, 0.948534, 0, 1, 0, -0.948534, 0, -0.31667557, 137.98564, 1.419219, 77.054306)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom113" unique_id=1856535733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom114" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1651487001]
+transform = Transform3D(-0.31667557, 0, 0.948534, 0, 1, 0, -0.948534, 0, -0.31667557, 134.07411, 1.4192171, 72.1813)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom114" unique_id=1084765863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom115" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2084753348]
+transform = Transform3D(0.99907637, 0, 0.042974174, 0, 1, 0, -0.042974174, 0, 0.99907637, 131.60425, 1.4192171, 66.00633)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom115" unique_id=438170500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom116" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1035474328]
+transform = Transform3D(0.99907637, 0, 0.042974174, 0, 1, 0, -0.042974174, 0, 0.99907637, 130.77582, 1.4192171, 70.94564)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom116" unique_id=237571485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom117" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=611513958]
+transform = Transform3D(0.99907637, 0, 0.042974174, 0, 1, 0, -0.042974174, 0, 0.99907637, 141.60172, 1.4192171, 80.8686)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom117" unique_id=1962736772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom118" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1060000986]
+transform = Transform3D(0.99907637, 0, 0.042974174, 0, 1, 0, -0.042974174, 0, 0.99907637, 135.30006, 1.4192171, 69.21942)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom118" unique_id=82968469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom119" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2039732661]
+transform = Transform3D(0.32995403, 0, -0.94399685, 0, 1, 0, 0.94399685, 0, 0.32995403, 124.72614, 1.4192171, 60.42193)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom119" unique_id=1095929590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom120" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=221282486]
+transform = Transform3D(0.32995403, 0, -0.94399685, 0, 1, 0, 0.94399685, 0, 0.32995403, 122.718636, 1.4192171, 64.88884)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom120" unique_id=2024824657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom121" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2018614422]
+transform = Transform3D(0.32995403, 0, -0.94399685, 0, 1, 0, 0.94399685, 0, 0.32995403, 119.75825, 1.4192171, 61.056725)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom121" unique_id=2094504141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom122" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2145068386]
+transform = Transform3D(0.32995403, 0, -0.94399685, 0, 1, 0, 0.94399685, 0, 0.32995403, 103.02752, 1.4192171, 53.53608)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom122" unique_id=243900789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom123" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1016675963]
+transform = Transform3D(0.32995403, 0, -0.94399685, 0, 1, 0, 0.94399685, 0, 0.32995403, 102.13775, 1.4192171, 49.23885)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom123" unique_id=383041994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom124" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2117727742]
+transform = Transform3D(0.32995403, 0, -0.94399685, 0, 1, 0, 0.94399685, 0, 0.32995403, 109.90639, 1.4192171, 54.033043)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom124" unique_id=727716294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom125" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=164873560]
+transform = Transform3D(0.9917475, 0, 0.128207, 0, 1, 0, -0.128207, 0, 0.9917475, 92.64984, 1.4192095, 38.633926)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom125" unique_id=1199220236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom126" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2101723918]
+transform = Transform3D(0.9917475, 0, 0.128207, 0, 1, 0, -0.128207, 0, 0.9917475, 92.24656, 1.4192095, 43.62595)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom126" unique_id=591189644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom127" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1661727175]
+transform = Transform3D(0.9917475, 0, 0.128207, 0, 1, 0, -0.128207, 0, 0.9917475, 96.8768, 1.4192095, 48.965397)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom127" unique_id=786136745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom128" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=711012834]
+transform = Transform3D(0.9917475, 0, 0.128207, 0, 1, 0, -0.128207, 0, 0.9917475, 96.60678, 1.4192095, 41.51941)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom128" unique_id=1081954965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom129" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=512044236]
+transform = Transform3D(0.40942925, 0, -0.91234195, 0, 1, 0, 0.91234195, 0, 0.40942925, 84.22511, 1.4192095, 32.944763)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom129" unique_id=94427330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom130" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1546668483]
+transform = Transform3D(0.40942925, 0, -0.91234195, 0, 1, 0, 0.91234195, 0, 0.40942925, 82.6067, 1.4192095, 37.566895)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom130" unique_id=53934980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom131" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2118790944]
+transform = Transform3D(0.40942925, 0, -0.91234195, 0, 1, 0, 0.91234195, 0, 0.40942925, 79.32965, 1.4192095, 34.001827)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom131" unique_id=557212159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom132" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=908845147]
+transform = Transform3D(-0.98985106, 0, -0.14211059, 0, 1, 0, 0.14211059, 0, -0.98985106, 88.11898, 1.4192095, 33.66101)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom132" unique_id=961195958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom133" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1448939723]
+transform = Transform3D(-0.98985106, 0, -0.14211059, 0, 1, 0, 0.14211059, 0, -0.98985106, 92.50709, 1.4192095, 33.61489)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom133" unique_id=1758054091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom134" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2112151605]
+transform = Transform3D(-0.98985106, 0, -0.14211059, 0, 1, 0, 0.14211059, 0, -0.98985106, 86.3074, 1.4192095, 40.31563)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom134" unique_id=475583832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom135" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=931033639]
+transform = Transform3D(-0.98985106, 0, -0.14211059, 0, 1, 0, 0.14211059, 0, -0.98985106, 76.597015, 1.4192114, 31.221401)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom135" unique_id=324910593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom136" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1600277083]
+transform = Transform3D(-0.42219087, 0, 0.90650696, 0, 1, 0, -0.90650696, 0, -0.42219087, 95.64298, 1.4192095, 44.173256)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom136" unique_id=2059789709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom137" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=90983343]
+transform = Transform3D(0.9987848, 0, 0.04928553, 0, 1, 0, -0.04928553, 0, 0.9987848, 161.3935, 1.4192171, 94.086494)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom137" unique_id=916042965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom138" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1246938709]
+transform = Transform3D(0.9987848, 0, 0.04928553, 0, 1, 0, -0.04928553, 0, 0.9987848, 157.02014, 1.4192171, 93.72366)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom138" unique_id=2126575699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom139" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1738345096]
+transform = Transform3D(0.9987848, 0, 0.04928553, 0, 1, 0, -0.04928553, 0, 0.9987848, 163.81705, 1.4192171, 87.62954)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom139" unique_id=390375472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom140" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=937809525]
+transform = Transform3D(0.9987848, 0, 0.04928553, 0, 1, 0, -0.04928553, 0, 0.9987848, 175.218, 1.4192171, 102.977806)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom140" unique_id=1565804788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom141" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=438105824]
+transform = Transform3D(0.9987848, 0, 0.04928553, 0, 1, 0, -0.04928553, 0, 0.9987848, 172.63809, 1.419219, 97.5888)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom141" unique_id=800617566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom142" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1936816601]
+transform = Transform3D(0.3359119, 0, -0.94189346, 0, 1, 0, 0.94189346, 0, 0.3359119, 147.62292, 1.4192171, 82.746284)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom142" unique_id=699913399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom143" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1834956879]
+transform = Transform3D(0.3359119, 0, -0.94189346, 0, 1, 0, 0.94189346, 0, 0.3359119, 152.03601, 1.419219, 78.71864)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom143" unique_id=1709862538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom144" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1694913688]
+transform = Transform3D(0.3359119, 0, -0.94189346, 0, 1, 0, 0.94189346, 0, 0.3359119, 156.04591, 1.4192171, 83.51107)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom144" unique_id=917747039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom145" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1576347234]
+transform = Transform3D(-0.9979951, 0, -0.06329566, 0, 1, 0, 0.06329566, 0, -0.9979951, 158.64088, 1.4192171, 89.634476)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom145" unique_id=263998737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom146" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=610934182]
+transform = Transform3D(-0.9979951, 0, -0.06329566, 0, 1, 0, 0.06329566, 0, -0.9979951, 159.36864, 1.4192171, 84.67935)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom146" unique_id=1230810317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom147" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=160115902]
+transform = Transform3D(-0.9979951, 0, -0.06329566, 0, 1, 0, 0.06329566, 0, -0.9979951, 148.34308, 1.4192171, 74.978745)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom147" unique_id=598787419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom148" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1989376371]
+transform = Transform3D(-0.9979951, 0, -0.06329566, 0, 1, 0, 0.06329566, 0, -0.9979951, 154.88051, 1.4192171, 86.49728)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom148" unique_id=397555564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom149" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1632432271]
+transform = Transform3D(-0.34909526, 0, 0.9370872, 0, 1, 0, -0.9370872, 0, -0.34909526, 165.63126, 1.4192171, 95.07777)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom149" unique_id=1810356289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom150" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=166070974]
+transform = Transform3D(-0.34909526, 0, 0.9370872, 0, 1, 0, -0.9370872, 0, -0.34909526, 167.54742, 1.4192171, 90.5709)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom150" unique_id=1120687723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom151" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1428378393]
+transform = Transform3D(-0.34909526, 0, 0.9370872, 0, 1, 0, -0.9370872, 0, -0.34909526, 170.58519, 1.4192171, 94.342026)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom151" unique_id=1941510556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom152" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1767277907]
+transform = Transform3D(-0.34909526, 0, 0.9370872, 0, 1, 0, -0.9370872, 0, -0.34909526, 187.46548, 1.4192171, 101.52065)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom152" unique_id=963544603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom153" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=522110711]
+transform = Transform3D(-0.34909526, 0, 0.9370872, 0, 1, 0, -0.9370872, 0, -0.34909526, 188.4425, 1.4192171, 105.79887)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom153" unique_id=1657353666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom154" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=544578684]
+transform = Transform3D(-0.34909526, 0, 0.9370872, 0, 1, 0, -0.9370872, 0, -0.34909526, 180.57793, 1.4192171, 101.16376)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom154" unique_id=1711786903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom155" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1004735783]
+transform = Transform3D(-0.9889332, 0, -0.1483616, 0, 1, 0, 0.1483616, 0, -0.9889332, 198.14426, 1.4192095, 116.208534)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom155" unique_id=1815376254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom156" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=844488111]
+transform = Transform3D(-0.9889332, 0, -0.1483616, 0, 1, 0, 0.1483616, 0, -0.9889332, 198.44586, 1.4192095, 111.20932)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom156" unique_id=385054843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom157" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1844706257]
+transform = Transform3D(-0.9889332, 0, -0.1483616, 0, 1, 0, 0.1483616, 0, -0.9889332, 193.70795, 1.4192095, 105.96522)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom157" unique_id=1418052518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom158" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1464052057]
+transform = Transform3D(-0.9889332, 0, -0.1483616, 0, 1, 0, 0.1483616, 0, -0.9889332, 194.12944, 1.4192095, 113.40417)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom158" unique_id=1786688334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom159" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=243403028]
+transform = Transform3D(-0.4279099, 0, 0.9038214, 0, 1, 0, -0.9038214, 0, -0.4279099, 206.68301, 1.4192095, 121.725075)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom159" unique_id=1935557361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom160" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=736207100]
+transform = Transform3D(-0.4279099, 0, 0.9038214, 0, 1, 0, -0.9038214, 0, -0.4279099, 208.20705, 1.4192095, 117.07098)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom160" unique_id=1262684793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom161" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1154013476]
+transform = Transform3D(-0.4279099, 0, 0.9038214, 0, 1, 0, -0.9038214, 0, -0.4279099, 211.55595, 1.4192095, 120.56862)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom161" unique_id=1426173969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom162" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=421563594]
+transform = Transform3D(0.9867544, 0, 0.1622239, 0, 1, 0, -0.1622239, 0, 0.9867544, 202.77538, 1.4192095, 121.08822)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom162" unique_id=737015445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom163" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=942007964]
+transform = Transform3D(0.9867544, 0, 0.1622239, 0, 1, 0, -0.1622239, 0, 0.9867544, 198.38913, 1.4192095, 121.223625)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom163" unique_id=937538014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom164" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=998325179]
+transform = Transform3D(0.9867544, 0, 0.1622239, 0, 1, 0, -0.1622239, 0, 0.9867544, 204.45119, 1.4192095, 114.3981)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom164" unique_id=1543681696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom165" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=204049903]
+transform = Transform3D(0.9867544, 0, 0.1622239, 0, 1, 0, -0.1622239, 0, 0.9867544, 214.3446, 1.4192114, 123.292854)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom165" unique_id=937389920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom166" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=314840338]
+transform = Transform3D(0.44055012, 0, -0.8977279, 0, 1, 0, 0.8977279, 0, 0.44055012, 195.03905, 1.4192095, 110.73126)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom166" unique_id=292984156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom167" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=97070791]
+transform = Transform3D(-0.43457082, 0, 0.90063775, 0, 1, 0, -0.90063775, 0, -0.43457082, 140.7196, 1.4192095, 115.39892)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom167" unique_id=1569798603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom168" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1902291522]
+transform = Transform3D(-0.43457082, 0, 0.90063775, 0, 1, 0, -0.90063775, 0, -0.43457082, 142.08954, 1.4192095, 119.568)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom168" unique_id=575289382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom169" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1180928446]
+transform = Transform3D(-0.43457082, 0, 0.90063775, 0, 1, 0, -0.90063775, 0, -0.43457082, 136.85838, 1.4192095, 115.34465)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom169" unique_id=1589297859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom170" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=275436747]
+transform = Transform3D(0.98552984, 0, 0.16950437, 0, 1, 0, -0.16950437, 0, 0.98552984, 132.29588, 1.4192095, 117.22161)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom170" unique_id=699284898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom171" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2111100032]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 200.80423, 1.4192171, 154.93573)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom171" unique_id=1363490367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom172" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2005966014]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 201.4955, 1.4192171, 149.97536)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom172" unique_id=472827165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom173" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1648332837]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 197.18173, 1.4192171, 144.3771)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom173" unique_id=1734660806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom174" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=545524773]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 197.02081, 1.4192171, 151.82628)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom174" unique_id=1759889165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom175" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1973706435]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 208.88591, 1.4192171, 161.10255)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom175" unique_id=121065381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom176" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1172328382]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 210.76881, 1.4192171, 156.58171)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom176" unique_id=2058704742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom177" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1288860036]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 213.83427, 1.4192171, 160.3303)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom177" unique_id=496000712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom178" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1582555159]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 227.71945, 1.4192171, 167.46248)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom178" unique_id=733994565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom179" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1940273000]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 228.72797, 1.4192171, 171.73338)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom179" unique_id=1868543873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom180" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=320257402]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 223.87701, 1.4192171, 167.07828)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom180" unique_id=2015726651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom181" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=575234595]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 205.04001, 1.4192171, 160.16231)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom181" unique_id=877331576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom182" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1313184568]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 200.65651, 1.4192171, 159.95462)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom182" unique_id=901988815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom183" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=989661643]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 207.23328, 1.4192171, 153.62355)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom183" unique_id=1771711219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom184" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1931088470]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 219.17078, 1.4192171, 168.55835)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom184" unique_id=1648963139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom185" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=994562791]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 216.40158, 1.419219, 163.2641)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom185" unique_id=196848851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom186" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=46462067]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 189.74869, 1.4192171, 148.90567)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom186" unique_id=149849106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom187" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1376735311]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 194.01639, 1.419219, 144.72426)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom187" unique_id=1852252992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom188" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1864952648]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 198.13644, 1.4192171, 149.23259)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom188" unique_id=1142776141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom189" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=724035846]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 174.30595, 1.4192171, 129.41435)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom189" unique_id=2010815939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom190" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1156055579]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 178.6861, 1.4192171, 129.68349)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom190" unique_id=381319809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom191" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1761711949]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 172.02112, 1.4192171, 135.92165)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom191" unique_id=140486209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom192" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=723435832]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 160.29437, 1.4192171, 120.82084)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom192" unique_id=552309353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom193" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1948508406]
+transform = Transform3D(-0.99750173, 0, -0.07064456, 0, 1, 0, 0.07064456, 0, -0.99750173, 162.98903, 1.419219, 126.15343)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom193" unique_id=431600836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom194" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=822651653]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 188.31602, 1.4192171, 140.4573)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom194" unique_id=211480232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom195" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=760574840]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 183.9901, 1.419219, 144.5784)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom195" unique_id=1944916766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom196" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1020658292]
+transform = Transform3D(-0.35598797, 0, 0.9344907, 0, 1, 0, -0.9344907, 0, -0.35598797, 179.87863, 1.4192171, 139.87294)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom196" unique_id=199538635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom197" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1056484041]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 177.15315, 1.4192171, 133.80641)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom197" unique_id=851209638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom198" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1877129283]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 176.53162, 1.4192171, 138.77596)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom198" unique_id=1792960291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom199" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=749445673]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 187.76225, 1.4192171, 148.23848)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom199" unique_id=721246887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom200" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=300427954]
+transform = Transform3D(0.9964122, 0, 0.08463469, 0, 1, 0, -0.08463469, 0, 0.9964122, 180.97987, 1.4192171, 136.86244)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom200" unique_id=986858620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom201" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=628819250]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 170.04807, 1.4192171, 128.51399)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom201" unique_id=575081375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom202" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=2095597464]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 168.22864, 1.4192171, 133.06073)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom202" unique_id=1440143655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom203" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1892493403]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 165.11092, 1.4192171, 129.35553)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom203" unique_id=231227137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom204" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1834042295]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 148.0809, 1.4192171, 122.53971)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom204" unique_id=169212196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom205" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=810586519]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 147.01254, 1.4192171, 118.283356)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom205" unique_id=940030101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Strom206" type="CSGCylinder3D" parent="CSGCombiner3D/Stromy" unique_id=1753385262]
+transform = Transform3D(0.36906546, 0, -0.9294033, 0, 1, 0, 0.9294033, 0, 0.36906546, 154.97452, 1.4192171, 122.74915)
+use_collision = true
+radius = 0.3
+height = 2.5187988
+material = SubResource("StandardMaterial3D_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/Stromy/Strom206" unique_id=1787657412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0745976)
+radius = 1.405
+material = SubResource("StandardMaterial3D_3348v")
+
+[node name="Nositka" type="CharacterBody3D" parent="." unique_id=315013651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.412127, -2.0934858, -4.5292797)
+script = ExtResource("1_hkwxo")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Nositka" unique_id=1607640555]
+use_collision = true
+radius = 0.83687174
+material = SubResource("StandardMaterial3D_nx02y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nositka" unique_id=1298994005]
+shape = SubResource("SphereShape3D_hkwxo")
+
+[node name="Camera" type="Camera3D" parent="Nositka" unique_id=438957309]
+transform = Transform3D(-4.371139e-08, 0.5, -0.8660254, 0, 0.8660254, 0.5, 1, 2.1855694e-08, -3.7855173e-08, -22.926662, 20.998625, -1.0101714)
+projection = 1
+fov = 59.48979
+size = 30.0
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1042952438]
+
+[node name="Pitstop" type="Node3D" parent="Node3D" unique_id=287690476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.294659, 0, -3.6828156)
+script = ExtResource("2_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/Pitstop" unique_id=434237883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.092699, 0)
+radius = 5.0
+material = SubResource("StandardMaterial3D_hkwxo")
+
+[node name="Pitstop2" type="Node3D" parent="Node3D" unique_id=142312830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.398346, 0, -2.7381058)
+script = ExtResource("2_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/Pitstop2" unique_id=424408630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.092699, 0)
+radius = 5.0
+material = SubResource("StandardMaterial3D_hkwxo")
+
+[node name="Pitstop3" type="Node3D" parent="Node3D" unique_id=1876046587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.59567, 0, -2.7381058)
+script = ExtResource("2_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/Pitstop3" unique_id=1593833275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.092699, 0)
+radius = 5.0
+material = SubResource("StandardMaterial3D_hkwxo")
+
+[node name="Pitstop4" type="Node3D" parent="Node3D" unique_id=960546080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.64592, 0, -2.7381058)
+script = ExtResource("2_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/Pitstop4" unique_id=1588223551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.092699, 0)
+radius = 5.0
+material = SubResource("StandardMaterial3D_hkwxo")
+
+[node name="Pitstop5" type="Node3D" parent="Node3D" unique_id=2035876554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.49577, 0, -2.7381058)
+script = ExtResource("2_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/Pitstop5" unique_id=1886164768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.092699, 0)
+radius = 5.0
+material = SubResource("StandardMaterial3D_hkwxo")
+
+[node name="Pitstop6" type="Node3D" parent="Node3D" unique_id=738716035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 233.87978, 0, -2.7381058)
+script = ExtResource("2_mt7cn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/Pitstop6" unique_id=1777027382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.092699, 0)
+radius = 5.0
+material = SubResource("StandardMaterial3D_hkwxo")
