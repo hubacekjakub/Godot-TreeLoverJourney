@@ -11,6 +11,23 @@
 
 <!-- 🎮 **[Live](https://hubacekjakub.itch.io/game-link)** -->
 
+## Used Assets
+
+All 3D graphics assets were created by [**TakagiMIMI**: 3D Artist](https://takagimimi.itch.io/).
+Sounds, music and 2D art were created by [**Meru**: Art and Music](https://merulon.itch.io/).
+
+Another assets:
+- [Grass by Binbun3D](https://binbun3d.itch.io/godot-grass)
+
+
+## Team
+
+- [**Jakub Hubáček**: Programmer](https://hubacekjakub.itch.io/)
+- [**Jan Mesarč**: Programmer](https://janmesarc.online/)
+- [**Ondra Purchart**: Game Designer](https://mountain-mist.itch.io/)
+- [**Meru**: Art and Music](https://merulon.itch.io/)
+- [**TakagiMIMI**: 3D Artist](https://takagimimi.itch.io/)
+
 ## 📝 License
 
 This project is licensed under the [MIT License](LICENSE).
