@@ -5,6 +5,10 @@ class_name NavAgent
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 @export var RAY_LENGTH = 10000.0
+"albedo_color"
+# The downward acceleration when in the "albedo_color"air, in meters per second squared.
+@export var fall_acceleration = 500
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
@@ -24,7 +28,14 @@ func _ready() -> void:
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	
+	# Vertical Velocity
+	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+		var fall_velocity = Vector3(0, self.velocity.y - (fall_acceleration * delta), 0)
+		_on_velocity_computed(fall_velocity)
+		return
+		
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return

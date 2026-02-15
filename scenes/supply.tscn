@@ -6,8 +6,7 @@
 radius = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb8kn"]
-transparency = 1
-albedo_color = Color(0, 0.86235386, 0.1881789, 0.4627451)
+albedo_color = Color(0.35686275, 0.16078432, 0.011764706, 1)
 
 [node name="Supply" type="Area3D" unique_id=1592287050 groups=["Resource"]]
 script = ExtResource("1_oixck")

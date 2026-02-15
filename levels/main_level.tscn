@@ -2644,6 +2644,6 @@ use_3d_avoidance = true
 
 [node name="Units" type="Node3D" parent="." unique_id=35315118]
 
-[node name="CharacterBody3D" parent="Units" unique_id=176970989 instance=ExtResource("5_wg11f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.449635, 11.775299, -3.3531876)
+[node name="NavAgent" parent="Units" unique_id=176970989 instance=ExtResource("5_wg11f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.449635, -3.2918959, -0.42470455)
 movement_speed = 50.0

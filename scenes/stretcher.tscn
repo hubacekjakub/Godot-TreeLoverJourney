@@ -10,7 +10,7 @@ radius = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72okn"]
 transparency = 1
-albedo_color = Color(1, 0.55, 0, 1)
+albedo_color = Color(1, 0.55, 0, 0.5294118)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4gp6k"]
 radius = 14.0
@@ -33,7 +33,6 @@ fov = 59.48979
 size = 30.0
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1926936205]
-visible = false
 radius = 14.0
 material = SubResource("StandardMaterial3D_72okn")
 
@@ -44,4 +43,4 @@ shape = SubResource("SphereShape3D_4gp6k")
 debug_color = Color(0.7833333, 0, 1, 1)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
