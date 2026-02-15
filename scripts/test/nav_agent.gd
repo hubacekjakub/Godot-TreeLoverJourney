@@ -52,3 +52,11 @@ func _physics_process(delta: float) -> void:
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
 	move_and_slide()
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("Resource"):
+		if area is Supply:
+			var supply: Supply = area as Supply
+			if supply.active:
+				# WIP: show progress bar for collection
+				supply.start_collecting()

@@ -7,6 +7,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at0eb"]
 albedo_color = Color(0, 0.35240483, 0.7959072, 1)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_nef07"]
+radius = 2.0
+
 [node name="NavAgent" type="CharacterBody3D" unique_id=176970989]
 script = ExtResource("1_nef07")
 
@@ -23,3 +26,11 @@ shape = SubResource("SphereShape3D_wofu5")
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1582393636]
 radius = 0.258
 material = SubResource("StandardMaterial3D_at0eb")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2123506816]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=590680925]
+shape = SubResource("SphereShape3D_nef07")
+debug_color = Color(0.99414104, 0, 0.23396781, 0.41960785)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
