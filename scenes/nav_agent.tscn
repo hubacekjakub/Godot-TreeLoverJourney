@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dsgcxuj5qqn73"]
+
+[ext_resource type="Script" uid="uid://d2mb61big0vtc" path="res://scripts/test/nav_agent.gd" id="1_nef07"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wofu5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at0eb"]
+albedo_color = Color(0, 0.35240483, 0.7959072, 1)
+
+[node name="NavAgent" type="CharacterBody3D" unique_id=176970989]
+script = ExtResource("1_nef07")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=624229047]
+avoidance_enabled = true
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0.060000002, 0.060000002, 1)
+debug_path_custom_point_size = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1360714272]
+shape = SubResource("SphereShape3D_wofu5")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1582393636]
+radius = 0.258
+material = SubResource("StandardMaterial3D_at0eb")

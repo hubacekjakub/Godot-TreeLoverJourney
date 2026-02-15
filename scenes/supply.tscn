@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://djfty110prxa"]
+
+[ext_resource type="Script" uid="uid://bkc00nhi1132x" path="res://scripts/supply.gd" id="1_oixck"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wg11f"]
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb8kn"]
+transparency = 1
+albedo_color = Color(0, 0.86235386, 0.1881789, 0.4627451)
+
+[node name="Supply" type="Area3D" unique_id=1592287050 groups=["Resource"]]
+script = ExtResource("1_oixck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=122487818]
+shape = SubResource("SphereShape3D_wg11f")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=431226531]
+radius = 2.0
+material = SubResource("StandardMaterial3D_yb8kn")

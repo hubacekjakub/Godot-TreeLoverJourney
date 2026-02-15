@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b3m76ogl3yrg1"]
+
+[ext_resource type="Script" uid="uid://dn6wyhkgg5766" path="res://scripts/stretcher.gd" id="1_72okn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nx02y"]
+albedo_color = Color(1, 0.120000005, 0.120000005, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hkwxo"]
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72okn"]
+transparency = 1
+albedo_color = Color(1, 0.55, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4gp6k"]
+radius = 14.0
+
+[node name="Nositka" type="CharacterBody3D" unique_id=1286089619]
+script = ExtResource("1_72okn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2014138860]
+use_collision = true
+radius = 0.83687174
+material = SubResource("StandardMaterial3D_nx02y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=648671913]
+shape = SubResource("SphereShape3D_hkwxo")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=646657817]
+transform = Transform3D(-4.371139e-08, 0.5, -0.8660254, 0, 0.8660254, 0.5, 1, 2.1855694e-08, -3.7855173e-08, -22.926662, 20.998625, -1.0101714)
+projection = 1
+fov = 59.48979
+size = 30.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1926936205]
+visible = false
+radius = 14.0
+material = SubResource("StandardMaterial3D_72okn")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2842079]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=317042528]
+shape = SubResource("SphereShape3D_4gp6k")
+debug_color = Color(0.7833333, 0, 1, 1)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

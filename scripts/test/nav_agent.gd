@@ -8,7 +8,6 @@ class_name NavAgent
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
-		
 		var mouse_pos = get_viewport().get_mouse_position()
 		var camera = get_viewport().get_camera_3d()
 		var from = camera.project_ray_origin(mouse_pos)

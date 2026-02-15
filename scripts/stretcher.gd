@@ -20,21 +20,21 @@ func _physics_process(delta):
 
 	var direction = Vector3.ZERO
 
-	if Input.is_action_pressed("move_right"):
-		direction.z += 1
-	if Input.is_action_pressed("move_left"):
-		direction.z -= 1
-	if Input.is_action_pressed("move_back"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_forward"):
-		direction.x += 1
+	#if Input.is_action_pressed("move_right"):
+	#	direction.z += 1
+	#if Input.is_action_pressed("move_left"):
+	#	direction.z -= 1
+	#if Input.is_action_pressed("move_back"):
+	#	direction.x -= 1
+	#if Input.is_action_pressed("move_forward"):
+	#	direction.x += 1
 
 	if automove:
 		var direction_to_target = self.global_position.direction_to(current_target.global_position)
 		direction = direction_to_target
 
 		var distance_to_target = self.global_position.distance_squared_to(current_target.global_position)
-		print(distance_to_target)
+		#print(distance_to_target)
 		if(distance_to_target < distance_check):
 			SignalBus.resting_place_reached.emit()
 			automove = false
@@ -59,3 +59,15 @@ func _physics_process(delta):
 func handle_new_resting_place_set(new_resting_place: RestingPlace):
 	current_target = new_resting_place
 	automove = true
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Resource"):
+		print("body entered: ", body.name)
+		print("hey, resource found")
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("Resource"):
+		if area is Supply:
+			print("found supply of value: ", area.value)
