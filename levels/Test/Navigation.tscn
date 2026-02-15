@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dj6f5otte421"]
 
-[ext_resource type="Script" uid="uid://d2mb61big0vtc" path="res://scripts/test/nav_agent.gd" id="1_3uyq7"]
-[ext_resource type="Script" uid="uid://db1o7dqmm2hc8" path="res://scripts/test/nav_level.gd" id="1_at0eb"]
+[ext_resource type="Script" uid="uid://db1o7dqmm2hc8" path="res://scripts/test/nav_level.gd" id="1_uirrt"]
+[ext_resource type="Script" uid="uid://d2mb61big0vtc" path="res://scripts/test/nav_agent.gd" id="2_b2fow"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_at0eb"]
 sky_top_color = Color(0.09900001, 0.28691673, 0.55, 1)
@@ -41,7 +41,7 @@ albedo_color = Color(0.72599363, 0, 0.12063562, 1)
 albedo_color = Color(0, 0.35240483, 0.7959072, 1)
 
 [node name="Navigation" type="Node3D" unique_id=1501871178]
-script = ExtResource("1_at0eb")
+script = ExtResource("1_uirrt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=126274639]
 environment = SubResource("Environment_lby02")
@@ -127,7 +127,7 @@ material = SubResource("StandardMaterial3D_sydij")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=666729320]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6926136, 0, 1.359242)
-script = ExtResource("1_3uyq7")
+script = ExtResource("2_b2fow")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D" unique_id=1804566052]
 path_desired_distance = 0.1

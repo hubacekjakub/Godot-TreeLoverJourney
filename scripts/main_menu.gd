@@ -1,7 +1,7 @@
 extends Node3D
 
 # Exports
-@export var start_level : String = "res://levels/MainLevel.tscn"
+@export var start_level : String = "res://levels/main_level.tscn"
 
 # UI elements
 @onready var version_label: Label = %VersionLabel

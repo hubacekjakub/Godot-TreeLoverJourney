@@ -3,7 +3,6 @@ class_name NavAgent
 
 @export var movement_speed: float = 4.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var camera_3d: Camera3D = $"../Camera3D"
 
 @export var RAY_LENGTH = 10000.0
 
