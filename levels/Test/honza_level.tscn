@@ -46,4 +46,4 @@ directional_shadow_split_1 = 0.01
 environment = SubResource("Environment_0sq3f")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=676734531]
-transform = Transform3D(1, 0, 0, 0, 0.66650647, 0.74549925, 0, -0.74549925, 0.66650647, 0, 6.5850286, 17.4659)
+transform = Transform3D(1, 0, 0, 0, 0.66650647, 0.74549925, 0, -0.74549925, 0.66650647, 0, 2.2579346, 24.877356)
