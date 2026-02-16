@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cyu4cuodbnnga"]
+
+[ext_resource type="Script" uid="uid://xde64t7rjtfl" path="res://scripts/ui/progress_bar.gd" id="1_46mgc"]
+
+[node name="ProgressBar" type="Control" unique_id=691584359]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+mouse_filter = 2
+script = ExtResource("1_46mgc")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=221855969]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 27.0
+grow_horizontal = 2

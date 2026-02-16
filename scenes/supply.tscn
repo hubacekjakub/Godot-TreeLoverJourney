@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djfty110prxa"]
 
 [ext_resource type="Script" uid="uid://bkc00nhi1132x" path="res://scripts/supply.gd" id="1_oixck"]
+[ext_resource type="PackedScene" uid="uid://cyu4cuodbnnga" path="res://scenes/ui/progress_bar.tscn" id="2_v6bgk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wg11f"]
 radius = 2.0
@@ -17,3 +18,9 @@ shape = SubResource("SphereShape3D_wg11f")
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=431226531]
 radius = 2.0
 material = SubResource("StandardMaterial3D_yb8kn")
+
+[node name="CollectingTimer" type="Timer" parent="." unique_id=1733804173]
+
+[node name="ProgressBar" parent="." unique_id=691584359 instance=ExtResource("2_v6bgk")]
+offset_left = -640.0
+offset_right = -640.0
