@@ -2535,7 +2535,7 @@ material = SubResource("StandardMaterial3D_3348v")
 
 [node name="Stretcher" parent="." unique_id=1286089619 instance=ExtResource("2_ldao0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.412127, -2.0934858, -4.5292797)
-speed = 0
+speed = 2
 
 [node name="Path" type="Node3D" parent="." unique_id=1042952438]
 
@@ -2650,10 +2650,6 @@ movement_speed = 50.0
 
 [node name="CollectorUnit2" parent="Units" unique_id=1014860567 instance=ExtResource("5_wg11f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.022526, -3.2918959, -4.6036377)
-movement_speed = 50.0
-
-[node name="CollectorUnit3" parent="Units" unique_id=1507793921 instance=ExtResource("5_wg11f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.42053, -3.2918959, -11.599581)
 movement_speed = 50.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=116953967]
