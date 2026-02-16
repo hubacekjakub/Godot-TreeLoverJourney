@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dj6f5otte421"]
 
 [ext_resource type="Script" uid="uid://db1o7dqmm2hc8" path="res://scripts/test/nav_level.gd" id="1_uirrt"]
-[ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/nav_agent.tscn" id="2_uirrt"]
+[ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/units/collector_unit.tscn" id="2_uirrt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_at0eb"]
 sky_top_color = Color(0.09900001, 0.28691673, 0.55, 1)

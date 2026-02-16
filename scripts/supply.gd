@@ -7,7 +7,10 @@ class_name Supply
 @export var color_unactive : Color = Color("5b2903")
 
 @export_category("Functional Setup")
-@export var collection_time: float = 2.0
+## How long it takes one unit to collect the resource
+@export var collection_time: float = 4.0
+## How fast after collecting is interupted will the timer reset
+@export var interrupt_time: float = 1.0
 
 @onready var csg_sphere_3d: CSGSphere3D = $CSGSphere3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
@@ -28,21 +31,52 @@ func _ready() -> void:
 func activate():
 	active = true
 	material.albedo_color = color_active
-	
+
 func deactivate():
 	active = false
 	material.albedo_color = color_unactive
-	
+
 func start_collecting():
-	print("resource collected")
-	
+	print("Resources: resource picking started")
+
+	if progress_tween:
+		progress_tween.kill()
+		progress_tween = null
+
 	if progress_tween == null:
 		progress_bar.visible = true
 		progress_tween = get_tree().create_tween()
-		#progress_tween.tween_property(progress_bar, "", 100, collection_time)
-		progress_tween.tween_method(progress_bar.set_progress, 0, 100, collection_time)
-		progress_tween.tween_callback(self.queue_free)
-			
+		var current_progress : float = progress_bar.get_progress()
+		progress_tween.tween_method(progress_bar.set_progress, current_progress, 100, collection_time)
+		progress_tween.tween_callback(self.collecting_finished)
+
 	#await get_tree().create_timer(collection_time).timeout
 	#queue_free()
-	
+
+func stop_collecting():
+	print("Resources: resource picking interrupted")
+	if progress_tween:
+		progress_tween.kill()
+		progress_tween = create_tween()
+		var current_progress : float = progress_bar.get_progress()
+		progress_tween.tween_method(progress_bar.set_progress, current_progress, 0, interrupt_time)
+		progress_tween.tween_callback(self.collecting_interupted)
+
+func collecting_finished() -> void:
+	#notify about succesful collection
+	await get_tree().create_timer(1).timeout
+	collision_shape_3d.disabled = true
+	queue_free()
+
+func collecting_interupted() -> void:
+	progress_bar.visible = false
+
+func _on_body_entered(body: Node3D) -> void:
+	print("body entered: ", body)
+	if body is CollectorUnit:
+		start_collecting()
+
+func _on_body_exited(body: Node3D) -> void:
+	print("body exited: ",body)
+	if body is CollectorUnit:
+		stop_collecting()

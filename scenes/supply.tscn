@@ -24,3 +24,6 @@ material = SubResource("StandardMaterial3D_yb8kn")
 [node name="ProgressBar" parent="." unique_id=691584359 instance=ExtResource("2_v6bgk")]
 offset_left = -640.0
 offset_right = -640.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

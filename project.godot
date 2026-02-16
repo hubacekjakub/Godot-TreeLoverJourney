@@ -22,13 +22,17 @@ SignalBus="*uid://cgpi886dlxi3i"
 SceneChanger="*uid://io5eox7sw5pg"
 SoundManager="*uid://dtmt1bfgjvr2l"
 Global="*uid://df8uf0gxajuvf"
-PathDirector="*uid://dw88b2j1it1lx"
+UnitDirector="*uid://dw88b2j1it1lx"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
+
+[global_group]
+
+Unit=""
 
 [input]
 

@@ -1,29 +1,26 @@
 extends CharacterBody3D
-class_name NavAgent
+class_name CollectorUnit
+
+@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var csg_sphere_3d: CSGSphere3D = $CSGSphere3D
 
 @export var movement_speed: float = 4.0
-@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
 @export var RAY_LENGTH = 10000.0
-"albedo_color"
-# The downward acceleration when in the "albedo_color"air, in meters per second squared.
 @export var fall_acceleration = 500
 
+@export var color_active = Color("00abd1")
+@export var color_unactive = Color("005acb")
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
-		var mouse_pos = get_viewport().get_mouse_position()
-		var camera = get_viewport().get_camera_3d()
-		var from = camera.project_ray_origin(mouse_pos)
-		var to = camera.project_ray_normal(mouse_pos) * 10000
-		var drop_plane = Plane(Vector3.UP, global_position.y)
-		var cursor_3d_pos = drop_plane.intersects_ray(from, to)
-		
-		set_movement_target(cursor_3d_pos)
-	
+var material: StandardMaterial3D
+var is_active: bool = false
+
+func _enter_tree() -> void:
+	UnitDirector.register_unit(self)
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+	material = csg_sphere_3d.material.duplicate()
+	csg_sphere_3d.material_override = material
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
@@ -53,10 +50,14 @@ func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
 	move_and_slide()
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.is_in_group("Resource"):
-		if area is Supply:
-			var supply: Supply = area as Supply
-			if supply.active:
-				# WIP: show progress bar for collection
-				supply.start_collecting()
+func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		SignalBus.on_unit_selected.emit(self)
+		
+func activate() -> void:
+	is_active = true
+	material.albedo_color = color_active
+
+func deactivate() -> void:
+	is_active = false
+	material.albedo_color = color_unactive

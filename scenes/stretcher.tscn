@@ -15,7 +15,7 @@ albedo_color = Color(1, 0.55, 0, 0.5294118)
 [sub_resource type="SphereShape3D" id="SphereShape3D_4gp6k"]
 radius = 14.0
 
-[node name="Nositka" type="CharacterBody3D" unique_id=1286089619]
+[node name="Stretcher" type="CharacterBody3D" unique_id=1286089619]
 script = ExtResource("1_72okn")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2014138860]
@@ -33,10 +33,12 @@ fov = 59.48979
 size = 30.0
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1926936205]
+visible = false
 radius = 14.0
 material = SubResource("StandardMaterial3D_72okn")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=2842079]
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=317042528]
 shape = SubResource("SphereShape3D_4gp6k")

@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://dsgcxuj5qqn73"]
 
-[ext_resource type="Script" uid="uid://d2mb61big0vtc" path="res://scripts/test/nav_agent.gd" id="1_nef07"]
+[ext_resource type="Script" uid="uid://d2mb61big0vtc" path="res://scripts/units/collector_unit.gd" id="1_nef07"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wofu5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at0eb"]
-albedo_color = Color(0, 0.35240483, 0.7959072, 1)
+albedo_color = Color(0, 0.3529412, 0.79607844, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nef07"]
-radius = 2.0
+radius = 0.6
 
-[node name="NavAgent" type="CharacterBody3D" unique_id=176970989]
+[node name="CollectorUnit" type="CharacterBody3D" unique_id=176970989 groups=["Unit"]]
 script = ExtResource("1_nef07")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=624229047]
 avoidance_enabled = true
+radius = 0.6
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0.060000002, 0.060000002, 1)
@@ -34,3 +35,4 @@ shape = SubResource("SphereShape3D_nef07")
 debug_color = Color(0.99414104, 0, 0.23396781, 0.41960785)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

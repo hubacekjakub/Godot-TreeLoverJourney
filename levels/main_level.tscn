@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b3m76ogl3yrg1" path="res://scenes/stretcher.tscn" id="2_ldao0"]
 [ext_resource type="Script" uid="uid://bi6voduouexrj" path="res://scripts/resting_place.gd" id="2_mt7cn"]
 [ext_resource type="PackedScene" uid="uid://djfty110prxa" path="res://scenes/supply.tscn" id="4_yb8kn"]
-[ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/nav_agent.tscn" id="5_wg11f"]
+[ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/units/collector_unit.tscn" id="5_wg11f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx02y"]
 sky_top_color = Color(0.09900001, 0.28691673, 0.55, 1)
@@ -2533,9 +2533,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028789282, 2.0800302, -0.0
 radius = 1.405
 material = SubResource("StandardMaterial3D_3348v")
 
-[node name="Nositka" parent="." unique_id=1286089619 instance=ExtResource("2_ldao0")]
+[node name="Stretcher" parent="." unique_id=1286089619 instance=ExtResource("2_ldao0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.412127, -2.0934858, -4.5292797)
-speed = 4
+speed = 0
 
 [node name="Path" type="Node3D" parent="." unique_id=1042952438]
 
@@ -2644,6 +2644,27 @@ use_3d_avoidance = true
 
 [node name="Units" type="Node3D" parent="." unique_id=35315118]
 
-[node name="NavAgent" parent="Units" unique_id=176970989 instance=ExtResource("5_wg11f")]
+[node name="CollectorUnit" parent="Units" unique_id=176970989 instance=ExtResource("5_wg11f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.449635, -3.2918959, -0.42470455)
 movement_speed = 50.0
+
+[node name="CollectorUnit2" parent="Units" unique_id=1014860567 instance=ExtResource("5_wg11f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.022526, -3.2918959, -4.6036377)
+movement_speed = 50.0
+
+[node name="CollectorUnit3" parent="Units" unique_id=1507793921 instance=ExtResource("5_wg11f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.42053, -3.2918959, -11.599581)
+movement_speed = 50.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=116953967]
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer" unique_id=204588210]
+offset_right = 472.0
+offset_bottom = 218.0
+text = "Levym - vyberes unit
+Pravym - posles nekam
+
+nejde od-oznacit (smolik pacholik, nevim jak)
+
+co treba znovu levym do prazdna?
+co treba prostredni mysitko?"

@@ -17,3 +17,6 @@ func _process(_delta: float) -> void:
 
 func set_progress(value: float) -> void:
 	progress_bar.value = value
+	
+func get_progress() -> float:
+	return progress_bar.value

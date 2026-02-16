@@ -13,6 +13,9 @@ var distance_check: float = 30.0
 var automove: bool = false
 var current_target: RestingPlace
 
+func _enter_tree() -> void:
+	UnitDirector.register_stretcher(self)
+
 func _ready() -> void:
 	SignalBus.new_resting_place_set.connect(handle_new_resting_place_set)
 
