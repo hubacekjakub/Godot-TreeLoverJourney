@@ -64,7 +64,7 @@ func stop_collecting():
 
 func collecting_finished() -> void:
 	#notify about succesful collection
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.2).timeout
 	collision_shape_3d.disabled = true
 	queue_free()
 

@@ -9,6 +9,9 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not active_unit:
+		pass
+	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var camera = get_viewport().get_camera_3d()
@@ -37,8 +40,10 @@ func handle_unit_selected(selected_unit: CollectorUnit) -> void:
 
 func set_unit_movement_target(cursor_3d_pos: Vector3) -> void:
 	var stretcher_position: Vector3 = stretcher.global_position
-	var direction_to_cursor: Vector3 = stretcher_position.direction_to(cursor_3d_pos)
-	var max_avaliable_location: Vector3 = direction_to_cursor * 15
+	var distance_from_cursor: Vector3 = (cursor_3d_pos - stretcher_position).limit_length(stretcher.visibility_distance)
+	var clamped_location: Vector3 = stretcher.global_position + distance_from_cursor
+
+	assert(active_unit)
 
 	if active_unit:
-		active_unit.set_movement_target(stretcher.global_position + max_avaliable_location)
+		active_unit.set_movement_target(clamped_location)

@@ -9,6 +9,7 @@ class_name Stretcher
 var target_velocity = Vector3.ZERO
 
 var distance_check: float = 30.0
+var visibility_distance: float = 15.0
 
 var automove: bool = false
 var current_target: RestingPlace
