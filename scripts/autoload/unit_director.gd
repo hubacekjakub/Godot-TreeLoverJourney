@@ -37,6 +37,10 @@ func handle_unit_selected(selected_unit: CollectorUnit) -> void:
 			unit.activate()
 		else:
 			unit.deactivate()
+			
+func deselect_all_units() -> void:
+	for unit in units:
+		unit.deactivate()
 
 func set_unit_movement_target(cursor_3d_pos: Vector3) -> void:
 	var stretcher_position: Vector3 = stretcher.global_position
