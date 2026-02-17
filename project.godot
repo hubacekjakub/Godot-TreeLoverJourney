@@ -19,8 +19,8 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 [autoload]
 
 SignalBus="*uid://g2rmkq0n4itm"
-SceneChanger="*uid://4axa4wafxd2w"
-SoundManager="*uid://dirjky0nby5ro"
+SceneChanger="*uid://io5eox7sw5pg"
+SoundManager="*uid://dtmt1bfgjvr2l"
 Global="*uid://df8uf0gxajuvf"
 UnitDirector="*uid://dw88b2j1it1lx"
 
@@ -34,7 +34,6 @@ window/size/resizable=false
 
 Unit=""
 Resource=""
-
 
 [input]
 
