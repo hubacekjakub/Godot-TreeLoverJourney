@@ -13,6 +13,7 @@ class_name CollectorUnit
 
 var material: StandardMaterial3D
 var is_active: bool = false
+var is_lost: bool = false
 
 func _enter_tree() -> void:
 	UnitDirector.register_unit(self)
@@ -26,6 +27,9 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta: float) -> void:
+	
+	if is_lost:
+		return
 	
 	# Vertical Velocity
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
@@ -61,3 +65,14 @@ func activate() -> void:
 func deactivate() -> void:
 	is_active = false
 	material.albedo_color = color_unactive
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	print(name + " entered screen!")
+
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	print(name + " exited screen!")
+	is_lost = true
+	UnitDirector.register_lost_unit(self)
+	

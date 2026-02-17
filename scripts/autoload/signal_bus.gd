@@ -21,6 +21,9 @@ signal map_loaded(map_name: String)
 @warning_ignore("unused_signal")
 signal on_unit_selected(unit: CollectorUnit)
 
+# called when unit is deselected
+@warning_ignore("unused_signal")
+signal on_unit_deselected(unit: CollectorUnit)
 
 #Resoruces
 

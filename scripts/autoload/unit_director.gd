@@ -1,6 +1,7 @@
 extends Node
 
 var units: Array[CollectorUnit]
+var lost_units: Array[CollectorUnit]
 var active_unit: CollectorUnit
 var stretcher: Stretcher
 
@@ -10,7 +11,12 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not active_unit:
-		pass
+		return
+	
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:		
+		SignalBus.on_unit_deselected.emit(active_unit)
+		active_unit.deactivate()
+		active_unit = null
 	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		var mouse_pos = get_viewport().get_mouse_position()
@@ -27,6 +33,11 @@ func register_unit(new_unit: CollectorUnit) -> void:
 
 func register_stretcher(new_stretcher: Stretcher) -> void:
 	stretcher = new_stretcher
+
+func register_lost_unit(lost_unit: CollectorUnit) -> void:
+	lost_units.append(lost_unit)
+	if lost_unit == active_unit:
+		active_unit = null
 
 func handle_unit_selected(selected_unit: CollectorUnit) -> void:
 	print("unit selected: ", selected_unit)

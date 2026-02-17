@@ -33,5 +33,10 @@ material = SubResource("StandardMaterial3D_at0eb")
 shape = SubResource("SphereShape3D_nef07")
 debug_color = Color(0.99414104, 0, 0.23396781, 0.41960785)
 
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=336548476]
+aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
