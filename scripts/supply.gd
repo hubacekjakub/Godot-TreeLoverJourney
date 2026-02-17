@@ -1,16 +1,20 @@
 extends Area3D
 class_name Supply
 
-@export_category("Visual Setup")
-@export var value: int = 1
+enum ResoruceType {BERRY = 0, WOOD = 1}
+
+@export_range(0, 100, 10) var amount: int = 10
+@export var type: ResoruceType = ResoruceType.BERRY
+
+@export_group("Visual Setup")
 @export var color_active : Color = Color("b85306")
 @export var color_unactive : Color = Color("5b2903")
 
-@export_category("Functional Setup")
+@export_group("Timers")
 ## How long it takes one unit to collect the resource
-@export var collection_time: float = 4.0
+@export_range(0, 10) var collection_time: float = 4.0
 ## How fast after collecting is interupted will the timer reset
-@export var interrupt_time: float = 1.0
+@export_range(0, 5) var interrupt_time: float = 1.0
 
 @onready var csg_sphere_3d: CSGSphere3D = $CSGSphere3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
@@ -63,6 +67,8 @@ func stop_collecting():
 		progress_tween.tween_callback(self.collecting_interupted)
 
 func collecting_finished() -> void:
+	print("Resources: resource picking finished")
+	Resources.resource_collected(type, amount)
 	#notify about succesful collection
 	await get_tree().create_timer(0.2).timeout
 	collision_shape_3d.disabled = true

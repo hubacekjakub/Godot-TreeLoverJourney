@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dra85yrala56h"]
+
+[ext_resource type="Script" uid="uid://b2tgekh5vlcqg" path="res://scripts/ui/resources.gd" id="1_mcq1b"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1086987246]
+
+[node name="DebugNotes" type="TextEdit" parent="." unique_id=1975662159]
+offset_right = 472.0
+offset_bottom = 218.0
+text = "Levym - vyberes unit
+Pravym - posles nekam
+
+nejde od-oznacit (smolik pacholik, nevim jak)
+
+co treba znovu levym do prazdna?
+co treba prostredni mysitko?"
+
+[node name="Resources" type="MarginContainer" parent="." unique_id=1585327082]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -267.0
+offset_bottom = 150.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_mcq1b")
+
+[node name="ColorRect" type="ColorRect" parent="Resources" unique_id=1130502398]
+layout_mode = 2
+color = Color(0.11, 0.11, 0.11, 0.6509804)
+
+[node name="MarginContainer" type="MarginContainer" parent="Resources" unique_id=953289195]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Resources/MarginContainer" unique_id=1294708245]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Resources/MarginContainer/HFlowContainer" unique_id=248542349]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Collected resources"
+
+[node name="VFlowContainer" type="VFlowContainer" parent="Resources/MarginContainer/HFlowContainer" unique_id=75710960]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Resources/MarginContainer/HFlowContainer/VFlowContainer" unique_id=451522407]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="WoodLabel" type="Label" parent="Resources/MarginContainer/HFlowContainer/VFlowContainer/HFlowContainer" unique_id=638229822]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "Wood:"
+
+[node name="BerriesLabel" type="Label" parent="Resources/MarginContainer/HFlowContainer/VFlowContainer/HFlowContainer" unique_id=1136387494]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+text = "Berrries:"
+
+[node name="HFlowContainer2" type="HFlowContainer" parent="Resources/MarginContainer/HFlowContainer/VFlowContainer" unique_id=634133136]
+layout_mode = 2
+alignment = 1
+
+[node name="WoodCount" type="Label" parent="Resources/MarginContainer/HFlowContainer/VFlowContainer/HFlowContainer2" unique_id=681554321]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="BerriesCount" type="Label" parent="Resources/MarginContainer/HFlowContainer/VFlowContainer/HFlowContainer2" unique_id=171881345]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+text = "0"

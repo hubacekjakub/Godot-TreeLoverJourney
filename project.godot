@@ -23,6 +23,7 @@ SceneChanger="*uid://io5eox7sw5pg"
 SoundManager="*uid://dtmt1bfgjvr2l"
 Global="*uid://df8uf0gxajuvf"
 UnitDirector="*uid://dw88b2j1it1lx"
+Resources="*uid://cvb5lkv8m0ffi"
 
 [display]
 

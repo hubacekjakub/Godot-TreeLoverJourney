@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bi6voduouexrj" path="res://scripts/resting_place.gd" id="2_mt7cn"]
 [ext_resource type="PackedScene" uid="uid://djfty110prxa" path="res://scenes/supply.tscn" id="4_yb8kn"]
 [ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/units/collector_unit.tscn" id="5_wg11f"]
+[ext_resource type="PackedScene" uid="uid://dra85yrala56h" path="res://scenes/ui/hud_prototype.tscn" id="6_yb8kn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx02y"]
 sky_top_color = Color(0.09900001, 0.28691673, 0.55, 1)
@@ -2564,63 +2565,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8072815, 2.9039745)
 
 [node name="Supply2" parent="Resources" unique_id=488223327 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2851143, -4.8072815, -11.135735)
-value = 50
 
 [node name="Supply3" parent="Resources" unique_id=2069596425 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.879295, -4.8072815, -9.949318)
-value = 22
 
 [node name="Supply4" parent="Resources" unique_id=756879321 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.802917, -4.8072815, 3.3060913)
-value = 27
 
 [node name="Supply5" parent="Resources" unique_id=2013058351 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.248203, -4.9218903, 3.1865306)
-value = 29
 
 [node name="Supply6" parent="Resources" unique_id=966690417 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.96309, -4.9218903, -10.853179)
-value = 30
 
 [node name="Supply7" parent="Resources" unique_id=104472858 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.1275, -4.9218903, -9.666762)
-value = 26
 
 [node name="Supply8" parent="Resources" unique_id=915306249 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.05112, -4.9218903, 3.5886474)
-value = 44
 
 [node name="Supply9" parent="Resources" unique_id=1264226217 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(-0.99999964, 0, -0.00082031084, 0, 1, 0, 0.00082031084, 0, -0.99999964, 106.074905, -4.8072815, -0.39434683)
-value = 28
 
 [node name="Supply10" parent="Resources" unique_id=844078640 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(-0.99999964, 0, -0.00082031084, 0, 1, 0, 0.00082031084, 0, -0.99999964, 90.28859, -4.8072815, -8.593525)
-value = 41
 
 [node name="Supply11" parent="Resources" unique_id=1734583713 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(-0.99999964, 0, -0.00082031084, 0, 1, 0, 0.00082031084, 0, -0.99999964, 117.9569, -4.8072815, -9.947122)
-value = 45
 
 [node name="Supply12" parent="Resources" unique_id=574526656 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(-0.99999964, 0, -0.00082031084, 0, 1, 0, 0.00082031084, 0, -0.99999964, 125.877144, -4.8072815, -0.8186004)
-value = 22
 
 [node name="Supply13" parent="Resources" unique_id=286358377 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(-0.99999964, 0, -0.00082031084, 0, 1, 0, 0.00082031084, 0, -0.99999964, 147.32243, -4.9218903, -0.9184767)
-value = 28
 
 [node name="Supply14" parent="Resources" unique_id=677027845 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(-0.99999964, 0, -0.00082031084, 0, 1, 0, 0.00082031084, 0, -0.99999964, 140.0412, -4.9218903, -10.223606)
-value = 44
 
 [node name="Supply15" parent="Resources" unique_id=859952122 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(-0.99999964, 0, -0.00082031084, 0, 1, 0, 0.00082031084, 0, -0.99999964, 159.20587, -4.9218903, -8.730141)
-value = 34
 
 [node name="Supply16" parent="Resources" unique_id=388255538 instance=ExtResource("4_yb8kn")]
 transform = Transform3D(-0.99999964, 0, -0.00082031084, 0, 1, 0, 0.00082031084, 0, -0.99999964, 167.1274, -4.9218903, 1.9764682)
-value = 30
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1789401614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07027054, -0.06322098, -0.0066375732)
@@ -2652,15 +2638,4 @@ movement_speed = 50.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.022526, -3.2918959, -4.6036377)
 movement_speed = 50.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=116953967]
-
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer" unique_id=204588210]
-offset_right = 472.0
-offset_bottom = 218.0
-text = "Levym - vyberes unit
-Pravym - posles nekam
-
-nejde od-oznacit (smolik pacholik, nevim jak)
-
-co treba znovu levym do prazdna?
-co treba prostredni mysitko?"
+[node name="HUD" parent="." unique_id=1086987246 instance=ExtResource("6_yb8kn")]

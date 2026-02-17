@@ -20,3 +20,13 @@ signal map_loaded(map_name: String)
 # called when new unit is selected
 @warning_ignore("unused_signal")
 signal on_unit_selected(unit: CollectorUnit)
+
+
+#Resoruces
+
+# called when a resource is collected
+@warning_ignore("unused_signal")
+signal on_resource_collected(resource: Supply.ResoruceType, amount: int)
+# called when a resources are updated
+@warning_ignore("unused_signal")
+signal on_resource_updated()
