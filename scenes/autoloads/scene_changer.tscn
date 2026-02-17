@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://io5eox7sw5pg"]
 
-[ext_resource type="Script" uid="uid://c6qwyihshl4gm" path="res://scripts/autoload/scene_changer.gd" id="1_6f5k5"]
+[ext_resource type="Script" uid="uid://4axa4wafxd2w" path="res://scripts/autoload/scene_changer.gd" id="1_6f5k5"]
 
 [sub_resource type="Animation" id="Animation_ggtk8"]
 length = 0.001
