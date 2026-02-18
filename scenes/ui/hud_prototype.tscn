@@ -5,6 +5,7 @@
 [node name="HUD" type="CanvasLayer" unique_id=1086987246]
 
 [node name="DebugNotes" type="TextEdit" parent="." unique_id=1975662159]
+visible = false
 offset_right = 472.0
 offset_bottom = 218.0
 text = "Levym - vyberes unit

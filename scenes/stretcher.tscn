@@ -15,6 +15,14 @@ albedo_color = Color(1, 0.55, 0, 0.5294118)
 [sub_resource type="SphereShape3D" id="SphereShape3D_4gp6k"]
 radius = 14.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gp6k"]
+transparency = 1
+albedo_color = Color(0.81, 0.81, 0.81, 0.4745098)
+emission_enabled = true
+emission = Color(0.9746024, 0.41612744, 0.85701776, 1)
+emission_energy_multiplier = 10.0
+emission_operator = 1
+
 [node name="Stretcher" type="CharacterBody3D" unique_id=1286089619]
 script = ExtResource("1_72okn")
 
@@ -42,7 +50,13 @@ input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=317042528]
 shape = SubResource("SphereShape3D_4gp6k")
-debug_color = Color(0.7833333, 0, 1, 1)
+debug_fill = false
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=923612221]
+radius = 15.0
+height = 0.1
+sides = 64
+material = SubResource("StandardMaterial3D_4gp6k")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

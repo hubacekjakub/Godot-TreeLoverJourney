@@ -14,6 +14,7 @@ radius = 0.6
 script = ExtResource("1_nef07")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=624229047]
+target_desired_distance = 0.5
 avoidance_enabled = true
 radius = 0.6
 debug_use_custom = true

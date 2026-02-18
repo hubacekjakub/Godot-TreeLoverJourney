@@ -16,7 +16,7 @@ enum ResoruceType {BERRY = 0, WOOD = 1}
 ## How fast after collecting is interupted will the timer reset
 @export_range(0, 5) var interrupt_time: float = 1.0
 
-@onready var csg_sphere_3d: CSGSphere3D = $CSGSphere3D
+@onready var csg_cylinder_3d: CSGCylinder3D = $CSGCylinder3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var collecting_timer: Timer = $CollectingTimer
 #@onready var progress_bar: ProgressBar = $Control/ProgressBar
@@ -28,8 +28,8 @@ var active: bool = false
 var progress_tween: Tween = null
 
 func _ready() -> void:
-	material = csg_sphere_3d.material.duplicate()
-	csg_sphere_3d.material_override = material
+	material = csg_cylinder_3d.material.duplicate()
+	csg_cylinder_3d.material_override = material
 	progress_bar.visible = false
 
 func activate():
