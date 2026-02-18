@@ -1,13 +1,19 @@
 extends Node
 
+var mouse_marker_scene : PackedScene = preload("uid://26t2mwuomtis")
+
 var units: Array[CollectorUnit]
 var lost_units: Array[CollectorUnit]
 var active_unit: CollectorUnit
 var stretcher: Stretcher
 
+var mouse_marker: Node3D = null
+
 func _ready() -> void:
 	SignalBus.on_unit_selected.connect(handle_unit_selected)
-
+	mouse_marker = mouse_marker_scene.instantiate()
+	mouse_marker.visible = false
+	add_child(mouse_marker)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not active_unit:
@@ -25,7 +31,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		var to = camera.project_ray_normal(mouse_pos) * 10000
 		var drop_plane = Plane(Vector3.UP, stretcher.global_position.y)
 		var cursor_3d_pos = drop_plane.intersects_ray(from, to)
-
+		mouse_marker.global_position = cursor_3d_pos
+		show_marker()
+		get_tree().create_timer(2).timeout.connect(hide_marker)
 		set_unit_movement_target(cursor_3d_pos)
 
 func register_unit(new_unit: CollectorUnit) -> void:
@@ -62,3 +70,9 @@ func set_unit_movement_target(cursor_3d_pos: Vector3) -> void:
 
 	if active_unit:
 		active_unit.set_movement_target(clamped_location)
+		
+func show_marker() -> void:
+	mouse_marker.visible = true
+	
+func hide_marker() -> void:
+	mouse_marker.visible = false
