@@ -27,7 +27,12 @@
 - during the day player can use slow shortcuts to get to better loot, but it will cost time and unit can get lost (nav-links with speed debuff)
 - during the day player can get trapped in envronment hazard (quicksand?, swamp?) and lose units
 
-## Day Cycle:
+## Game Cycle:
+
+### Intro Cutscene:
+- a kakapo is comes to the tree and attemps to clib it, falls down, injuring its leg
+- other kakapo friends bring stretcher to help
+- there is introduction text explaining some facts about kakapos
 
 ### Day One Cycle:
 - stretcher automoves on path
@@ -41,6 +46,14 @@
 - stretcher automoves on path
 - 3 units are running around to collect resources
 - stretcher need to reach the campsite
-- one environment hazard (only slow down, no unit loss
+- one environment hazard (only slow down, no unit loss hazard)
 - stretcher radius is smaller, player need to be more careful
 - more frequent enemies during the night
+
+### Day Three Cycle:
+- WIP
+
+### Outro Cutscene:
+- kakapo is healed and can refreshsed
+- game ends with kakapo comming to the same tree as in intro, looking up with love
+- small funny about kakapos and how they never learn
