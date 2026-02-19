@@ -44,6 +44,7 @@ func register_stretcher(new_stretcher: Stretcher) -> void:
 
 func register_lost_unit(lost_unit: CollectorUnit) -> void:
 	lost_units.append(lost_unit)
+	SignalBus.on_unit_lost.emit(lost_unit)
 	if lost_unit == active_unit:
 		active_unit = null
 

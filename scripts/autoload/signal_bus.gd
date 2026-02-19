@@ -25,6 +25,10 @@ signal on_unit_selected(unit: CollectorUnit)
 @warning_ignore("unused_signal")
 signal on_unit_deselected(unit: CollectorUnit)
 
+# called when unit is lost of the screen
+@warning_ignore("unused_signal")
+signal on_unit_lost(unit: CollectorUnit)
+
 #Resoruces
 
 # called when a resource is collected
