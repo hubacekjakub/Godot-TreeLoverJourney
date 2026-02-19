@@ -19,15 +19,15 @@ signal map_loaded(map_name: String)
 
 # called when new unit is selected
 @warning_ignore("unused_signal")
-signal on_unit_selected(unit: CollectorUnit)
+signal on_unit_selected(unit: FriendlyUnit)
 
 # called when unit is deselected
 @warning_ignore("unused_signal")
-signal on_unit_deselected(unit: CollectorUnit)
+signal on_unit_deselected(unit: FriendlyUnit)
 
 # called when unit is lost of the screen
 @warning_ignore("unused_signal")
-signal on_unit_lost(unit: CollectorUnit)
+signal on_unit_lost(unit: FriendlyUnit)
 
 #Resoruces
 

@@ -12,7 +12,7 @@ func handle_resource_updated() -> void:
 	print("UI: resource update")
 	berries_count.text = str(Resources.collected_resources[Supply.ResoruceType.BERRY])
 	wood_count.text = str(Resources.collected_resources[Supply.ResoruceType.WOOD])
-	
-func handle_lost_kakapos(lost_unit: CollectorUnit) -> void:
+
+func handle_lost_kakapos(lost_unit: FriendlyUnit) -> void:
 	print("UI: kakapo lost")
-	lost_count.text = str(UnitDirector.lost_units.size()) 
+	lost_count.text = str(UnitDirector.lost_units.size())

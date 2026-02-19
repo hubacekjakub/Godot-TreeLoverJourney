@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b3m76ogl3yrg1" path="res://scenes/stretcher.tscn" id="2_ldao0"]
 [ext_resource type="Script" uid="uid://bi6voduouexrj" path="res://scripts/resting_place.gd" id="2_mt7cn"]
 [ext_resource type="PackedScene" uid="uid://djfty110prxa" path="res://scenes/supply.tscn" id="4_yb8kn"]
-[ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/units/collector_unit.tscn" id="5_wg11f"]
+[ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/units/friendly_unit.tscn" id="5_wg11f"]
 [ext_resource type="PackedScene" uid="uid://dra85yrala56h" path="res://scenes/ui/hud_prototype.tscn" id="6_yb8kn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx02y"]
@@ -2630,12 +2630,21 @@ use_3d_avoidance = true
 
 [node name="Units" type="Node3D" parent="." unique_id=35315118]
 
-[node name="CollectorUnit" parent="Units" unique_id=176970989 instance=ExtResource("5_wg11f")]
+[node name="FriendlyUnit" parent="Units" unique_id=176970989 instance=ExtResource("5_wg11f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.449635, -3.2918959, -0.42470455)
 movement_speed = 50.0
 
-[node name="CollectorUnit2" parent="Units" unique_id=1014860567 instance=ExtResource("5_wg11f")]
+[node name="FriendlyUnit2" parent="Units" unique_id=1014860567 instance=ExtResource("5_wg11f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.022526, -3.2918959, -4.6036377)
 movement_speed = 50.0
+
+[node name="FriendlyUnit3" parent="Units" unique_id=1217769854 instance=ExtResource("5_wg11f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.63864, -3.9653397, -10.010355)
+
+[node name="FriendlyUnit4" parent="Units" unique_id=800631793 instance=ExtResource("5_wg11f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.491146, -3.9653397, -1.8073263)
+
+[node name="FriendlyUnit5" parent="Units" unique_id=472825366 instance=ExtResource("5_wg11f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.543602, -3.9653358, 7.08331)
 
 [node name="HUD" parent="." unique_id=1086987246 instance=ExtResource("6_yb8kn")]

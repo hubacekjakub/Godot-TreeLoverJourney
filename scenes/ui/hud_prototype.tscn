@@ -50,7 +50,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer" unique_id=248542349]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Collected resources"
 uppercase = true
 
@@ -65,13 +65,13 @@ alignment = 1
 [node name="WoodLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer" unique_id=638229822]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Wood:"
 
 [node name="BerriesLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer" unique_id=1136387494]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Berrries:"
 
 [node name="HFlowContainer2" type="HFlowContainer" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer" unique_id=634133136]
@@ -82,14 +82,14 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "0"
 
 [node name="BerriesCount" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer2" unique_id=171881345]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "0"
 
 [node name="VBox" type="VBoxContainer" parent="Resources/MarginContainer/VBoxContainer" unique_id=1897118050]
@@ -98,7 +98,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Resources/MarginContainer/VBoxContainer/VBox" unique_id=894652136]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Kakapos"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -113,7 +113,7 @@ alignment = 1
 [node name="KakaposLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer/VBox/HBox" unique_id=1170026009]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Lost:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -122,5 +122,5 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "0"

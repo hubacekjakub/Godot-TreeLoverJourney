@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://drd05xwqas67k"]
+
+[ext_resource type="Script" uid="uid://ddn5512t80m73" path="res://scripts/units/enemy_unit.gd" id="1_q824x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wofu5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at0eb"]
+albedo_color = Color(0.72280663, 0, 0.17715752, 1)
+emission_enabled = true
+emission = Color(0.67, 0.18759999, 0.18759999, 1)
+emission_energy_multiplier = 11.6
+emission_operator = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nef07"]
+radius = 2.0
+
+[node name="EnemyUnit" type="CharacterBody3D" unique_id=176970989 groups=["Enemy", "Unit"]]
+script = ExtResource("1_q824x")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=624229047]
+target_desired_distance = 0.5
+avoidance_enabled = true
+radius = 0.6
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0.060000002, 0.060000002, 1)
+debug_path_custom_point_size = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1360714272]
+shape = SubResource("SphereShape3D_wofu5")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1582393636]
+transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, 0, 0, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_at0eb")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=422512069]
+transform = Transform3D(0.0088451905, -0.43489847, 0.0031767953, 0.40930063, 0.009398374, 0.14700232, -0.14703666, 1.6205013e-09, 0.40939617, 0, -5.9604645e-08, 0)
+polygon = PackedVector2Array(-0.0004798416, -1.0813327, -0.016397446, -0.0810748, 0.2436482, -0.038246676)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+material = SubResource("StandardMaterial3D_at0eb")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="." unique_id=1511558532]
+transform = Transform3D(0.008845195, 0.1550105, -0.40634778, 0.40930063, -0.14037555, -0.044639945, -0.14703666, -0.3814334, -0.148707, 0, -5.9604645e-08, 0)
+polygon = PackedVector2Array(-0.0004798416, -1.0813327, -0.016397446, -0.0810748, 0.2436482, -0.038246676)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+material = SubResource("StandardMaterial3D_at0eb")
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="." unique_id=93456062]
+transform = Transform3D(0.008845189, 0.16409844, 0.40276355, 0.40930066, 0.13305564, -0.063199766, -0.14703664, 0.38025376, -0.15169813, 0, -5.9604645e-08, 0)
+polygon = PackedVector2Array(-0.0004798416, -1.0813327, -0.016397446, -0.0810748, 0.2436482, -0.038246676)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+material = SubResource("StandardMaterial3D_at0eb")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2123506816 groups=["Enemy", "Unit"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=590680925 groups=["Enemy", "Unit"]]
+shape = SubResource("SphereShape3D_nef07")
+debug_color = Color(0.99414104, 0, 0.23396781, 0.41960785)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=336548476]
+aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

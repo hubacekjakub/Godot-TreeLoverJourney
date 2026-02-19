@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://1psongbi7d5j"]
+[gd_scene format=3 uid="uid://dsgcxuj5qqn73"]
 
 [ext_resource type="Script" uid="uid://d2mb61big0vtc" path="res://scripts/units/friendly_unit.gd" id="1_nef07"]
 
@@ -10,7 +10,7 @@ albedo_color = Color(0, 0.3529412, 0.79607844, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_nef07"]
 radius = 0.6
 
-[node name="FriendlyUnit" type="CharacterBody3D" unique_id=176970989 groups=["Unit"]]
+[node name="FriendlyUnit" type="CharacterBody3D" unique_id=176970989 groups=["Friend", "Unit"]]
 script = ExtResource("1_nef07")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=624229047]
@@ -25,12 +25,12 @@ debug_path_custom_point_size = 10.0
 shape = SubResource("SphereShape3D_wofu5")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1582393636]
-radius = 0.258
+radius = 0.3
 material = SubResource("StandardMaterial3D_at0eb")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=2123506816]
+[node name="Area3D" type="Area3D" parent="." unique_id=2123506816 groups=["Friend", "Unit"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=590680925]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=590680925 groups=["Friend", "Unit"]]
 shape = SubResource("SphereShape3D_nef07")
 debug_color = Color(0.99414104, 0, 0.23396781, 0.41960785)
 

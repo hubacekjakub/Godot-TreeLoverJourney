@@ -2,10 +2,11 @@ extends Node
 
 var mouse_marker_scene : PackedScene = preload("uid://26t2mwuomtis")
 
-var units: Array[CollectorUnit]
-var lost_units: Array[CollectorUnit]
-var active_unit: CollectorUnit
+var units: Array[FriendlyUnit]
+var lost_units: Array[FriendlyUnit]
+var active_unit: FriendlyUnit
 var stretcher: Stretcher
+var campfire: Campfire
 
 var mouse_marker: Node3D = null
 
@@ -18,37 +19,56 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not active_unit:
 		return
-	
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:		
+
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		SignalBus.on_unit_deselected.emit(active_unit)
 		active_unit.deactivate()
 		active_unit = null
-	
+
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var camera = get_viewport().get_camera_3d()
 		var from = camera.project_ray_origin(mouse_pos)
 		var to = camera.project_ray_normal(mouse_pos) * 10000
-		var drop_plane = Plane(Vector3.UP, stretcher.global_position.y)
+		var drop_plane = Plane(Vector3.UP, get_ground_position().y)
 		var cursor_3d_pos = drop_plane.intersects_ray(from, to)
 		mouse_marker.global_position = cursor_3d_pos
 		show_marker()
 		get_tree().create_timer(2).timeout.connect(hide_marker)
 		set_unit_movement_target(cursor_3d_pos)
 
-func register_unit(new_unit: CollectorUnit) -> void:
+func get_ground_position() -> Vector3:
+	if stretcher:
+		return stretcher.global_position
+	elif campfire:
+		return campfire.global_position
+	else:
+		return Vector3.ZERO
+
+func get_visibility_distance() -> float:
+	if stretcher:
+		return stretcher.visibility_distance
+	elif campfire:
+		return campfire.visibility_distance
+	else:
+		return 0.0
+
+func register_unit(new_unit: FriendlyUnit) -> void:
 	units.append(new_unit)
 
 func register_stretcher(new_stretcher: Stretcher) -> void:
 	stretcher = new_stretcher
 
-func register_lost_unit(lost_unit: CollectorUnit) -> void:
+func register_campfire(new_campfire: Campfire) -> void:
+	campfire = new_campfire
+
+func register_lost_unit(lost_unit: FriendlyUnit) -> void:
 	lost_units.append(lost_unit)
 	SignalBus.on_unit_lost.emit(lost_unit)
 	if lost_unit == active_unit:
 		active_unit = null
 
-func handle_unit_selected(selected_unit: CollectorUnit) -> void:
+func handle_unit_selected(selected_unit: FriendlyUnit) -> void:
 	print("unit selected: ", selected_unit)
 	active_unit = selected_unit
 
@@ -57,23 +77,24 @@ func handle_unit_selected(selected_unit: CollectorUnit) -> void:
 			unit.activate()
 		else:
 			unit.deactivate()
-			
+
 func deselect_all_units() -> void:
 	for unit in units:
 		unit.deactivate()
 
 func set_unit_movement_target(cursor_3d_pos: Vector3) -> void:
-	var stretcher_position: Vector3 = stretcher.global_position
-	var distance_from_cursor: Vector3 = (cursor_3d_pos - stretcher_position).limit_length(stretcher.visibility_distance)
-	var clamped_location: Vector3 = stretcher.global_position + distance_from_cursor
+	var base_position: Vector3 = get_ground_position()
+	var distance_from_cursor: Vector3 = (cursor_3d_pos - base_position).limit_length(get_visibility_distance())
+	var clamped_location: Vector3 = base_position + distance_from_cursor
 
+	print("Setting movement target to: ", clamped_location)
 	assert(active_unit)
 
 	if active_unit:
 		active_unit.set_movement_target(clamped_location)
-		
+
 func show_marker() -> void:
 	mouse_marker.visible = true
-	
+
 func hide_marker() -> void:
 	mouse_marker.visible = false

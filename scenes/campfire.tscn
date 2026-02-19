@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c4malk8t4rllo"]
+
+[ext_resource type="Script" uid="uid://eyhpf6ss3qma" path="res://scripts/campfire.gd" id="1_m47ar"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nx02y"]
+albedo_color = Color(0.6896163, 0.5142453, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hkwxo"]
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72okn"]
+transparency = 1
+albedo_color = Color(1, 0.55, 0, 0.5294118)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4gp6k"]
+radius = 14.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gp6k"]
+transparency = 1
+albedo_color = Color(0.81, 0.81, 0.81, 0.4745098)
+emission_enabled = true
+emission = Color(0.9746024, 0.41612744, 0.85701776, 1)
+emission_energy_multiplier = 10.0
+emission_operator = 1
+
+[node name="Campfire" type="CharacterBody3D" unique_id=1286089619]
+script = ExtResource("1_m47ar")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2014138860]
+use_collision = true
+radius = 0.83687174
+material = SubResource("StandardMaterial3D_nx02y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=648671913]
+shape = SubResource("SphereShape3D_hkwxo")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=646657817]
+transform = Transform3D(-4.371139e-08, 0.88627636, -0.4631568, 0, 0.4631568, 0.88627636, 1, 3.8740367e-08, -2.0245228e-08, -16.972843, 30.649075, -1.0101712)
+projection = 1
+fov = 59.48979
+size = 35.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1926936205]
+visible = false
+radius = 14.0
+material = SubResource("StandardMaterial3D_72okn")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2842079]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=317042528]
+shape = SubResource("SphereShape3D_4gp6k")
+debug_color = Color(0.5230559, 0.5739339, 0, 0.41960785)
+debug_fill = false
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=923612221]
+radius = 15.0
+height = 0.1
+sides = 64
+material = SubResource("StandardMaterial3D_4gp6k")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=365328703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8988838, 0)
+light_color = Color(1, 0.7666667, 0, 1)
+light_energy = 10.0
+omni_range = 15.0
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

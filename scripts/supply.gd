@@ -79,10 +79,10 @@ func collecting_interupted() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	print("body entered: ", body)
-	if body is CollectorUnit:
+	if body is FriendlyUnit:
 		start_collecting()
 
 func _on_body_exited(body: Node3D) -> void:
 	print("body exited: ",body)
-	if body is CollectorUnit:
+	if body is FriendlyUnit:
 		stop_collecting()
