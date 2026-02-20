@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bfptgb3o7ippw"]
+
+[ext_resource type="Script" uid="uid://drycfu45cn0yh" path="res://scripts/ui/ui_level_result.gd" id="1_cnbu6"]
+
+[node name="LevelResult" type="MarginContainer" unique_id=304357917]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 240.0
+offset_right = 153.0
+offset_bottom = 467.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_cnbu6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=517761222]
+layout_mode = 2
+color = Color(0.11, 0.11, 0.11, 0.6509804)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2143952946]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1633193162]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer" unique_id=1151459903]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer" unique_id=1974974241]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Level FINISHED"
+uppercase = true
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=784804185]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Status" type="Label" parent="MarginContainer/VBoxContainer/VBox" unique_id=691348511]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 18
+text = "Status"
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBox" unique_id=5074252]
+layout_mode = 2
+
+[node name="NextLevel" type="Button" parent="MarginContainer/VBoxContainer/VBox" unique_id=1645419733]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NextLevel
+"

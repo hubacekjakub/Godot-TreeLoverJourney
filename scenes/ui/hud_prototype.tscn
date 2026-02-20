@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dra85yrala56h"]
 
 [ext_resource type="Script" uid="uid://b2tgekh5vlcqg" path="res://scripts/ui/resources.gd" id="1_mcq1b"]
+[ext_resource type="PackedScene" uid="uid://bfptgb3o7ippw" path="res://scenes/ui/ui_level_result.tscn" id="2_1t7f6"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1086987246]
 
@@ -124,3 +125,9 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 18
 text = "0"
+
+[node name="LevelResult" parent="." unique_id=304357917 instance=ExtResource("2_1t7f6")]
+offset_left = -133.5
+offset_top = 0.0
+offset_right = 133.5
+offset_bottom = 227.0

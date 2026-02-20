@@ -11,12 +11,14 @@ class_name Level
 var current_resting_place_index: int = 0
 
 func _ready() -> void:
-	SignalBus.on_night_start.connect(handle_night_start)
-	SignalBus.resting_place_reached.connect(handle_on_resting_place_reached)
+	
+	
+	#SignalBus.on_night_start.connect(handle_night_start)
+	#SignalBus.resting_place_reached.connect(handle_on_resting_place_reached)
 	await get_tree().create_timer(begin_wait_time).timeout
-
-	if resting_places.size() > 0:
-		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
+	SignalBus.on_night_end.emit(true)
+	#if resting_places.size() > 0:
+	#	SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
 
 func handle_night_start(_level: int) -> void:
 	night_camera.current = true
