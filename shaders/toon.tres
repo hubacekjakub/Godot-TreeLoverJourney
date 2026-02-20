@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" format=3 uid="uid://dk3vwjrqxw1ce"]
+[gd_resource type="VisualShader" format=3 uid="uid://djxx1ct5wpofx"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_bes68"]
 parameter_name = "Albedo_Color"
