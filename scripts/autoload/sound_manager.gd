@@ -8,6 +8,8 @@ const NIGHT_LEVEL = "uid://b5rwrjnjnbf1c"
 @export var main_menu_sound: AudioStream
 @export var day_time_sound: AudioStream
 @export var night_time_sound: AudioStream
+@export var food_picked_sound: AudioStream
+@export var water_picked_sound: AudioStream
 
 @onready var main_audio_stream_player: AudioStreamPlayer = $MainAudioStreamPlayer
 @onready var sound_effect_audio_stream_player: AudioStreamPlayer = $SoundEffectAudioStreamPlayer
@@ -45,5 +47,10 @@ func handle_night_start(_level: int) -> void:
 	main_audio_stream_player.stream = night_time_sound
 	main_audio_stream_player.play()
 
-func handle_resource_collected(resource: Supply.ResoruceType, amount: int) -> void:
-	sound_effect_audio_stream_player.play()
+func handle_resource_collected(resource: Supply.ResoruceType, _amount: int) -> void:
+	if resource == 0: # food
+		sound_effect_audio_stream_player.stream = food_picked_sound
+	elif resource == 1: # water
+		sound_effect_audio_stream_player.stream = water_picked_sound
+
+	#sound_effect_audio_stream_player.play()
