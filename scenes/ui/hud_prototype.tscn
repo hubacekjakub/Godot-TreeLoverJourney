@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b2tgekh5vlcqg" path="res://scripts/ui/resources.gd" id="1_mcq1b"]
 [ext_resource type="PackedScene" uid="uid://bfptgb3o7ippw" path="res://scenes/ui/ui_level_result.tscn" id="2_1t7f6"]
+[ext_resource type="Texture2D" uid="uid://bh04disds0rdx" path="res://assets/sprites/berries-icon.png" id="2_1xjb1"]
+[ext_resource type="Texture2D" uid="uid://buv63e2uuvl6i" path="res://assets/sprites/wood-icon.png" id="3_86o5r"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1086987246]
 
@@ -63,33 +65,31 @@ layout_mode = 2
 size_flags_horizontal = 0
 alignment = 1
 
-[node name="WoodLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer" unique_id=638229822]
+[node name="BerriesContainer" type="HBoxContainer" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer" unique_id=252912449]
 layout_mode = 2
-size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 18
-text = "Wood:"
 
-[node name="BerriesLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer" unique_id=1136387494]
+[node name="TextureRect" type="TextureRect" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer/BerriesContainer" unique_id=581393986]
 layout_mode = 2
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 18
-text = "Berrries:"
+texture = ExtResource("2_1xjb1")
 
-[node name="HFlowContainer2" type="HFlowContainer" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer" unique_id=634133136]
-layout_mode = 2
-alignment = 1
-
-[node name="WoodCount" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer2" unique_id=681554321]
+[node name="BerriesCount" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer/BerriesContainer" unique_id=171881345]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 18
 text = "0"
 
-[node name="BerriesCount" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer2" unique_id=171881345]
+[node name="WoodContainer" type="HBoxContainer" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer" unique_id=2077439187]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer/WoodContainer" unique_id=1530481643]
+layout_mode = 2
+texture = ExtResource("3_86o5r")
+
+[node name="WoodCount" type="Label" parent="Resources/MarginContainer/VBoxContainer/HFlowContainer/VFlowContainer/HFlowContainer/WoodContainer" unique_id=681554321]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 18
 text = "0"
 
