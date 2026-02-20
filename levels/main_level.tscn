@@ -47,7 +47,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 geometry_source_geometry_mode = 1
 geometry_source_group_name = &"Navigation"
 
-[node name="MainLevel" type="Node3D" unique_id=316296849 node_paths=PackedStringArray("resting_places", "night_camera")]
+[node name="Level1" type="Node3D" unique_id=316296849 node_paths=PackedStringArray("resting_places", "night_camera")]
 script = ExtResource("1_3348v")
 resting_places = [NodePath("Path/Pitstop")]
 night_camera = NodePath("Camera3D")

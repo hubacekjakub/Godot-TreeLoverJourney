@@ -12,6 +12,7 @@ var mouse_marker: Node3D = null
 
 func _ready() -> void:
 	SignalBus.on_unit_selected.connect(handle_unit_selected)
+	SignalBus.on_night_end.connect(handle_night_end)
 	mouse_marker = mouse_marker_scene.instantiate()
 	mouse_marker.visible = false
 	add_child(mouse_marker)
@@ -77,6 +78,13 @@ func handle_unit_selected(selected_unit: FriendlyUnit) -> void:
 			unit.activate()
 		else:
 			unit.deactivate()
+
+func handle_night_end(_success: bool) -> void:
+	units.clear()
+	lost_units.clear()
+	active_unit = null
+	stretcher = null
+	campfire = null
 
 func deselect_all_units() -> void:
 	for unit in units:

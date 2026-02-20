@@ -23,6 +23,7 @@ func _ready() -> void:
 	SignalBus.on_night_end.connect(handle_night_end)
 	SignalBus.on_enemy_purged.connect(handle_enemy_purged)
 	timer = Timer.new()
+	timer.timeout.connect(activate_enemy_spawn)
 	add_child(timer)
 	#await get_tree().create_timer(5).timeout
 	#handle_night_start(5)
@@ -38,6 +39,9 @@ func handle_night_end(_is_success: bool) -> void:
 	print("Night: Night ended with success: ", _is_success)
 	is_night_active = false
 	stop_timer()
+	# cleanup
+	enemy_bases.clear()
+	enemies_purged = 0
 
 func register_enemy_base(enemy_base: EnemyBase) -> void:
 	enemy_bases.append(enemy_base)
@@ -45,7 +49,7 @@ func register_enemy_base(enemy_base: EnemyBase) -> void:
 func start_timer() -> void:
 	await get_tree().create_timer(start_up_delay).timeout
 	timer.start(enemy_spawn_frequency)
-	timer.timeout.connect(activate_enemy_spawn)
+	
 
 func stop_timer() -> void:
 	timer.stop()
@@ -66,4 +70,3 @@ func handle_enemy_purged(_enemy_unit: EnemyUnit) -> void:
 	if enemies_purged >= enemy_difficulty[current_night_level]:
 		SignalBus.on_night_end.emit(true)
 		print("Night: Night ended with success")
-
