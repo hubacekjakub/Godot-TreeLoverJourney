@@ -14,11 +14,13 @@ var enemy_difficulty: Dictionary[int, int] = {
 
 var enemies_purged: int = 0
 var current_night_level: int = 0
+var is_night_active: bool = false
 
 var timer : Timer
 
 func _ready() -> void:
 	SignalBus.on_night_start.connect(handle_night_start)
+	SignalBus.on_night_end.connect(handle_night_end)
 	SignalBus.on_enemy_purged.connect(handle_enemy_purged)
 	timer = Timer.new()
 	add_child(timer)
@@ -27,9 +29,15 @@ func _ready() -> void:
 
 # starts the night game play
 func handle_night_start(level: int) -> void:
+	is_night_active = true
 	current_night_level = level
 	start_timer()
 	print("Night: Night started at level: ", level)
+
+func handle_night_end(_is_success: bool) -> void:
+	print("Night: Night ended with success: ", _is_success)
+	is_night_active = false
+	stop_timer()
 
 func register_enemy_base(enemy_base: EnemyBase) -> void:
 	enemy_bases.append(enemy_base)

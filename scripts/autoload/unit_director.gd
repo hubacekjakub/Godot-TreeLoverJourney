@@ -38,20 +38,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		set_unit_movement_target(cursor_3d_pos)
 
 func get_ground_position() -> Vector3:
-	if stretcher:
-		return stretcher.global_position
-	elif campfire:
+	if NightDirector.is_night_active:
+		assert(campfire)
 		return campfire.global_position
 	else:
-		return Vector3.ZERO
+		assert(stretcher)
+		return stretcher.global_position
 
 func get_visibility_distance() -> float:
-	if stretcher:
-		return stretcher.visibility_distance
-	elif campfire:
+	if NightDirector.is_night_active:
+		assert(campfire)
 		return campfire.visibility_distance
 	else:
-		return 0.0
+		assert(stretcher)
+		return stretcher.visibility_distance
 
 func register_unit(new_unit: FriendlyUnit) -> void:
 	units.append(new_unit)
