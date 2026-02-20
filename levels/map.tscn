@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bvs5p8x4kn6gb"]
+
+[ext_resource type="PackedScene" uid="uid://oshn7pp2j3vp" path="res://assets/models/map.fbx" id="1_wyxhb"]
+
+[node name="Map" unique_id=589345993 instance=ExtResource("1_wyxhb")]

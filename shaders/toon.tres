@@ -1,0 +1,41 @@
+[gd_resource type="VisualShader" format=3 uid="uid://dk3vwjrqxw1ce"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_bes68"]
+parameter_name = "Albedo_Color"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8p4mr"]
+input_name = "normal"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_sh57i"]
+input_name = "light"
+
+[sub_resource type="VisualShaderNodeDotProduct" id="VisualShaderNodeDotProduct_yqbxf"]
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_5guv4"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_rsyv4"]
+parameter_name = "Shadow_Cut"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_7dgq6"]
+default_input_values = [0, 0.0, 1, 3.0]
+operator = 2
+
+[resource]
+preview_params/Albedo_Color = "Color(0, 0.7921569, 0, 1)"
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_bes68")
+nodes/fragment/2/position = Vector2(-16, 192)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
+nodes/light/0/position = Vector2(576, 144)
+nodes/light/2/node = SubResource("VisualShaderNodeInput_8p4mr")
+nodes/light/2/position = Vector2(-416, 192)
+nodes/light/3/node = SubResource("VisualShaderNodeInput_sh57i")
+nodes/light/3/position = Vector2(-416, 320)
+nodes/light/4/node = SubResource("VisualShaderNodeDotProduct_yqbxf")
+nodes/light/4/position = Vector2(-112, 176)
+nodes/light/5/node = SubResource("VisualShaderNodeStep_5guv4")
+nodes/light/5/position = Vector2(128, 144)
+nodes/light/6/node = SubResource("VisualShaderNodeFloatParameter_rsyv4")
+nodes/light/6/position = Vector2(-192, -48)
+nodes/light/7/node = SubResource("VisualShaderNodeFloatOp_7dgq6")
+nodes/light/7/position = Vector2(352, 128)
+nodes/light/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 4, 1, 4, 0, 5, 1, 6, 0, 5, 0, 5, 0, 7, 0, 3, 0, 7, 1)
