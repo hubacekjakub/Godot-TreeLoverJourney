@@ -4,10 +4,10 @@ class_name EnemyBase
 @export var enemy_unit_scene: PackedScene = preload("uid://drd05xwqas67k")
 @export var is_sending_units: bool = false
 
-
 func _ready() -> void:
 	NightDirector.register_enemy_base(self)
 
+# TODO: add collected_supply and use it instead of central location
 # Send unit to central location of the unit director
 func send_enemy_unit()-> void:
 	print("Spawning enemy unit")
@@ -21,4 +21,5 @@ func send_enemy_unit()-> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is EnemyUnit and body.is_escaping:
+		SignalBus.on_enemy_purged.emit(body)
 		body.kill()

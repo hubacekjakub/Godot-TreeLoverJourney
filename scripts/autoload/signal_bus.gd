@@ -29,6 +29,20 @@ signal on_unit_deselected(unit: FriendlyUnit)
 @warning_ignore("unused_signal")
 signal on_unit_lost(unit: FriendlyUnit)
 
+#NightDirector
+
+# called when night gameplay starts
+@warning_ignore("unused_signal")
+signal on_night_start(level: int)
+
+# called when night gameplay ends
+@warning_ignore("unused_signal")
+signal on_night_end(success: bool)
+
+# called when an enemy unit is purged
+@warning_ignore("unused_signal")
+signal on_enemy_purged(enemy_unit: EnemyUnit)
+
 #Resoruces
 
 # called when a resource is collected

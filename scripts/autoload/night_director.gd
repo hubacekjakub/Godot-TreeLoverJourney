@@ -4,14 +4,32 @@ var enemy_spawn_frequency: float = 2
 var start_up_delay: float = 5.0
 
 var enemy_bases: Array[EnemyBase] = []
+var enemy_difficulty: Dictionary[int, int] = {
+	1: 1,
+	2: 2,
+	3: 3,
+	4: 4,
+	5: 5
+}
+
+var enemies_purged: int = 0
+var current_night_level: int = 0
 
 var timer : Timer
 
 func _ready() -> void:
-	pass
-	#timer = Timer.new()
-	#add_child(timer)
-	#start_timer()
+	SignalBus.on_night_start.connect(handle_night_start)
+	SignalBus.on_enemy_purged.connect(handle_enemy_purged)
+	timer = Timer.new()
+	add_child(timer)
+	#await get_tree().create_timer(5).timeout
+	#handle_night_start(5)
+
+# starts the night game play
+func handle_night_start(level: int) -> void:
+	current_night_level = level
+	start_timer()
+	print("Night: Night started at level: ", level)
 
 func register_enemy_base(enemy_base: EnemyBase) -> void:
 	enemy_bases.append(enemy_base)
@@ -21,6 +39,9 @@ func start_timer() -> void:
 	timer.start(enemy_spawn_frequency)
 	timer.timeout.connect(activate_enemy_spawn)
 
+func stop_timer() -> void:
+	timer.stop()
+
 func activate_enemy_spawn() -> void:
 	if enemy_bases.size() == 0:
 		pass
@@ -28,4 +49,13 @@ func activate_enemy_spawn() -> void:
 	var random_enemy_base_index: int = randi() % enemy_bases.size()
 	var random_enemy_base: EnemyBase = enemy_bases[random_enemy_base_index ]
 	random_enemy_base.send_enemy_unit()
-	print("Enemy unit sent from base index: ", random_enemy_base_index)
+	print("Night: Enemy unit sent from base index: ", random_enemy_base_index)
+
+func handle_enemy_purged(_enemy_unit: EnemyUnit) -> void:
+	enemies_purged += 1
+	print("Night: Enemy purged. Total purged: ", enemies_purged)
+
+	if enemies_purged >= enemy_difficulty[current_night_level]:
+		SignalBus.on_night_end.emit(true)
+		print("Night: Night ended with success")
+
