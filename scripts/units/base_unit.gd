@@ -4,7 +4,8 @@ class_name BaseUnit
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 @export var movement_speed: float = 4.0
-@export var fall_acceleration = 500
+var fall_acceleration = 500
+@export var is_enabled: bool = false
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
@@ -13,6 +14,9 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta: float) -> void:
+	if not is_enabled:
+		print("BaseUnit", name, "is disabled")
+		return
 
 	# Vertical Velocity
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity

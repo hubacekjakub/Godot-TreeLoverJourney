@@ -2,7 +2,9 @@ extends Node
 
 var mouse_marker_scene : PackedScene = preload("uid://26t2mwuomtis")
 
-var units: Array[FriendlyUnit]
+var day_units: Array[FriendlyUnit]
+var night_units: Array[FriendlyUnit]
+
 var lost_units: Array[FriendlyUnit]
 var active_unit: FriendlyUnit
 var stretcher: Stretcher
@@ -12,6 +14,8 @@ var mouse_marker: Node3D = null
 
 func _ready() -> void:
 	SignalBus.on_unit_selected.connect(handle_unit_selected)
+	SignalBus.on_night_transition_start.connect(handle_night_transition_start)
+	SignalBus.on_night_start.connect(handle_night_start)
 	SignalBus.on_night_end.connect(handle_night_end)
 	mouse_marker = mouse_marker_scene.instantiate()
 	mouse_marker.visible = false
@@ -55,7 +59,10 @@ func get_visibility_distance() -> float:
 		return stretcher.visibility_distance
 
 func register_unit(new_unit: FriendlyUnit) -> void:
-	units.append(new_unit)
+	if new_unit.type == FriendlyUnit.UnitType.DAY:
+		day_units.append(new_unit)
+	else:
+		night_units.append(new_unit)
 
 func register_stretcher(new_stretcher: Stretcher) -> void:
 	stretcher = new_stretcher
@@ -73,21 +80,30 @@ func handle_unit_selected(selected_unit: FriendlyUnit) -> void:
 	print("unit selected: ", selected_unit)
 	active_unit = selected_unit
 
-	for unit in units:
+	for unit in day_units:
+		if unit == selected_unit:
+			unit.activate()
+		else:
+			unit.deactivate()
+
+	for unit in night_units:
 		if unit == selected_unit:
 			unit.activate()
 		else:
 			unit.deactivate()
 
 func handle_night_end(_success: bool) -> void:
-	units.clear()
+	day_units.clear()
+	night_units.clear()
 	lost_units.clear()
 	active_unit = null
 	stretcher = null
 	campfire = null
 
 func deselect_all_units() -> void:
-	for unit in units:
+	for unit in day_units:
+		unit.deactivate()
+	for unit in night_units:
 		unit.deactivate()
 
 func set_unit_movement_target(cursor_3d_pos: Vector3) -> void:
@@ -106,3 +122,17 @@ func show_marker() -> void:
 
 func hide_marker() -> void:
 	mouse_marker.visible = false
+
+func set_all_units_state(unit_type: FriendlyUnit.UnitType, state : bool) -> void:
+	if unit_type == FriendlyUnit.UnitType.DAY:
+		for unit in day_units:
+			unit.is_enabled = state
+	elif unit_type == FriendlyUnit.UnitType.NIGHT:
+		for unit in night_units:
+			unit.is_enabled = state
+
+func handle_night_transition_start() -> void:
+	set_all_units_state(FriendlyUnit.UnitType.DAY, false)
+
+func handle_night_start(_level: int) -> void:
+	set_all_units_state(FriendlyUnit.UnitType.NIGHT, true)

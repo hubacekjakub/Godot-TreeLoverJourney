@@ -9,6 +9,7 @@ var supply_target: Supply = null
 
 func _ready() -> void:
 	super._ready()
+	is_enabled = true
 	SignalBus.on_supply_stolen.connect(handle_supply_stolen)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

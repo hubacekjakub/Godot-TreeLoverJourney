@@ -1774,17 +1774,7 @@ use_3d_avoidance = true
 [node name="FriendlyUnit" parent="Units" unique_id=176970989 instance=ExtResource("6_nmsli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.449635, -3.2918959, -0.42470455)
 movement_speed = 50.0
-
-[node name="Campfire" parent="." unique_id=1393556408 instance=ExtResource("7_betor")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.89629, -4.437106, -3.8040423)
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Campfire" unique_id=777098239]
-radius = 15.0
-height = 0.1
-sides = 64
-
-[node name="CollectedSupplies" type="Node3D" parent="." unique_id=322031998]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 358.36572, 0, 0)
+is_enabled = true
 
 [node name="Night" type="Node3D" parent="." unique_id=1445807906]
 
@@ -1817,14 +1807,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.9281, -4.4653416, -7.6676
 [node name="Wood" parent="Night/Supply" unique_id=1964825373 instance=ExtResource("6_j34rd")]
 transform = Transform3D(0.999878, 0, 0.015620061, 0, 1, 0, -0.015620061, 0, 0.999878, 135.71278, -4.4653397, -1.5677962)
 
-[node name="FriendlyUnits" type="Node3D" parent="." unique_id=1559385367]
+[node name="FriendlyUnits" type="Node3D" parent="Night" unique_id=1559385367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 358.36572, 0, 0)
 
-[node name="FriendlyUnit" parent="FriendlyUnits" unique_id=72771725 instance=ExtResource("6_nmsli")]
+[node name="FriendlyUnit" parent="Night/FriendlyUnits" unique_id=72771725 instance=ExtResource("6_nmsli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220.95302, -3.9653378, 2.2788186)
+type = 1
 
-[node name="FriendlyUnit2" parent="FriendlyUnits" unique_id=356997417 instance=ExtResource("6_nmsli")]
+[node name="FriendlyUnit2" parent="Night/FriendlyUnits" unique_id=356997417 instance=ExtResource("6_nmsli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -218.93983, -3.9653358, -3.7379737)
+type = 1
+
+[node name="Campfire" parent="Night" unique_id=1393556408 instance=ExtResource("7_betor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.89629, -4.437106, -3.8040423)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Night/Campfire" unique_id=777098239]
+radius = 15.0
+height = 0.1
+sides = 64
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1276352344]
 transform = Transform3D(1, 0, 0, 0, 0.4763456, 0.87925816, 0, -0.87925816, 0.4763456, 130.92924, 29.16873, 13.4576)

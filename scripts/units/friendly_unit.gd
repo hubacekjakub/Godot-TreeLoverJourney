@@ -3,6 +3,13 @@ class_name FriendlyUnit
 
 @onready var csg_sphere_3d: CSGSphere3D = $CSGSphere3D
 
+enum UnitType {
+	DAY,
+	NIGHT
+}
+
+@export var type: UnitType = UnitType.DAY
+
 @export var color_active = Color("00abd1")
 @export var color_unactive = Color("005acb")
 
@@ -19,6 +26,10 @@ func _ready() -> void:
 	csg_sphere_3d.material_override = material
 
 func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if not is_enabled:
+		print("FriendlyUnit", name, "is disabled")
+		return
+
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		SignalBus.on_unit_selected.emit(self)
 

@@ -12,7 +12,7 @@ func _ready() -> void:
 func handle_night_end(_is_success: bool) -> void:
 	self.visible = true
 	slide_in_tween = get_tree().create_tween()
-	slide_in_tween.tween_property(self, "position", Vector2(506.5,246.5), 2.0).set_ease(Tween.EASE_OUT_IN)
+	slide_in_tween.tween_property(self, "position", Vector2(506.5,246.5), 0.5).set_ease(Tween.EASE_OUT_IN)
 
 func _on_button_button_down() -> void:
 	Global.go_to_next_level()

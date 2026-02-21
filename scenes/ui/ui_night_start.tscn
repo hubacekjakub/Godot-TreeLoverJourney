@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bfptgb3o7ippw"]
+[gd_scene format=3 uid="uid://cinellujdmr1f"]
 
-[ext_resource type="Script" uid="uid://drycfu45cn0yh" path="res://scripts/ui/ui_level_result.gd" id="1_cnbu6"]
+[ext_resource type="Script" uid="uid://di6isiu24sdn" path="res://scripts/ui/ui_night_start.gd" id="1_u83jq"]
 
-[node name="LevelResult" type="MarginContainer" unique_id=304357917]
+[node name="NightStart" type="MarginContainer" unique_id=304357917]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,11 +18,11 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
-script = ExtResource("1_cnbu6")
+script = ExtResource("1_u83jq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=517761222]
 layout_mode = 2
-color = Color(0.11, 0.11, 0.11, 0.6509804)
+color = Color(0.0069242073, 0.13552898, 0.089474194, 0.6509804)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2143952946]
 layout_mode = 2
@@ -42,11 +42,12 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer" unique_id=1974974241]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Level FINISHED"
+text = "Night is about to start "
 uppercase = true
 
 [node name="VBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=784804185]
 layout_mode = 2
+size_flags_horizontal = 4
 alignment = 1
 
 [node name="Status" type="Label" parent="MarginContainer/VBoxContainer/VBox" unique_id=691348511]
@@ -54,13 +55,14 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 18
-text = "..."
+text = "Scare off the attackers"
 uppercase = true
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBox" unique_id=5074252]
 layout_mode = 2
 
-[node name="NextLevel" type="Button" parent="MarginContainer/VBoxContainer/VBox" unique_id=1645419733]
+[node name="StartNight" type="Button" parent="MarginContainer/VBoxContainer/VBox" unique_id=1645419733]
 unique_name_in_owner = true
 layout_mode = 2
-text = "NEXT LEVEL"
+size_flags_vertical = 4
+text = "START"

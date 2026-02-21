@@ -43,4 +43,3 @@ func start_night_transition() -> void:
 func night_camera_move_finished() -> void:
 	print("camera move to night location finished")
 	SignalBus.on_night_transition_finished.emit()
-	SignalBus.on_night_start.emit(1)
