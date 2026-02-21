@@ -10,6 +10,8 @@ const NIGHT_LEVEL = "uid://b5rwrjnjnbf1c"
 @export var night_time_sound: AudioStream
 @export var food_picked_sound: AudioStream
 @export var wood_picked_sound: AudioStream
+@export var button_click_sound: AudioStream
+
 
 @onready var main_audio_stream_player: AudioStreamPlayer = $MainAudioStreamPlayer
 @onready var sound_effect_audio_stream_player: AudioStreamPlayer = $SoundEffectAudioStreamPlayer
@@ -43,14 +45,21 @@ func play_music() -> void:
 	main_audio_stream_player.play()
 
 
+func play_button_sound_effect() -> void:
+	sound_effect_audio_stream_player.stream = button_click_sound
+	sound_effect_audio_stream_player.play()
+
+
 func handle_night_start(_level: int) -> void:
 	main_audio_stream_player.stream = night_time_sound
 	main_audio_stream_player.play()
 
-func handle_resource_collected(supply: Supply, amount: int) -> void:
+
+func handle_resource_collected(supply: Supply, _amount: int) -> void:
 	if supply.type == 0: # berries
 		sound_effect_audio_stream_player.stream = food_picked_sound
 	elif supply.type ==  1: # wood
 		sound_effect_audio_stream_player.stream = wood_picked_sound
 
-	#sound_effect_audio_stream_player.play()
+	sound_effect_audio_stream_player.play()
+

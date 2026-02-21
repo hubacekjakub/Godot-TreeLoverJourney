@@ -20,7 +20,10 @@ func _ready() -> void:
 		quit_button.pressed.connect(_on_quit_button_pressed)
 
 func _on_start_button_pressed():
+	SoundManager.play_button_sound_effect()
+	await get_tree().create_timer(0.3).timeout
 	SceneChanger.goto_scene(start_level)
+
 
 
 func _on_quit_button_pressed():

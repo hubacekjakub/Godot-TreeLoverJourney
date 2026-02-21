@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://day083c7paac0"]
 
 [ext_resource type="Script" uid="uid://b0y4sobmyjspq" path="res://scripts/main_menu.gd" id="1_0ettg"]
+[ext_resource type="StyleBox" uid="uid://fm38m4ndr7q0" path="res://assets/resources/normal_button.tres" id="2_6ymyu"]
+[ext_resource type="StyleBox" uid="uid://dsw4tlgaid35y" path="res://assets/resources/hover_button.tres" id="3_7rktv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_spmat"]
 sky_top_color = Color(0.09900001, 0.28691673, 0.55, 1)
@@ -61,8 +63,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="MiddleHBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer" unique_id=538504543]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer/MiddleHBoxContainer" unique_id=2121508459]
 layout_mode = 2
@@ -82,12 +84,18 @@ alignment = 1
 
 [node name="StartButton" type="Button" parent="UI/MarginContainer/HBoxContainer/MiddleHBoxContainer/VBoxContainer/ButtonsContainer" unique_id=857776692]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("2_6ymyu")
+theme_override_styles/hover = ExtResource("3_7rktv")
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="UI/MarginContainer/HBoxContainer/MiddleHBoxContainer/VBoxContainer/ButtonsContainer" unique_id=648328990]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("2_6ymyu")
+theme_override_styles/hover = ExtResource("3_7rktv")
 text = "Quit"
 
 [node name="Strom" type="CSGCylinder3D" parent="UI/MarginContainer/HBoxContainer/MiddleHBoxContainer/VBoxContainer/ButtonsContainer/QuitButton" unique_id=145986081]
