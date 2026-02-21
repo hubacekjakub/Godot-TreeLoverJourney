@@ -5,7 +5,7 @@ extends Control
 @onready var lost_count: Label = %LostCount
 
 func _ready() -> void:
-	SignalBus.on_resource_updated.connect(handle_resource_updated)
+	SignalBus.on_supply_updated.connect(handle_resource_updated)
 	SignalBus.on_unit_lost.connect(handle_lost_kakapos)
 
 func handle_resource_updated() -> void:

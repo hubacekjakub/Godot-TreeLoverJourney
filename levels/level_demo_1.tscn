@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/units/friendly_unit.tscn" id="6_nmsli"]
 [ext_resource type="PackedScene" uid="uid://c4malk8t4rllo" path="res://scenes/campfire.tscn" id="7_betor"]
 [ext_resource type="PackedScene" uid="uid://cq7pvrx7p2p6g" path="res://scenes/enemy_base.tscn" id="8_vjtdm"]
-[ext_resource type="PackedScene" uid="uid://drd05xwqas67k" path="res://scenes/units/enemy_unit.tscn" id="10_j34rd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx02y"]
 sky_top_color = Color(0.09900001, 0.28691673, 0.55, 1)
@@ -1793,19 +1792,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 358.36572, 0, 0)
 
 [node name="EnemyBase" parent="Night/EnemyBases" unique_id=1870613067 node_paths=PackedStringArray("supply_targets") instance=ExtResource("8_vjtdm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -238.54474, -4.3044133, 8.554377)
-enemy_unit_scene = ExtResource("10_j34rd")
+enemy_unit_scene = null
 is_sending_units = true
 supply_targets = [NodePath("../../Supply/Wood"), NodePath("../../Supply/Berries")]
 
 [node name="EnemyBase3" parent="Night/EnemyBases" unique_id=1837349689 node_paths=PackedStringArray("supply_targets") instance=ExtResource("8_vjtdm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.88141, -4.3044133, -22.102324)
-enemy_unit_scene = ExtResource("10_j34rd")
+enemy_unit_scene = null
 is_sending_units = true
 supply_targets = [NodePath("../../Supply/Berries2")]
 
 [node name="EnemyBase8" parent="Night/EnemyBases" unique_id=158199143 node_paths=PackedStringArray("supply_targets") instance=ExtResource("8_vjtdm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -212.88666, -4.3044133, 9.688493)
-enemy_unit_scene = ExtResource("10_j34rd")
+enemy_unit_scene = null
 is_sending_units = true
 supply_targets = [NodePath("../../Supply/Berries"), NodePath("../../Supply/Wood")]
 

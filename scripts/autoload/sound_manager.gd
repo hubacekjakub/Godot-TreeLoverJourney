@@ -19,7 +19,7 @@ func _ready() -> void:
 	main_audio_stream_player.stream = main_menu_sound
 	SignalBus.map_loaded.connect(handle_level_loaded)
 	SignalBus.on_night_start.connect(handle_night_start)
-	SignalBus.on_resource_collected.connect(handle_resource_collected)
+	SignalBus.on_supply_collected.connect(handle_resource_collected)
 	play_music()
 
 

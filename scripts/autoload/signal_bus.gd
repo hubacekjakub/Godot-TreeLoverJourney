@@ -45,17 +45,17 @@ signal on_enemy_purged(enemy_unit: EnemyUnit)
 
 #Resoruces
 
-# called when a resource is collected
+# called when a supply is collected
 @warning_ignore("unused_signal")
-signal on_resource_collected(resource: Supply.ResoruceType, amount: int)
+signal on_supply_collected(resource: Supply, amount: int)
 
-# called when a resource is stolen
+# called when a supply is stolen
 @warning_ignore("unused_signal")
-signal on_resource_stolen(resource: Supply.ResoruceType, amount: int)
+signal on_supply_stolen(resource: Supply, amount: int)
 
-# called when a resources are updated
+# called when supplies are updated
 @warning_ignore("unused_signal")
-signal on_resource_updated()
+signal on_supply_updated()
 
 #SceneChanger
 @warning_ignore("unused_signal")

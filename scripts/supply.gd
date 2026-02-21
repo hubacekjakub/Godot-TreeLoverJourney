@@ -69,14 +69,15 @@ func stop_collecting():
 func collecting_finished() -> void:
 	print("Resources: resource picking finished")
 	Resources.resource_collected(type, amount)
-	#notify about succesful collection
-	await get_tree().create_timer(0.2).timeout
+	SignalBus.on_supply_collected.emit(self, amount)
+	await get_tree().create_timer(0.1).timeout
 	collision_shape_3d.disabled = true
 	queue_free()
 
 func enemy_picked() -> void:
 	print("Resources: enemy stole a resource")
 	Resources.resource_stolen(type, amount)
+	SignalBus.on_supply_stolen.emit(self, amount)
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
 
