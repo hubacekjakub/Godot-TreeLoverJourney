@@ -4,11 +4,13 @@ extends Node
 var collected_resources: Array[int] = [0, 0]
 
 func resource_collected(resource: Supply.ResoruceType, amount: int) -> void:
-	print("Resource: resource update")
+	print("Resource: resource collected")
 	collected_resources[resource] = collected_resources[resource] + amount
 	SignalBus.on_resource_updated.emit()
-	
+	SignalBus.on_resource_collected.emit(resource, amount)
 
-func handle_resource_lost(resource: Supply.ResoruceType, amount: int) -> void:
-	#TODO
-	print("lost resource bro: ", resource, ", amount: ", amount)
+func resource_stolen(resource: Supply.ResoruceType, amount: int) -> void:
+	print("Resource: resource stolen")
+	collected_resources[resource] = max(collected_resources[resource] - amount, 0)
+	SignalBus.on_resource_updated.emit()
+	SignalBus.on_resource_stolen.emit(resource, amount)

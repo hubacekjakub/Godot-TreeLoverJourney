@@ -74,10 +74,19 @@ func collecting_finished() -> void:
 	collision_shape_3d.disabled = true
 	queue_free()
 
+func enemy_picked() -> void:
+	print("Resources: enemy stole a resource")
+	Resources.resource_stolen(type, amount)
+	await get_tree().create_timer(0.1).timeout
+	queue_free()
+
 func collecting_interupted() -> void:
 	progress_bar.visible = false
 
 func _on_body_entered(body: Node3D) -> void:
+	if NightDirector.is_night_active:
+		pass
+
 	print("body entered: ", body)
 	if body is FriendlyUnit:
 		start_collecting()

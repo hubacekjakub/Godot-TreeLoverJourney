@@ -8,6 +8,11 @@ var escape_target: Vector3 = Vector3.ZERO
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Friend"):
 		activate_escape_mode()
+		print("EnemyUnit: Found friend, activating escape mode")
+	if area.is_in_group("Resource") and area is Supply:
+		area.enemy_picked()
+		activate_escape_mode()
+		print("EnemyUnit: picked up supply")
 
 func set_escape_target(target: Vector3) -> void:
 	escape_target = target

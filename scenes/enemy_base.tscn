@@ -10,6 +10,8 @@ albedo_color = Color(0.36, 0.36, 0.36, 1)
 
 [node name="EnemyBase" type="Area3D" unique_id=1592287050]
 script = ExtResource("1_sw0xa")
+enemy_unit_scene = null
+is_sending_units = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=122487818]
 shape = SubResource("SphereShape3D_wg11f")
