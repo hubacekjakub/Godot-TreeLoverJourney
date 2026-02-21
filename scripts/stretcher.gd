@@ -6,6 +6,8 @@ class_name Stretcher
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 50
 
+@onready var camera: Camera3D = $Camera
+
 var target_velocity = Vector3.ZERO
 
 var distance_check: float = 30.0
@@ -76,4 +78,6 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Resource"):
 		if area is Supply:
 			area.deactivate()
-			
+
+func get_camera_transform() -> Transform3D:
+	return camera.global_transform

@@ -48,11 +48,12 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 geometry_source_geometry_mode = 1
 geometry_source_group_name = &"Navigation"
 
-[node name="Level1" type="Node3D" unique_id=316296849 node_paths=PackedStringArray("resting_places", "night_camera")]
+[node name="Level1" type="Node3D" unique_id=316296849 node_paths=PackedStringArray("resting_places", "nositka", "level_camera")]
 script = ExtResource("1_l53as")
 resting_places = [NodePath("Path/Pitstop")]
-night_camera = NodePath("Camera3D")
-begin_wait_time = 1.0
+begin_wait_time = 5.0
+nositka = NodePath("Stretcher")
+level_camera = NodePath("Camera3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=771073023]
 environment = SubResource("Environment_hkwxo")
@@ -1826,4 +1827,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220.95302, -3.9653378, 2.278
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -218.93983, -3.9653358, -3.7379737)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1276352344]
-transform = Transform3D(1, 0, 0, 0, 0.4763456, 0.87925816, 0, -0.87925816, 0.4763456, 130.92924, 21.034458, 12.721727)
+transform = Transform3D(1, 0, 0, 0, 0.4763456, 0.87925816, 0, -0.87925816, 0.4763456, 130.92924, 29.16873, 13.4576)
+projection = 1
+size = 40.0

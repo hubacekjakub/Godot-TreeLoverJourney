@@ -3,43 +3,44 @@ class_name Level
 
 @export var level: int = 1
 @export var resting_places: Array[RestingPlace]
-@export var night_camera: Camera3D
 @export var begin_wait_time: float = 3.5
-
-@onready var nositka: Stretcher = $Stretcher
+@export var nositka: Stretcher
+@export var level_camera: Camera3D
 
 var current_resting_place_index: int = 0
+var camera_tween: Tween = null
 
 func _ready() -> void:
-	SignalBus.on_night_start.connect(handle_night_start)
 	SignalBus.resting_place_reached.connect(handle_on_resting_place_reached)
-	SignalBus.just_fade_in_finished.connect(handle_fade_in_finished)
-	SignalBus.just_fade_out_finished.connect(handle_fade_out_finished)
 	await get_tree().create_timer(begin_wait_time).timeout
 	if resting_places.size() > 0:
 		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
 
-func handle_night_start(_level: int) -> void:
-	SceneChanger.fade_in()
-
 func handle_on_resting_place_reached():
-	print("lets wait 2 seconds before going further")
-	await get_tree().create_timer(2).timeout
-
+	#print("lets wait 2 seconds before going further")
+	#await get_tree().create_timer(0.5).timeout
 	current_resting_place_index = current_resting_place_index+1
 
 	if current_resting_place_index < resting_places.size():
 		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
 		print("sending new resting place: ", current_resting_place_index)
 	else:
-		SignalBus.on_night_start.emit(1)
+		SignalBus.on_night_transition_start.emit()
+		start_night_transition()
+
 		print("there is no resting place")
 
-func handle_fade_in_finished() -> void:
-	print("fade in finished")
-	night_camera.current = true
-	SceneChanger.fade_out()
+# prepares level for night gameplay
+func start_night_transition() -> void:
+	var night_location_transform = level_camera.global_transform
+	level_camera.transform = nositka.get_camera_transform()
+	level_camera.current = true
 
+	camera_tween = get_tree().create_tween()
+	camera_tween.tween_property(level_camera, "transform", night_location_transform, 1.5).set_ease(Tween.EASE_IN_OUT)
+	camera_tween.tween_callback(self.night_camera_move_finished)
 
-func handle_fade_out_finished() -> void:
-	print("fade out finished")
+func night_camera_move_finished() -> void:
+	print("camera move to night location finished")
+	SignalBus.on_night_transition_finished.emit()
+	SignalBus.on_night_start.emit(1)

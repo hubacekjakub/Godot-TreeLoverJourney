@@ -31,6 +31,14 @@ signal on_unit_lost(unit: FriendlyUnit)
 
 #NightDirector
 
+# called when transition to night starts
+@warning_ignore("unused_signal")
+signal on_night_transition_start()
+
+# called when transition to night ends
+@warning_ignore("unused_signal")
+signal on_night_transition_finished()
+
 # called when night gameplay starts
 @warning_ignore("unused_signal")
 signal on_night_start(level: int)
