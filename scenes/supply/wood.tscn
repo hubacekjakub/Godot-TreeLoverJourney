@@ -5,6 +5,6 @@
 [node name="Wood" unique_id=1592287050 instance=ExtResource("1_80iew")]
 amount = 15
 type = 1
-color_active = Color(0.5160951, 0.22440246, 0.009906079, 1)
+color_active = Color(0.847501, 0.38756663, 0.055342063, 1)
 color_unactive = Color(0.34, 0.15311332, 0.01019999, 1)
 collection_time = 6.0

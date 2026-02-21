@@ -1722,7 +1722,7 @@ material = SubResource("StandardMaterial3D_arlwx")
 
 [node name="Stretcher" parent="." unique_id=1286089619 instance=ExtResource("3_08mmt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.412127, -2.0934858, -4.5292797)
-speed = 8
+speed = 3
 
 [node name="Path" type="Node3D" parent="." unique_id=1042952438]
 
@@ -1773,6 +1773,11 @@ use_3d_avoidance = true
 
 [node name="FriendlyUnit" parent="Units" unique_id=176970989 instance=ExtResource("6_nmsli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.449635, -3.2918959, -0.42470455)
+movement_speed = 50.0
+is_enabled = true
+
+[node name="FriendlyUnit2" parent="Units" unique_id=1967153668 instance=ExtResource("6_nmsli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.449635, -3.2918959, -9.326667)
 movement_speed = 50.0
 is_enabled = true
 
