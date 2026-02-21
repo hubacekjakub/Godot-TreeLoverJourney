@@ -7,6 +7,7 @@ class_name Stretcher
 @export var fall_acceleration = 50
 
 @onready var camera: Camera3D = $Camera
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var target_velocity = Vector3.ZERO
 
@@ -40,10 +41,13 @@ func _physics_process(delta):
 		direction = direction_to_target
 
 		var distance_to_target = self.global_position.distance_squared_to(current_target.global_position)
+		animation_player.play("wheel_anim")
 		#print(distance_to_target)
 		if(distance_to_target < distance_check):
 			SignalBus.resting_place_reached.emit()
 			automove = false
+			animation_player.stop()
+
 
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
