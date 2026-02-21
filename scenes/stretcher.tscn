@@ -995,7 +995,7 @@ sides = 64
 material = SubResource("StandardMaterial3D_4gp6k")
 
 [node name="StretcherModelRoot" type="Node3D" parent="." unique_id=1534751982]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.093960166, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0, 0)
 
 [node name="Quilt" type="MeshInstance3D" parent="StretcherModelRoot" unique_id=503893114]
 transform = Transform3D(100, 1.8626454e-07, -1.164151e-08, 1.16415375e-08, -1.1920929e-05, 99.99999, 1.8626454e-07, -99.99999, -1.1920929e-05, 0.044628363, 0.86370546, -1.6118636)
@@ -1021,9 +1021,10 @@ mesh = SubResource("ArrayMesh_way64")
 libraries/ = SubResource("AnimationLibrary_g6itv")
 
 [node name="root" type="Node3D" parent="." unique_id=332639677]
-transform = Transform3D(-4.371139e-06, -100, -4.371139e-06, 0, -4.371139e-06, 100, -100, 4.371139e-06, 1.9106854e-13, 1.411748, 0, 0)
+transform = Transform3D(-4.371139e-06, -100, -4.371139e-06, 0, -4.371139e-06, 100, -100, 4.371139e-06, 1.9106854e-13, 1.5, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="root" unique_id=597267824]
+transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, 0, 0, 0.0007491806)
 bones/0/name = "c_traj"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 1.4210855e-14, 1.7484555e-07, 1.7484555e-07, -1.1920929e-07, -0.99999994, 1.4210855e-14, 0.99999994, -1.1920929e-07, 0, 0, 0)
@@ -1411,7 +1412,7 @@ bones/54/rotation = Quaternion(5.0439314e-07, 0.012581178, -1.14388335e-07, 0.99
 bones/54/scale = Vector3(0.99999994, 1, 1.0000001)
 
 [node name="parrot" type="MeshInstance3D" parent="root/Skeleton3D" unique_id=260261190]
-transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, -1.01504194e-10, -0.0023221457, 0.0009509682)
+transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, 1.537881e-11, 0.00035182573, 0.0003469601)
 mesh = SubResource("ArrayMesh_kk8wc")
 skin = SubResource("Skin_5v6i2")
 skeleton = NodePath("..")
