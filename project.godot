@@ -12,9 +12,13 @@ config_version=5
 
 config/name="Godot-TreeLoverJourney"
 config/description="Tree climbing is his passion"
-config/version="0.0.6"
+config/version="0.0.10"
 run/main_scene="uid://day083c7paac0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+
+[audio]
+
+buses/default_bus_layout="uid://d4crgnbq78yth"
 
 [autoload]
 
