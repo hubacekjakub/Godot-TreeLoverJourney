@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://oshn7pp2j3vp"
+uid="uid://ps0tuhsloeaf"
 path="res://.godot/imported/map.fbx-f7fabb23f839d6c30e702c13f045722a.scn"
 
 [deps]
@@ -13,8 +13,8 @@ dest_files=["res://.godot/imported/map.fbx-f7fabb23f839d6c30e702c13f045722a.scn"
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Map"
+nodes/root_type=""
+nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -39,10 +39,55 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"bridge": {
+"Leaves 1": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/bridge/bridge.tres",
-"use_external/path": "uid://drtq5fd4hbmky"
+"use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
+"use_external/path": "uid://cubaf3gldl474"
+},
+"Leaves 1.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
+"use_external/path": "uid://cubaf3gldl474"
+},
+"Leaves 1.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
+"use_external/path": "uid://cubaf3gldl474"
+},
+"Leaves 1.003": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
+"use_external/path": "uid://cubaf3gldl474"
+},
+"Leaves 1.004": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
+"use_external/path": "uid://cubaf3gldl474"
+},
+"Stem": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/tree_root.tres",
+"use_external/path": "uid://dd078op76lws8"
+},
+"Stem.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/tree_root.tres",
+"use_external/path": "uid://dd078op76lws8"
+},
+"Stem.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/tree_root.tres",
+"use_external/path": "uid://dd078op76lws8"
+},
+"Stem.003": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/tree_root.tres",
+"use_external/path": "uid://dd078op76lws8"
+},
+"Stem.004": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/tree/tree_root.tres",
+"use_external/path": "uid://dd078op76lws8"
 },
 "color2.001": {
 "use_external/enabled": true,
@@ -59,6 +104,21 @@ _subresources={
 "use_external/fallback_path": "res://assets/materials/bonfire/bonfire_1.tres",
 "use_external/path": "uid://dgqciikv60s3"
 },
+"red": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（red）.tres",
+"use_external/path": "uid://b30otko2im21e"
+},
+"red.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（orange）.tres",
+"use_external/path": "uid://ccmxew3r5njn7"
+},
+"root": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（Brown）.tres",
+"use_external/path": "uid://05ukyafldode"
+},
 "stone": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/stone/stone.tres",
@@ -66,7 +126,7 @@ _subresources={
 },
 "房子": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/house1/house_1.tres",
+"use_external/fallback_path": "res://assets/materials/House/house1.tres",
 "use_external/path": "uid://6twm5jpgqvcw"
 },
 "房子.001": {
@@ -84,9 +144,19 @@ _subresources={
 "use_external/fallback_path": "res://assets/materials/bridge/bridge.tres",
 "use_external/path": "uid://drtq5fd4hbmky"
 },
+"担架": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/stretcher/stretcher_1.tres",
+"use_external/path": "uid://b5df6xsu4npsa"
+},
+"担架.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/stretcher/stretcher_2.tres",
+"use_external/path": "uid://6frason3snca"
+},
 "木头": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/house1/house_2.tres",
+"use_external/fallback_path": "res://assets/materials/House/house2.tres",
 "use_external/path": "uid://dfy5fg7kngmex"
 },
 "木头.001": {
@@ -99,10 +169,30 @@ _subresources={
 "use_external/fallback_path": "res://assets/materials/bridge/bridge.tres",
 "use_external/path": "uid://drtq5fd4hbmky"
 },
+"木路灯1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/streetlight/street_light_1.tres",
+"use_external/path": "uid://clts0njlsdxoq"
+},
+"木路灯2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/streetlight/street_light_2.tres",
+"use_external/path": "uid://c5wwsujk86y3n"
+},
+"材质.004": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（purple）.tres",
+"use_external/path": "uid://bpfbdmdygkto"
+},
 "石头": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/stone/stone.tres",
 "use_external/path": "uid://c7rl58ana5if0"
+},
+"路灯点光": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/streetlight/street_light_3.tres",
+"use_external/path": "uid://ysve14ss1kb6"
 }
 }
 }

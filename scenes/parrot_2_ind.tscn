@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://clx72wtqjhben"]
+
+[ext_resource type="PackedScene" uid="uid://tcf51n0n81e2" path="res://assets/models/parrot2ind.fbx" id="1_wmlst"]
+
+[node name="parrot2ind" unique_id=1988684951 instance=ExtResource("1_wmlst")]
+
+[node name="Wheel1" parent="." index="1" unique_id=912197453]
+transform = Transform3D(100, 0, 0, 0, -4.371138e-06, 99.999985, 0, -99.999985, -4.371138e-06, 0.59476495, 0.45437908, -2.5835562)
+
+[node name="Wheel1_001" parent="." index="2" unique_id=2060705327]
+transform = Transform3D(100, 0, 0, 0, -4.371138e-06, 99.999985, 0, -99.999985, -4.371138e-06, -0.7778623, 0.45437908, -2.4696171)
+
+[node name="parrot_002" parent="." index="3" unique_id=453636917]
+transform = Transform3D(97.72412, 21.213171, 3.3621327e-06, -21.213171, 97.72412, 1.902758e-05, 7.507386e-07, -1.930775e-05, 100, -0.056333672, 0.21163675, -1.5380725)

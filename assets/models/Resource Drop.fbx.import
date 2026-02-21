@@ -1,0 +1,77 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dwcubfw84ypgi"
+path="res://.godot/imported/Resource Drop.fbx-28b49c6879986747f1b866d7655b8da0.scn"
+
+[deps]
+
+source_file="res://assets/models/Resource Drop.fbx"
+dest_files=["res://.godot/imported/Resource Drop.fbx-28b49c6879986747f1b866d7655b8da0.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Leaves 1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（green）.tres",
+"use_external/path": "uid://cff56vqy6jpqe"
+},
+"Material.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/wood.tres",
+"use_external/path": "uid://vpru2b2hh257"
+},
+"red": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（red）.tres",
+"use_external/path": "uid://b30otko2im21e"
+},
+"red.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（orange）.tres",
+"use_external/path": "uid://ccmxew3r5njn7"
+},
+"root": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（Brown）.tres",
+"use_external/path": "uid://05ukyafldode"
+},
+"材质.004": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/Berry&Wood/berry（purple）.tres",
+"use_external/path": "uid://bpfbdmdygkto"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

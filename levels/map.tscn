@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://bvs5p8x4kn6gb"]
 
-[ext_resource type="PackedScene" uid="uid://oshn7pp2j3vp" path="res://assets/models/map.fbx" id="1_wyxhb"]
-[ext_resource type="Material" uid="uid://c58karu2vyk8j" path="res://assets/materials/stone/ruins.tres" id="2_pvovc"]
+[ext_resource type="PackedScene" uid="uid://ps0tuhsloeaf" path="res://assets/models/map.fbx" id="1_wyxhb"]
+[ext_resource type="Material" path="res://assets/materials/stone/ruins.tres" id="2_pvovc"]
 [ext_resource type="Environment" uid="uid://dmfojqhnhgroq" path="res://assets/resources/map_environment.tres" id="2_tu4w6"]
 
-[node name="Map" unique_id=1122378751 instance=ExtResource("1_wyxhb")]
+[node name="Map" unique_id=570774509 instance=ExtResource("1_wyxhb")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=848499778]
 environment = ExtResource("2_tu4w6")
 
-[node name="Ruins1" parent="." index="41" unique_id=1646586898]
+[node name="Ruins1" parent="." index="41" unique_id=2084109982]
 material_override = ExtResource("2_pvovc")
 
-[node name="Ruins2" parent="." index="42" unique_id=1482571305]
+[node name="Ruins2" parent="." index="42" unique_id=601114698]
 material_override = ExtResource("2_pvovc")
 
-[node name="Ruins2（1）" parent="." index="43" unique_id=1920421999]
+[node name="Ruins2（1）" parent="." index="43" unique_id=1823576058]
 material_override = ExtResource("2_pvovc")

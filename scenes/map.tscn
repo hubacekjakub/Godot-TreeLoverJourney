@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bn2yh3i2oweds"]
+
+[ext_resource type="PackedScene" uid="uid://ps0tuhsloeaf" path="res://assets/models/map.fbx" id="1_0cso3"]
+[ext_resource type="Material" path="res://assets/materials/stone/mountain.tres" id="2_2klcf"]
+[ext_resource type="Material" path="res://assets/materials/stone/ruins.tres" id="3_2lpho"]
+[ext_resource type="Material" uid="uid://drtq5fd4hbmky" path="res://assets/materials/bridge/bridge.tres" id="4_nakos"]
+
+[sub_resource type="Environment" id="Environment_myvm1"]
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 1.48
+glow_bloom = 0.02
+adjustment_brightness = 1.42
+
+[node name="map" unique_id=333642308 instance=ExtResource("1_0cso3")]
+
+[node name="Mountain" parent="." index="39" unique_id=618527013]
+material_override = ExtResource("2_2klcf")
+
+[node name="Ruins1" parent="." index="40" unique_id=2084109982]
+material_override = ExtResource("3_2lpho")
+
+[node name="Ruins2" parent="." index="41" unique_id=601114698]
+material_override = ExtResource("3_2lpho")
+
+[node name="Ruins2（1）" parent="." index="42" unique_id=1823576058]
+material_override = ExtResource("3_2lpho")
+
+[node name="bridge1" parent="." index="100" unique_id=1801248303]
+material_override = ExtResource("4_nakos")
+
+[node name="bridge2" parent="." index="101" unique_id=386219297]
+material_override = ExtResource("4_nakos")
+
+[node name="bridge3" parent="." index="102" unique_id=1208359825]
+material_override = ExtResource("4_nakos")
+
+[node name="rock" parent="." index="110" unique_id=1411426339]
+material_override = ExtResource("2_2klcf")
+
+[node name="rock_003" parent="." index="113" unique_id=2138647124]
+material_override = ExtResource("2_2klcf")
+
+[node name="rock_004" parent="." index="114" unique_id=1516535521]
+material_override = ExtResource("2_2klcf")
+
+[node name="rock_005" parent="." index="115" unique_id=1607824813]
+material_override = ExtResource("2_2klcf")
+
+[node name="rock_006" parent="." index="116" unique_id=1858556685]
+material_override = ExtResource("2_2klcf")
+
+[node name="rock_007" parent="." index="117" unique_id=1273181371]
+material_override = ExtResource("2_2klcf")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="120" unique_id=98783549]
+environment = SubResource("Environment_myvm1")

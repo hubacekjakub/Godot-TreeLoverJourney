@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://c7rl58ana5if0"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://caau3pgoj2egx"]
 
 [ext_resource type="Shader" uid="uid://dk3vwjrqxw1ce" path="res://shaders/toon.tres" id="1_qcoiu"]
 

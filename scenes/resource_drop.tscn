@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://rjt7c7xvc0ea"]
+
+[ext_resource type="PackedScene" uid="uid://dwcubfw84ypgi" path="res://assets/models/Resource Drop.fbx" id="1_cdl7p"]
+
+[node name="Resource Drop" unique_id=372500676 instance=ExtResource("1_cdl7p")]
