@@ -1792,19 +1792,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 358.36572, 0, 0)
 
 [node name="EnemyBase" parent="Night/EnemyBases" unique_id=1870613067 node_paths=PackedStringArray("supply_targets") instance=ExtResource("8_vjtdm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -238.54474, -4.3044133, 8.554377)
-enemy_unit_scene = null
 is_sending_units = true
 supply_targets = [NodePath("../../Supply/Wood"), NodePath("../../Supply/Berries")]
 
 [node name="EnemyBase3" parent="Night/EnemyBases" unique_id=1837349689 node_paths=PackedStringArray("supply_targets") instance=ExtResource("8_vjtdm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.88141, -4.3044133, -22.102324)
-enemy_unit_scene = null
 is_sending_units = true
 supply_targets = [NodePath("../../Supply/Berries2")]
 
 [node name="EnemyBase8" parent="Night/EnemyBases" unique_id=158199143 node_paths=PackedStringArray("supply_targets") instance=ExtResource("8_vjtdm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -212.88666, -4.3044133, 9.688493)
-enemy_unit_scene = null
 is_sending_units = true
 supply_targets = [NodePath("../../Supply/Berries"), NodePath("../../Supply/Wood")]
 
