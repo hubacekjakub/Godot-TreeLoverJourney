@@ -14,6 +14,7 @@ script = ExtResource("1_oixck")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=122487818]
 shape = SubResource("SphereShape3D_wg11f")
+debug_color = Color(0.34651053, 0.43906677, 0, 0.41960785)
 
 [node name="CollectingTimer" type="Timer" parent="." unique_id=1733804173]
 

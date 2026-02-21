@@ -3,7 +3,7 @@ class_name Supply
 
 enum ResoruceType {BERRY = 0, WOOD = 1}
 
-@export_range(0, 100, 10) var amount: int = 10
+@export_range(0, 100, 5) var amount: int = 10
 @export var type: ResoruceType = ResoruceType.BERRY
 
 @export_group("Visual Setup")
