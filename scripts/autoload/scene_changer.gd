@@ -15,7 +15,7 @@ func _ready() -> void:
 
 	# Connect the animation finished signal to the function
 	animation_player.animation_finished.connect(_on_animation_finished)
-	SignalBus.map_loaded.connect(handle_map_loaded)
+	SignalBus.map_loaded.connect(_handle_map_loaded)
 
 
 func goto_scene(map_name: String) -> void:
@@ -40,6 +40,13 @@ func restart_current_scene() -> void:
 	animation_player.play("fade_in")
 	#call_deferred("_deferred_goto_scene", current_scene.scene_file_path)
 
+func fade_in() -> void:
+	animation_player.play("just_fade_in")
+
+
+func fade_out() -> void:
+	animation_player.play("just_fade_out")
+
 
 func _deferred_goto_scene(path: String) -> void:
 	# It is now safe to remove the current scene.
@@ -63,8 +70,12 @@ func _deferred_goto_scene(path: String) -> void:
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_in":
 		call_deferred("_deferred_goto_scene", load_level)
+	elif anim_name == "just_fade_out":
+		SignalBus.just_fade_out_finished.emit()
+	elif anim_name == "just_fade_in":
+		SignalBus.just_fade_in_finished.emit()
 
 
-func handle_map_loaded(_map_path: String) -> void:
+func _handle_map_loaded(_map_path: String) -> void:
 	animation_player.play("fade_out")
 	print("Fading OUT started!")

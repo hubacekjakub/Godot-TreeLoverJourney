@@ -42,7 +42,7 @@ func init_text_lines() -> void:
 	text_lines.append("[center]So he start climbing... and climbing...[/center]")
 	text_lines.append("[center][center]Of course he felt and this is beggining of our story... our JOURNEY.[/center][/center]")
 
-func handle_timeout() -> void: 
+func handle_timeout() -> void:
 	rich_text_label.text = ""
 	next_line()
 
@@ -56,4 +56,4 @@ func next_line() -> void:
 		is_done = true
 		panel.visible = false
 		SceneChanger.goto_scene(next_level)
-		
+

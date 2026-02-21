@@ -51,3 +51,10 @@ signal on_resource_collected(resource: Supply.ResoruceType, amount: int)
 # called when a resources are updated
 @warning_ignore("unused_signal")
 signal on_resource_updated()
+
+#SceneChanger
+@warning_ignore("unused_signal")
+signal just_fade_out_finished()
+
+@warning_ignore("unused_signal")
+signal just_fade_in_finished()

@@ -13,12 +13,14 @@ var current_resting_place_index: int = 0
 func _ready() -> void:
 	SignalBus.on_night_start.connect(handle_night_start)
 	SignalBus.resting_place_reached.connect(handle_on_resting_place_reached)
+	SignalBus.just_fade_in_finished.connect(handle_fade_in_finished)
+	SignalBus.just_fade_out_finished.connect(handle_fade_out_finished)
 	await get_tree().create_timer(begin_wait_time).timeout
 	if resting_places.size() > 0:
 		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
 
 func handle_night_start(_level: int) -> void:
-	night_camera.current = true
+	SceneChanger.fade_in()
 
 func handle_on_resting_place_reached():
 	print("lets wait 2 seconds before going further")
@@ -32,3 +34,12 @@ func handle_on_resting_place_reached():
 	else:
 		SignalBus.on_night_start.emit(1)
 		print("there is no resting place")
+
+func handle_fade_in_finished() -> void:
+	print("fade in finished")
+	night_camera.current = true
+	SceneChanger.fade_out()
+
+
+func handle_fade_out_finished() -> void:
+	print("fade out finished")
