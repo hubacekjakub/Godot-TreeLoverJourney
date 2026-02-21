@@ -56,4 +56,3 @@ func next_line() -> void:
 		is_done = true
 		panel.visible = false
 		SceneChanger.goto_scene(next_level)
-

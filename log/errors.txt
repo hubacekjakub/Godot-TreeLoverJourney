@@ -1,0 +1,24 @@
+Godot Engine v4.6.1.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+--- Debug adapter server started on port 6006 ---
+  ERROR: Resource file not found: res:// (expected type: Texture2D)
+  ERROR: Can't open file from path 'res://assets/models/texture_pbr_20250901.png'.
+  WARNING: modules/fbx/fbx_document.cpp:1084 - FBX: Image index '0' couldn't be loaded from path: res://assets/models/texture_pbr_20250901.png because there was no data to load. Skipping it.
+  ERROR: Resource file not found: res:// (expected type: Texture2D)
+  ERROR: Can't open file from path 'res://assets/models/texture_pbr_20250901_normal.png'.
+  WARNING: modules/fbx/fbx_document.cpp:1084 - FBX: Image index '1' couldn't be loaded from path: res://assets/models/texture_pbr_20250901_normal.png because there was no data to load. Skipping it.
+  ERROR: Resource file not found: res:// (expected type: Texture2D)
+  ERROR: Can't open file from path 'res://assets/models/texture_pbr_20250901_roughness.png'.
+  WARNING: modules/fbx/fbx_document.cpp:1084 - FBX: Image index '2' couldn't be loaded from path: res://assets/models/texture_pbr_20250901_roughness.png because there was no data to load. Skipping it.
+  ERROR: Resource file not found: res:// (expected type: Texture2D)
+  ERROR: Can't open file from path 'res://assets/models/texture_pbr_20250901_metallic.png'.
+  WARNING: modules/fbx/fbx_document.cpp:1084 - FBX: Image index '3' couldn't be loaded from path: res://assets/models/texture_pbr_20250901_metallic.png because there was no data to load. Skipping it.
+  WARNING: scene/resources/resource_format_text.cpp:500 - res://assets/materials/bonfire/bonfire_2.tres:3 - ext_resource, invalid UID: uid://dk3vwjrqxw1ce - using text path instead: res://shaders/toon.tres
+  WARNING: scene/resources/resource_format_text.cpp:500 - res://assets/materials/bonfire/bonfire_1.tres:3 - ext_resource, invalid UID: uid://dk3vwjrqxw1ce - using text path instead: res://shaders/toon.tres
+  WARNING: scene/resources/resource_format_text.cpp:500 - res://assets/materials/bridge/bridge.tres:3 - ext_resource, invalid UID: uid://dk3vwjrqxw1ce - using text path instead: res://shaders/toon.tres
+  WARNING: scene/resources/resource_format_text.cpp:500 - res://assets/materials/stone/stone.tres:3 - ext_resource, invalid UID: uid://dk3vwjrqxw1ce - using text path instead: res://shaders/toon.tres
+  WARNING: scene/resources/resource_format_text.cpp:500 - res://assets/materials/house2/house_3.tres:3 - ext_resource, invalid UID: uid://dk3vwjrqxw1ce - using text path instead: res://shaders/toon.tres
+  WARNING: scene/resources/resource_format_text.cpp:500 - res://assets/materials/house2/house_4.tres:3 - ext_resource, invalid UID: uid://dk3vwjrqxw1ce - using text path instead: res://shaders/toon.tres
+  WARNING: scene/resources/resource_format_text.cpp:500 - res://assets/materials/house1/house_1.tres:3 - ext_resource, invalid UID: uid://dk3vwjrqxw1ce - using text path instead: res://shaders/toon.tres
+  WARNING: scene/resources/resource_format_text.cpp:500 - res://assets/materials/house1/house_2.tres:3 - ext_resource, invalid UID: uid://dk3vwjrqxw1ce - using text path instead: res://shaders/toon.tres
+--- GDScript language server started on port 6005 ---
+[LSP] Connection Taken
