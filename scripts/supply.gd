@@ -41,7 +41,7 @@ func deactivate():
 	material.albedo_color = color_unactive
 
 func start_collecting():
-	print("Resources: resource picking started")
+	print("Supply: resource picking started")
 
 	if progress_tween:
 		progress_tween.kill()
@@ -58,7 +58,7 @@ func start_collecting():
 	#queue_free()
 
 func stop_collecting():
-	print("Resources: resource picking interrupted")
+	print("Supply: Supply picking interrupted")
 	if progress_tween:
 		progress_tween.kill()
 		progress_tween = create_tween()
@@ -67,16 +67,16 @@ func stop_collecting():
 		progress_tween.tween_callback(self.collecting_interupted)
 
 func collecting_finished() -> void:
-	print("Resources: resource picking finished")
-	Resources.resource_collected(type, amount)
+	print("Supply: resource picking finished")
+	Supplies.supply_collected(self, amount)
 	SignalBus.on_supply_collected.emit(self, amount)
 	await get_tree().create_timer(0.1).timeout
 	collision_shape_3d.disabled = true
 	queue_free()
 
 func enemy_picked() -> void:
-	print("Resources: enemy stole a resource")
-	Resources.resource_stolen(type, amount)
+	print("Supply: enemy stole a resource")
+	Supplies.supply_stolen(self, amount)
 	SignalBus.on_supply_stolen.emit(self, amount)
 	await get_tree().create_timer(0.1).timeout
 	queue_free()

@@ -5,12 +5,12 @@
 
 ## Day Cycle
 - stretcher automoves on path
-- around path are resources of various quantities (small, big)
+- around path are supplies of various quantities (small, big)
 - player need to send units (increasing count for each level) to collect them
 
 ## Night Cycle
 - top down view of campsite
-- among tents are packages with resources
+- among tents are packages with supplies
 - on outer radius there are spawnpoints for enemies
 - enemies spawn and try to approach resource box
 - when resource box if reached - one resource (only ONE) per one enemy

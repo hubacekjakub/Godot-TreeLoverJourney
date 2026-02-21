@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dkyefmi6y80sr"]
+
+[ext_resource type="Script" uid="uid://bk4wshdoy8oqc" path="res://scripts/ui/ui_night_timer.gd" id="1_f5su7"]
+
+[node name="NightTimer" type="MarginContainer" unique_id=452082066]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_right = 170.0
+offset_bottom = 94.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_f5su7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1562228152]
+layout_mode = 2
+color = Color(0.699469, 0.12471948, 1.92523e-07, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1499674621]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=578212241]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=71439184]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "NIGHT TIME"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=757319172]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2

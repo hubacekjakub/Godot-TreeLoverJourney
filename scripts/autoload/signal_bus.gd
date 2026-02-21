@@ -47,11 +47,11 @@ signal on_enemy_purged(enemy_unit: EnemyUnit)
 
 # called when a supply is collected
 @warning_ignore("unused_signal")
-signal on_supply_collected(resource: Supply, amount: int)
+signal on_supply_collected(supply: Supply, amount: int)
 
 # called when a supply is stolen
 @warning_ignore("unused_signal")
-signal on_supply_stolen(resource: Supply, amount: int)
+signal on_supply_stolen(supply: Supply, amount: int)
 
 # called when supplies are updated
 @warning_ignore("unused_signal")

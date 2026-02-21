@@ -12,8 +12,16 @@ var enemy_difficulty: Dictionary[int, int] = {
 	5: 5
 }
 
+var night_duration: Dictionary[int, float] = {
+	1: 20,
+	2: 20,
+	3: 25,
+	4: 30,
+	5: 35
+}
+
 var enemies_purged: int = 0
-var current_night_level: int = 0
+var current_night_level: int = 1
 var is_night_active: bool = false
 
 var timer : Timer
@@ -25,8 +33,9 @@ func _ready() -> void:
 	timer = Timer.new()
 	timer.timeout.connect(activate_enemy_spawn)
 	add_child(timer)
-	#await get_tree().create_timer(5).timeout
-	#handle_night_start(5)
+
+func night_timer_finished() -> void:
+	SignalBus.on_night_end.emit(true)
 
 # starts the night game play
 func handle_night_start(level: int) -> void:
@@ -49,7 +58,6 @@ func register_enemy_base(enemy_base: EnemyBase) -> void:
 func start_timer() -> void:
 	await get_tree().create_timer(start_up_delay).timeout
 	timer.start(enemy_spawn_frequency)
-	
 
 func stop_timer() -> void:
 	timer.stop()
@@ -67,6 +75,9 @@ func handle_enemy_purged(_enemy_unit: EnemyUnit) -> void:
 	enemies_purged += 1
 	print("Night: Enemy purged. Total purged: ", enemies_purged)
 
-	if enemies_purged >= enemy_difficulty[current_night_level]:
-		SignalBus.on_night_end.emit(true)
-		print("Night: Night ended with success")
+func get_night_difficulty() -> int:
+	#TODO: increase current_night_level
+	return enemy_difficulty[current_night_level]
+func get_night_duration() -> float:
+	#TODO: increase current_night_level
+	return night_duration[current_night_level]
