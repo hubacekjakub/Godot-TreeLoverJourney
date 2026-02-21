@@ -86,7 +86,7 @@ func collecting_interupted() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if NightDirector.is_night_active:
-		pass
+		return
 
 	print("body entered: ", body)
 	if body is FriendlyUnit:
