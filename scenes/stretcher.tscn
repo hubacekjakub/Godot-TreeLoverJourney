@@ -988,6 +988,7 @@ shape = SubResource("SphereShape3D_4gp6k")
 debug_fill = false
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=923612221]
+visible = false
 radius = 15.0
 height = 0.1
 sides = 64
