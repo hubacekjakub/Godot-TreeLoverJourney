@@ -7,6 +7,9 @@ class_name BaseUnit
 var fall_acceleration = 500
 @export var is_enabled: bool = false
 
+var is_moving: bool = false
+var is_gathering: bool = false
+
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
@@ -28,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
 	if navigation_agent.is_navigation_finished():
+		is_moving = false
 		return
 
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
@@ -40,3 +44,4 @@ func _physics_process(delta: float) -> void:
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
 	move_and_slide()
+	is_moving = true

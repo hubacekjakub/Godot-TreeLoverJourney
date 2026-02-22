@@ -91,8 +91,11 @@ func _on_body_entered(body: Node3D) -> void:
 	print("body entered: ", body)
 	if body is FriendlyUnit:
 		start_collecting()
+		body.is_gathering = true
 
 func _on_body_exited(body: Node3D) -> void:
 	print("body exited: ",body)
 	if body is FriendlyUnit:
 		stop_collecting()
+		body.is_gathering = false
+
