@@ -7,14 +7,17 @@ class_name Level
 @export var nositka: Stretcher
 @export var level_camera: Camera3D
 
+@onready var got_it_button: Button = %GotItButton
+@onready var tutorial_canvas: CanvasLayer = %Tutorial
+
 var current_resting_place_index: int = 0
 var camera_tween: Tween = null
 
 func _ready() -> void:
 	SignalBus.resting_place_reached.connect(handle_on_resting_place_reached)
 	await get_tree().create_timer(begin_wait_time).timeout
-	if resting_places.size() > 0:
-		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
+	got_it_button.pressed.connect(handle_got_it_pressed)
+	tutorial_canvas.visible = true
 
 func handle_on_resting_place_reached():
 	#print("lets wait 2 seconds before going further")
@@ -43,3 +46,11 @@ func start_night_transition() -> void:
 func night_camera_move_finished() -> void:
 	print("camera move to night location finished")
 	SignalBus.on_night_transition_finished.emit()
+
+func handle_got_it_pressed() -> void:
+	tutorial_canvas.visible = false
+	await get_tree().create_timer(begin_wait_time).timeout
+
+	if resting_places.size() > 0:
+		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
+
