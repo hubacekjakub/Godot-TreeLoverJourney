@@ -537,6 +537,7 @@ _data = {
 
 [node name="StartCutscene" type="Node3D" unique_id=969845176]
 script = ExtResource("1_cda1d")
+next_level = "uid://bvsa3uvjw3yet"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=272733748]
 environment = SubResource("Environment_xmigw")
