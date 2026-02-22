@@ -1835,3 +1835,21 @@ sides = 64
 transform = Transform3D(1, 0, 0, 0, 0.4763456, 0.87925816, 0, -0.87925816, 0.4763456, 130.92924, 29.16873, 13.4576)
 projection = 1
 size = 40.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=576808035]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1644219387]
+process_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport" unique_id=1352357285]
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=620026396]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Decal" type="Decal" parent="." unique_id=2032912021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.33531, 0, 0)
+size = Vector3(500, 1, 150)

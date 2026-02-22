@@ -14,6 +14,7 @@ enum UnitType {
 
 # @onready var csg_sphere_3d: CSGSphere3D = $CSGSphere3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var selection_marker: Node3D = $SelectionMarker
 
 var material: StandardMaterial3D
 var is_active: bool = false
@@ -25,6 +26,8 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	super._ready()
+	selection_marker.visible = false
+	# material = mesh_instance.material_override.duplicate()
 	# material = csg_sphere_3d.material.duplicate()
 	# csg_sphere_3d.material_override = material
 	play_idle_animation()
@@ -53,11 +56,13 @@ func _physics_process(_delta: float) -> void:
 func activate() -> void:
 	is_active = true
 	# material.albedo_color = color_active
+	selection_marker.visible = true
 
 
 func deactivate() -> void:
 	is_active = false
 	# material.albedo_color = color_unactive
+	selection_marker.visible = false
 	animation_player.stop()
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:

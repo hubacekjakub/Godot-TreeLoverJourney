@@ -6,8 +6,9 @@
 [ext_resource type="Material" uid="uid://d1vvvqvr2dtch" path="res://assets/materials/body/tile.tres" id="4_0lho7"]
 [ext_resource type="Material" uid="uid://po4milbpx26j" path="res://assets/materials/body/black.tres" id="5_1hl0j"]
 [ext_resource type="Material" uid="uid://dl6gdvg5ah7a" path="res://assets/materials/body/body1.tres" id="6_3uwql"]
-[ext_resource type="Animation" uid="uid://b07jk12fmcvuc" path="res://assets/animations/parrot_run.anim" id="7_qnb6c"]
+[ext_resource type="Animation" uid="uid://84o70wnyo1we" path="res://assets/animations/parrot_run.anim" id="7_qnb6c"]
 [ext_resource type="AnimationLibrary" uid="uid://d1420p6t5do2f" path="res://assets/animations/Parrot.res" id="8_t74e2"]
+[ext_resource type="PackedScene" uid="uid://26t2mwuomtis" path="res://scenes/mouse_marker.tscn" id="9_d2gg3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wofu5"]
 
@@ -690,6 +691,10 @@ skeleton = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1160527508]
 libraries/ = SubResource("AnimationLibrary_w08jw")
 libraries/Parrot = ExtResource("8_t74e2")
+
+[node name="SelectionMarker" parent="." unique_id=215412772 instance=ExtResource("9_d2gg3")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.074305594, -0.17592478, 0)
+visible = false
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
