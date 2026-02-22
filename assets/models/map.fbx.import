@@ -42,27 +42,27 @@ _subresources={
 "Leaves 1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
-"use_external/path": "uid://cubaf3gldl474"
+"use_external/path": "uid://cuvt87a10fxws"
 },
 "Leaves 1.001": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
-"use_external/path": "uid://cubaf3gldl474"
+"use_external/path": "uid://cuvt87a10fxws"
 },
 "Leaves 1.002": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
-"use_external/path": "uid://cubaf3gldl474"
+"use_external/path": "uid://cuvt87a10fxws"
 },
 "Leaves 1.003": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
-"use_external/path": "uid://cubaf3gldl474"
+"use_external/path": "uid://cuvt87a10fxws"
 },
 "Leaves 1.004": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/tree/leaves.tres",
-"use_external/path": "uid://cubaf3gldl474"
+"use_external/path": "uid://cuvt87a10fxws"
 },
 "Stem": {
 "use_external/enabled": true,
@@ -122,11 +122,11 @@ _subresources={
 "stone": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/stone/stone.tres",
-"use_external/path": "uid://c7rl58ana5if0"
+"use_external/path": "uid://caau3pgoj2egx"
 },
 "房子": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/House/house1.tres",
+"use_external/fallback_path": "res://assets/materials/house1/house_1.tres",
 "use_external/path": "uid://6twm5jpgqvcw"
 },
 "房子.001": {
@@ -156,7 +156,7 @@ _subresources={
 },
 "木头": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/House/house2.tres",
+"use_external/fallback_path": "res://assets/materials/house1/house_2.tres",
 "use_external/path": "uid://dfy5fg7kngmex"
 },
 "木头.001": {
@@ -187,7 +187,7 @@ _subresources={
 "石头": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/stone/stone.tres",
-"use_external/path": "uid://c7rl58ana5if0"
+"use_external/path": "uid://caau3pgoj2egx"
 },
 "路灯点光": {
 "use_external/enabled": true,

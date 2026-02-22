@@ -98,4 +98,3 @@ func _on_body_exited(body: Node3D) -> void:
 	if body is FriendlyUnit:
 		stop_collecting()
 		body.is_gathering = false
-

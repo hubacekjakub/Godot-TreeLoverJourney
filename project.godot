@@ -43,6 +43,7 @@ Unit=""
 Resource=""
 Enemy=""
 Friend=""
+Navigation=""
 
 [input]
 

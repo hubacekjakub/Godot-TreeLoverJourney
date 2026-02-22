@@ -64,7 +64,7 @@ func stop_timer() -> void:
 
 func activate_enemy_spawn() -> void:
 	if enemy_bases.size() == 0:
-		pass
+		return
 
 	var random_enemy_base_index: int = randi() % enemy_bases.size()
 	var random_enemy_base: EnemyBase = enemy_bases[random_enemy_base_index ]

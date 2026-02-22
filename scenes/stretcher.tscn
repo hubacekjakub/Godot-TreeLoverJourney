@@ -971,10 +971,9 @@ script = ExtResource("1_72okn")
 shape = SubResource("SphereShape3D_hkwxo")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=646657817]
-transform = Transform3D(-4.371139e-08, 0.5, -0.8660254, 0, 0.8660254, 0.5, 1, 2.1855694e-08, -3.7855173e-08, -22.926662, 20.998625, -1.0101714)
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 12, 20)
 projection = 1
-fov = 59.48979
-size = 40.0
+size = 10.0
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1926936205]
 visible = false
