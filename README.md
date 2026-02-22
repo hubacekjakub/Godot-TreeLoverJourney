@@ -10,8 +10,8 @@
 * A story about a bird who really loves trees. What could go wrong?
 
 ## State of the game
-= At this point its unfinished and there is no way to talk our of it :)
-= We will consider whether it make sense to continue
+* At this point its unfinished and there is no way to talk our of it :)
+* We will consider whether it make sense to continue
 
 <!-- 🎮 **[Live](https://hubacekjakub.itch.io/game-link)** -->
 
