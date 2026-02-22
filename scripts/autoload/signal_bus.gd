@@ -29,6 +29,16 @@ signal on_unit_deselected(unit: FriendlyUnit)
 @warning_ignore("unused_signal")
 signal on_unit_lost(unit: FriendlyUnit)
 
+#DayDirector (but there is no day director, so it is here)
+
+# called when day starts
+@warning_ignore("unused_signal")
+signal on_day_start()
+
+# called when day ends
+@warning_ignore("unused_signal")
+signal on_day_end()
+
 #NightDirector
 
 # called when transition to night starts

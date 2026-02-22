@@ -28,6 +28,7 @@ SoundManager="*uid://dtmt1bfgjvr2l"
 Global="*uid://df8uf0gxajuvf"
 UnitDirector="*uid://dw88b2j1it1lx"
 NightDirector="*uid://luxvvwa7gkgq"
+DayDirector="*uid://do0npqo6v40ot"
 Supplies="*uid://iig84tkio161"
 
 [display]
