@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://dirjky0nby5ro" path="res://scripts/autoload/sound_manager.gd" id="1_6que3"]
 [ext_resource type="AudioStream" uid="uid://ck4aw0qmj1c4h" path="res://assets/sounds/maintheme-perhaps.mp3" id="2_ldc1e"]
 [ext_resource type="AudioStream" uid="uid://c5nyo54lebpmf" path="res://assets/sounds/jamgame-night.mp3" id="3_ldc1e"]
+[ext_resource type="AudioStream" uid="uid://drcas68hor754" path="res://assets/sounds/levelmusic.mp3" id="3_wte3n"]
 [ext_resource type="AudioStream" uid="uid://b32o7f6hpeqxj" path="res://assets/sounds/pickup UI.wav" id="4_jvufo"]
 [ext_resource type="AudioStream" uid="uid://bocjxs08bu3jg" path="res://assets/sounds/button.wav" id="5_wgs3p"]
 
 [node name="SoundManager" type="Node" unique_id=1483278228]
 script = ExtResource("1_6que3")
 main_menu_sound = ExtResource("2_ldc1e")
-day_time_sound = ExtResource("2_ldc1e")
+day_time_sound = ExtResource("3_wte3n")
 night_time_sound = ExtResource("3_ldc1e")
 food_picked_sound = ExtResource("4_jvufo")
 wood_picked_sound = ExtResource("4_jvufo")
