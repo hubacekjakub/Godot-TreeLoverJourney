@@ -1,6 +1,6 @@
 extends Node
 
-@export var next_level: String = "uid://cy8unddt2maqp"
+@export var next_level: String = "uid://bvsa3uvjw3yet"
 
 func get_game_version() -> Variant:
 	return ProjectSettings.get_setting("application/config/version")
