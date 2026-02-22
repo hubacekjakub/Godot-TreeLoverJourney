@@ -1,11 +1,12 @@
 extends Node3D
 
 @export var next_level: String = "uid://cy8unddt2maqp"
-@export var startup_wait: float = 3
+@export var startup_wait: float = 2
 
 @onready var rich_text_label: RichTextLabel = $UI/Panel/RichTextLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_player_parrot: AnimationPlayer = $AnimationPlayerParrot
+@onready var animation_player_movement: AnimationPlayer = $AnimationPlayerMovement
 @onready var panel: Panel = $UI/Panel
 @onready var timer: Timer = $Timer
 
@@ -18,29 +19,52 @@ func _ready() -> void:
 	panel.visible = false
 	timer.timeout.connect(handle_timeout)
 	animation_player.animation_finished.connect(handle_animation_finished)
-	animation_player_parrot.animation_finished.connect(handle_animation_parrot_finished)
+	animation_player_parrot.animation_finished.connect(handle_animation_finished)
+	animation_player_movement.animation_finished.connect(handle_animation_movement_finished)
 	rich_text_label.visible_ratio = 0
 	init_text_lines()
-	animation_player.play("camera_move")
-	animation_player_parrot.play("walking")
+	await get_tree().create_timer(startup_wait).timeout
+	next_line()
+	# animation_player.play("camera_move")
+	# animation_player_parrot.play("walking")
 
 
 func handle_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "camera_move":
-		next_line()
 	if anim_name == "writing" and not is_done:
 		timer.start()
 
-func handle_animation_parrot_finished(anim_name: StringName) -> void:
+	if line_index == 1:
+		animation_player_parrot.play("Parrot/parrot_run")
+		animation_player_movement.play("walking")
+		animation_player.play("camera_move")
+
+	if line_index == 4:
+		animation_player_parrot.play("Parrot/parrot_gather")
+		animation_player_movement.play("climbing")
+
+	if line_index == 5:
+		animation_player_parrot.play("Parrot/parrot_gather")
+		animation_player_movement.play("falling")
+
+func handle_animation_movement_finished(anim_name: StringName) -> void:
+	if anim_name == "climbing":
+		animation_player_parrot.play("Parrot/parrot_idle")
+
 	if anim_name == "walking":
-		animation_player_parrot.play("climbing")
+		animation_player_parrot.play("Parrot/parrot_idle")
+
 
 func init_text_lines() -> void:
-	text_lines.append("[center]There was a brave parrot Kakapo.[/center]")
-	text_lines.append("[center]This Kakapo was tired, because everyone thinks, that these parrots are the most useless animals on the earth.[/center]")
-	text_lines.append("[center]Kakapo thinks, when I climb this tree, then everybody sees, I'm not useless, we are not useless![/center]")
-	text_lines.append("[center]So he start climbing... and climbing...[/center]")
-	text_lines.append("[center][center]Of course he felt and this is beggining of our story... our JOURNEY.[/center][/center]")
+	text_lines.append("[center]It was a calm day in the forest. It seemed that nothing interesting is going to happen.[/center]")
+	text_lines.append("[center]But then there was Brian. The embodiment of all prejudice towards kakapo parrots.[/center]")
+	text_lines.append("[center]To put it simply Brain was an idiot.[/center]")
+	text_lines.append("[center]And it was on this calm day, that Brian decided to climb on a tree. And to his own surprise he succeeded.[/center]")
+	text_lines.append("[center]The problem came when he wanted to get back down and realized he cannot fly. So he just jumped.[/center]")
+	text_lines.append("[center]The tree was fairly high and Brian broke both his legs and one of his wings.[/center]")
+	text_lines.append("[center]Luckily, two members of his tribe were collecting berries nearby and helped Brian back to the village.[/center]")
+	text_lines.append("[center]His wounds were too serious though and could only be treated by a shaman hermit living far in the woods.[/center]")
+	text_lines.append("[center]The most capable members of the tribe created a stretcher for Brian and set out for the journey to bring Brian to the shaman…[/center]")
+
 
 func handle_timeout() -> void:
 	rich_text_label.text = ""
