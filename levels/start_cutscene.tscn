@@ -167,10 +167,10 @@ tracks/1/path = NodePath("root:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(10),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.5707964, -1.5707964, 0)]
+"values": [Vector3(-1.5707964, 1.5707964, 0), Vector3(-1.5707964, -1.5707964, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_pan0o"]
