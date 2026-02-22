@@ -23,12 +23,15 @@ func _ready() -> void:
 	init_text_lines()
 	await get_tree().create_timer(startup_wait).timeout
 	animation_player.play("camera_move")
+	animation_player_parrot.play("Parrot/parrot_idle")
+
 
 
 
 func handle_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "camera_move" and not is_done:
 		next_line()
+		animation_player_parrot.play("Parrot/parrot_gather")
 	if anim_name == "writing" and not is_done:
 		timer.start()
 

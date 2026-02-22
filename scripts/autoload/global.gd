@@ -7,3 +7,6 @@ func get_game_version() -> Variant:
 
 func go_to_next_level() -> void:
 	SceneChanger.goto_scene(next_level)
+
+func go_to_end_cutscene() -> void:
+	SceneChanger.goto_scene("uid://blx447c52b2ay")

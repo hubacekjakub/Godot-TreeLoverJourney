@@ -496,7 +496,31 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.6981317, 0, 0)]
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Panel/RichTextLabel:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Panel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_2g52b"]
@@ -527,10 +551,39 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.6981317, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_4ntpu"]
+resource_name = "writing"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Panel/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ntpu"]
 _data = {
 &"RESET": SubResource("Animation_d6qic"),
-&"camera_move": SubResource("Animation_2g52b")
+&"camera_move": SubResource("Animation_2g52b"),
+&"writing": SubResource("Animation_4ntpu")
 }
 
 [node name="EndCutscene" type="Node3D" unique_id=969845176]
@@ -633,12 +686,13 @@ cast_shadow = 0
 multimesh = SubResource("MultiMesh_4tdu4")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1281603162]
-transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 8.239449, 20.961006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.239449, 20.961006)
 keep_aspect = 0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2129324127]
 
 [node name="Panel" type="Panel" parent="UI" unique_id=753613466]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1084,5 +1138,5 @@ mesh = SubResource("ArrayMesh_aycuf")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1158513512]
 libraries/ = SubResource("AnimationLibrary_4ntpu")
 
-[node name="AnimationPlayerParrot1" type="AnimationPlayer" parent="." unique_id=1353162506]
+[node name="AnimationPlayerParrot" type="AnimationPlayer" parent="." unique_id=1353162506]
 libraries/Parrot = ExtResource("11_qoofn")
