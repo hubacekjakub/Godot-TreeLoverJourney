@@ -72,7 +72,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/MiddleHBoxContainer/VBoxContainer" unique_id=1853002556]
 layout_mode = 2
-text = "Save Kakapo"
+text = "Tree Lover Journey"
 horizontal_alignment = 1
 vertical_alignment = 1
 
