@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Godot-TreeLoverJourney"
 config/description="Tree climbing is his passion"
-config/version="0.0.10"
+config/version="0.0.11"
 run/main_scene="uid://day083c7paac0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
@@ -28,8 +28,8 @@ SoundManager="*uid://dtmt1bfgjvr2l"
 Global="*uid://df8uf0gxajuvf"
 UnitDirector="*uid://dw88b2j1it1lx"
 NightDirector="*uid://luxvvwa7gkgq"
-DayDirector="*uid://do0npqo6v40ot"
 Supplies="*uid://iig84tkio161"
+DayDirector="*uid://do0npqo6v40ot"
 
 [display]
 
