@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2r23qaokvp0y"]
 
 [ext_resource type="PackedScene" uid="uid://djfty110prxa" path="res://scenes/supply/supply.tscn" id="1_80iew"]
+[ext_resource type="PackedScene" uid="uid://b7dy2hyhuo1pn" path="res://scenes/mesh/wood_mesh.tscn" id="2_k0clh"]
 
 [node name="Wood" unique_id=1592287050 instance=ExtResource("1_80iew")]
 amount = 15
@@ -8,3 +9,9 @@ type = 1
 color_active = Color(0.847501, 0.38756663, 0.055342063, 1)
 color_unactive = Color(0.34, 0.15311332, 0.01019999, 1)
 collection_time = 6.0
+
+[node name="CSGCylinder3D" parent="." index="3" unique_id=1283638491]
+visible = false
+
+[node name="WoodMesh" parent="." index="4" unique_id=297925679 instance=ExtResource("2_k0clh")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.5637443, 0.24783295, -0.37594098)

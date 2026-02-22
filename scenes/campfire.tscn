@@ -27,6 +27,7 @@ emission_operator = 1
 script = ExtResource("1_m47ar")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2014138860]
+visible = false
 use_collision = true
 radius = 0.83687174
 material = SubResource("StandardMaterial3D_nx02y")
@@ -62,8 +63,8 @@ material = SubResource("StandardMaterial3D_4gp6k")
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=365328703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8988838, 0)
 light_color = Color(1, 0.7666667, 0, 1)
-light_energy = 10.0
-omni_range = 15.0
+light_energy = 7.0
+omni_range = 10.0
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
