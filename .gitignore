@@ -21,6 +21,8 @@ mono_crash.*.json
 *.swp
 *.swo
 *~
+*.tmp
+*.bak
 
 # Build artifacts
 builds/
