@@ -1,14 +1,14 @@
 extends Area3D
 class_name Supply
 
-enum ResoruceType {BERRY = 0, WOOD = 1}
+enum ResourceType {BERRY = 0, WOOD = 1}
 
 @export_range(0, 100, 5) var amount: int = 10
-@export var type: ResoruceType = ResoruceType.BERRY
+@export var type: ResourceType = ResourceType.BERRY
 
 @export_group("Visual Setup")
-@export var color_active : Color = Color("b85306")
-@export var color_unactive : Color = Color("5b2903")
+@export var color_active: Color = Color("b85306")
+@export var color_inactive: Color = Color("5b2903")
 
 @export_group("Timers")
 ## How long it takes one unit to collect the resource
@@ -19,7 +19,6 @@ enum ResoruceType {BERRY = 0, WOOD = 1}
 @onready var csg_cylinder_3d: CSGCylinder3D = $CSGCylinder3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var collecting_timer: Timer = $CollectingTimer
-#@onready var progress_bar: ProgressBar = $Control/ProgressBar
 @onready var progress_bar: Control = $ProgressBar
 
 var material: StandardMaterial3D
@@ -38,7 +37,7 @@ func activate():
 
 func deactivate():
 	active = false
-	material.albedo_color = color_unactive
+	material.albedo_color = color_inactive
 
 func start_collecting():
 	print("Supply: resource picking started")
@@ -50,21 +49,18 @@ func start_collecting():
 	if progress_tween == null:
 		progress_bar.visible = true
 		progress_tween = get_tree().create_tween()
-		var current_progress : float = progress_bar.get_progress()
+		var current_progress: float = progress_bar.get_progress()
 		progress_tween.tween_method(progress_bar.set_progress, current_progress, 100, collection_time)
 		progress_tween.tween_callback(self.collecting_finished)
-
-	#await get_tree().create_timer(collection_time).timeout
-	#queue_free()
 
 func stop_collecting():
 	print("Supply: Supply picking interrupted")
 	if progress_tween:
 		progress_tween.kill()
 		progress_tween = create_tween()
-		var current_progress : float = progress_bar.get_progress()
+		var current_progress: float = progress_bar.get_progress()
 		progress_tween.tween_method(progress_bar.set_progress, current_progress, 0, interrupt_time)
-		progress_tween.tween_callback(self.collecting_interupted)
+		progress_tween.tween_callback(self.collecting_interrupted)
 
 func collecting_finished() -> void:
 	print("Supply: resource picking finished")
@@ -81,7 +77,7 @@ func enemy_picked() -> void:
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
 
-func collecting_interupted() -> void:
+func collecting_interrupted() -> void:
 	progress_bar.visible = false
 
 func _on_body_entered(body: Node3D) -> void:
@@ -94,7 +90,7 @@ func _on_body_entered(body: Node3D) -> void:
 		body.is_gathering = true
 
 func _on_body_exited(body: Node3D) -> void:
-	print("body exited: ",body)
+	print("body exited: ", body)
 	if body is FriendlyUnit:
 		stop_collecting()
 		body.is_gathering = false

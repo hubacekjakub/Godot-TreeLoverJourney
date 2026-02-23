@@ -61,7 +61,7 @@ signal on_night_end(success: bool)
 @warning_ignore("unused_signal")
 signal on_enemy_purged(enemy_unit: EnemyUnit)
 
-#Resoruces
+#Resources
 
 # called when a supply is collected
 @warning_ignore("unused_signal")

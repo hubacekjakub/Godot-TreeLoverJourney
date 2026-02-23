@@ -25,17 +25,7 @@ func _ready() -> void:
 	SignalBus.new_resting_place_set.connect(handle_new_resting_place_set)
 
 func _physics_process(delta):
-
 	var direction = Vector3.ZERO
-
-	#if Input.is_action_pressed("move_right"):
-	#	direction.z += 1
-	#if Input.is_action_pressed("move_left"):
-	#	direction.z -= 1
-	#if Input.is_action_pressed("move_back"):
-	#	direction.x -= 1
-	#if Input.is_action_pressed("move_forward"):
-	#	direction.x += 1
 
 	if automove:
 		var direction_to_target = self.global_position.direction_to(current_target.global_position)
@@ -45,7 +35,7 @@ func _physics_process(delta):
 		animation_player.play("wheel_anim")
 		animation_player_parrot.play("root|pull")
 		#print(distance_to_target)
-		if(distance_to_target < distance_check):
+		if (distance_to_target < distance_check):
 			SignalBus.resting_place_reached.emit()
 			automove = false
 			animation_player.stop()

@@ -11,12 +11,15 @@ func _ready() -> void:
 
 # TODO: add collected_supply and use it instead of central location
 # Send unit to central location of the unit director
-func send_enemy_unit()-> void:
+func send_enemy_unit() -> void:
 	if supply_targets.size() == 0:
 		return
 
 	print("Spawning enemy unit")
 	var random_supply: Supply = get_random_supply_target()
+	if random_supply == null:
+		return
+
 	var new_enemy_unit = enemy_unit_scene.instantiate() as EnemyUnit
 
 	if new_enemy_unit:
@@ -30,7 +33,8 @@ func _on_body_entered(body: Node3D) -> void:
 		body.kill()
 
 func get_random_supply_target() -> Supply:
-	assert(supply_targets.size() > 0, "Supply targets array is empty!")
+	if supply_targets.size() == 0:
+		return null
 	var random_index = randi() % supply_targets.size()
 
 	if supply_targets[random_index] == null:
