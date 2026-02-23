@@ -10,28 +10,15 @@ class_name Level
 @onready var got_it_button: Button = %GotItButton
 @onready var tutorial_canvas: CanvasLayer = %Tutorial
 
-var current_resting_place_index: int = 0
 var camera_tween: Tween = null
 
 func _ready() -> void:
-	SignalBus.resting_place_reached.connect(handle_on_resting_place_reached)
+	DayDirector.initialize_day(resting_places)
+	SignalBus.on_night_transition_start.connect(start_night_transition)
+
 	await get_tree().create_timer(begin_wait_time).timeout
 	got_it_button.pressed.connect(handle_got_it_pressed)
 	tutorial_canvas.visible = true
-
-func handle_on_resting_place_reached():
-	#print("lets wait 2 seconds before going further")
-	#await get_tree().create_timer(0.5).timeout
-	current_resting_place_index = current_resting_place_index+1
-
-	if current_resting_place_index < resting_places.size():
-		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
-		print("sending new resting place: ", current_resting_place_index)
-	else:
-		SignalBus.on_night_transition_start.emit()
-		start_night_transition()
-
-		print("there is no resting place")
 
 # prepares level for night gameplay
 func start_night_transition() -> void:
@@ -50,7 +37,4 @@ func night_camera_move_finished() -> void:
 func handle_got_it_pressed() -> void:
 	tutorial_canvas.visible = false
 	await get_tree().create_timer(begin_wait_time).timeout
-
-	if resting_places.size() > 0:
-		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
-
+	Global.start_day()
