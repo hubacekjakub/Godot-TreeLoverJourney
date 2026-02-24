@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="LevelList" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/level_list.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://y6osr473v6x0" path="res://levels/start_cutscene.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://blx447c52b2ay" path="res://levels/end_cutscene.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://levels/level_1.scn" id="4"]
+[ext_resource type="PackedScene" path="res://levels/level_2.scn" id="5"]
+[ext_resource type="PackedScene" path="res://levels/level_3.scn" id="6"]
+
+[resource]
+script = ExtResource("1")
+intro_cutscene = ExtResource("2")
+outro_cutscene = ExtResource("3")
+levels = Array[PackedScene]([ExtResource("4"), ExtResource("5"), ExtResource("6")])

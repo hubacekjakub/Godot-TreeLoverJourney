@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://3fnrnsrin2oa"]
+
+[ext_resource type="Script" uid="uid://df8uf0gxajuvf" path="res://scripts/autoload/global.gd" id="1"]
+[ext_resource type="Resource" path="res://resources/level_list.tres" id="2"]
+
+[node name="Global" type="Node" unique_id=2107402378]
+script = ExtResource("1")
+level_list = ExtResource("2")

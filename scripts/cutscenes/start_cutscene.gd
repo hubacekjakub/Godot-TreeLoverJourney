@@ -1,6 +1,5 @@
 extends Node3D
 
-@export var next_level: String = "uid://cy8unddt2maqp"
 @export var startup_wait: float = 2
 
 @onready var rich_text_label: RichTextLabel = $UI/Panel/RichTextLabel
@@ -77,4 +76,4 @@ func next_line() -> void:
 	else:
 		is_done = true
 		panel.visible = false
-		SceneChanger.goto_scene(next_level)
+		Global.go_to_first_level()
