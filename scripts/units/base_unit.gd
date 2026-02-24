@@ -4,7 +4,7 @@ class_name BaseUnit
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 @export var movement_speed: float = 4.0
-var fall_acceleration = 500
+var fall_acceleration: float = 500
 @export var is_enabled: bool = false
 
 var is_moving: bool = false
@@ -17,14 +17,14 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta: float) -> void:
-	if not is_enabled:
-		print("BaseUnit", name, "is disabled")
+	# Vertical Velocity — always apply gravity even when disabled
+	if not is_on_floor():
+		var fall_velocity := Vector3(0, self.velocity.y - (fall_acceleration * delta), 0)
+		velocity = fall_velocity
+		move_and_slide()
 		return
 
-	# Vertical Velocity
-	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-		var fall_velocity = Vector3(0, self.velocity.y - (fall_acceleration * delta), 0)
-		_on_velocity_computed(fall_velocity)
+	if not is_enabled:
 		return
 
 	# Do not query when the map has never synchronized and is empty.
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		_on_velocity_computed(new_velocity)
 
-func _on_velocity_computed(safe_velocity: Vector3):
+func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	velocity = safe_velocity
 	move_and_slide()
 	is_moving = true

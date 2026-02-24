@@ -7,7 +7,8 @@ class_name EnemyBase
 
 func _ready() -> void:
 	NightDirector.register_enemy_base(self)
-	SignalBus.on_supply_stolen.connect(handle_supply_stolen)
+	SignalBus.on_supply_stolen.connect(handle_supply_removed)
+	SignalBus.on_supply_collected.connect(handle_supply_removed)
 
 # TODO: add collected_supply and use it instead of central location
 # Send unit to central location of the unit director
@@ -15,7 +16,6 @@ func send_enemy_unit() -> void:
 	if supply_targets.size() == 0:
 		return
 
-	print("Spawning enemy unit")
 	var random_supply: Supply = get_random_supply_target()
 	if random_supply == null:
 		return
@@ -38,11 +38,11 @@ func get_random_supply_target() -> Supply:
 	var random_index = randi() % supply_targets.size()
 
 	if supply_targets[random_index] == null:
-		print("Warning: Supply target at index ", random_index, " is null!")
+		push_warning("Supply target at index %d is null" % random_index)
 		return null
 	else:
 		return supply_targets[random_index]
 
-func handle_supply_stolen(resource: Supply, _amount: int) -> void:
+func handle_supply_removed(resource: Supply, _amount: int) -> void:
 	if resource in supply_targets:
 		supply_targets.erase(resource)

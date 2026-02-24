@@ -20,7 +20,6 @@ func handle_night_start(_level: int) -> void:
 		night_timer_tween.tween_callback(self.night_timer_finished)
 
 func night_timer_finished() -> void:
-	print("NightTimer: Night timer finished, ending night")
 	NightDirector.night_timer_finished()
 
 func handle_night_end(_is_success: bool) -> void:

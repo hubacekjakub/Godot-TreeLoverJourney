@@ -42,10 +42,8 @@ func handle_night_start(level: int) -> void:
 	is_night_active = true
 	current_night_level = level
 	start_timer()
-	print("Night: Night started at level: ", level)
 
 func handle_night_end(_is_success: bool) -> void:
-	print("Night: Night ended with success: ", _is_success)
 	is_night_active = false
 	stop_timer()
 	# cleanup
@@ -69,11 +67,9 @@ func activate_enemy_spawn() -> void:
 	var random_enemy_base_index: int = randi() % enemy_bases.size()
 	var random_enemy_base: EnemyBase = enemy_bases[random_enemy_base_index ]
 	random_enemy_base.send_enemy_unit()
-	print("Night: Enemy unit sent from base index: ", random_enemy_base_index)
 
 func handle_enemy_purged(_enemy_unit: EnemyUnit) -> void:
 	enemies_purged += 1
-	print("Night: Enemy purged. Total purged: ", enemies_purged)
 
 func get_night_difficulty() -> int:
 	#TODO: increase current_night_level

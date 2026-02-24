@@ -15,11 +15,9 @@ func _ready() -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Friend"):
 		activate_escape_mode()
-		print("EnemyUnit: Found friend, activating escape mode")
 	if area.is_in_group("Resource") and area is Supply:
 		area.enemy_picked()
 		activate_escape_mode()
-		print("EnemyUnit: picked up supply")
 
 func set_base(new_base: EnemyBase) -> void:
 	self.base = new_base

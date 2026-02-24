@@ -27,18 +27,14 @@ func goto_scene(map_name: String) -> void:
 
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
-	print("Going to scene: ", map_name)
-
 	load_level = map_name
 
-	print("Fading IN started!")
 	animation_player.play("fade_in")
 
 
 
 func restart_current_scene() -> void:
 	animation_player.play("fade_in")
-	#call_deferred("_deferred_goto_scene", current_scene.scene_file_path)
 
 func fade_in() -> void:
 	animation_player.play("just_fade_in")
@@ -78,4 +74,3 @@ func _on_animation_finished(anim_name: String) -> void:
 
 func _handle_map_loaded(_map_path: String) -> void:
 	animation_player.play("fade_out")
-	print("Fading OUT started!")

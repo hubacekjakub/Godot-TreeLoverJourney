@@ -16,4 +16,3 @@ func handle_night_end(_is_success: bool) -> void:
 
 func _on_button_button_down() -> void:
 	Global.go_to_end_cutscene()
-	print("LevelResult: Lets go to another screen")

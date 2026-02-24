@@ -25,8 +25,6 @@ func _ready() -> void:
 	init_text_lines()
 	await get_tree().create_timer(startup_wait).timeout
 	next_line()
-	# animation_player.play("camera_move")
-	# animation_player_parrot.play("walking")
 
 
 func handle_animation_finished(anim_name: StringName) -> void:

@@ -1,10 +1,10 @@
 extends Area3D
 class_name Supply
 
-enum ResourceType {BERRY = 0, WOOD = 1}
+enum SupplyType {BERRY = 0, WOOD = 1}
 
 @export_range(0, 100, 5) var amount: int = 10
-@export var type: ResourceType = ResourceType.BERRY
+@export var type: SupplyType = SupplyType.BERRY
 
 @export_group("Visual Setup")
 @export var color_active: Color = Color("b85306")
@@ -40,8 +40,6 @@ func deactivate():
 	material.albedo_color = color_inactive
 
 func start_collecting():
-	print("Supply: resource picking started")
-
 	if progress_tween:
 		progress_tween.kill()
 		progress_tween = null
@@ -54,26 +52,24 @@ func start_collecting():
 		progress_tween.tween_callback(self.collecting_finished)
 
 func stop_collecting():
-	print("Supply: Supply picking interrupted")
 	if progress_tween:
 		progress_tween.kill()
-		progress_tween = create_tween()
+		progress_tween = get_tree().create_tween()
 		var current_progress: float = progress_bar.get_progress()
 		progress_tween.tween_method(progress_bar.set_progress, current_progress, 0, interrupt_time)
 		progress_tween.tween_callback(self.collecting_interrupted)
 
 func collecting_finished() -> void:
-	print("Supply: resource picking finished")
 	Supplies.supply_collected(self, amount)
 	SignalBus.on_supply_collected.emit(self, amount)
-	await get_tree().create_timer(0.1).timeout
 	collision_shape_3d.disabled = true
+	await get_tree().create_timer(0.1).timeout
 	queue_free()
 
 func enemy_picked() -> void:
-	print("Supply: enemy stole a resource")
 	Supplies.supply_stolen(self, amount)
 	SignalBus.on_supply_stolen.emit(self, amount)
+	collision_shape_3d.disabled = true
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
 
@@ -84,13 +80,11 @@ func _on_body_entered(body: Node3D) -> void:
 	if NightDirector.is_night_active:
 		return
 
-	print("body entered: ", body)
 	if body is FriendlyUnit:
 		start_collecting()
 		body.is_gathering = true
 
 func _on_body_exited(body: Node3D) -> void:
-	print("body exited: ", body)
 	if body is FriendlyUnit:
 		stop_collecting()
 		body.is_gathering = false

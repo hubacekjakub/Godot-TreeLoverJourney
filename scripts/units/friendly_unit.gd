@@ -9,10 +9,9 @@ enum UnitType {
 
 @export var type: UnitType = UnitType.DAY
 
-@export var color_active = Color("00abd1")
-@export var color_unactive = Color("005acb")
+@export var color_active: Color = Color("00abd1")
+@export var color_inactive: Color = Color("005acb")
 
-# @onready var csg_sphere_3d: CSGSphere3D = $CSGSphere3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var selection_marker: Node3D = $SelectionMarker
 
@@ -27,15 +26,11 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	super._ready()
 	selection_marker.visible = false
-	# material = mesh_instance.material_override.duplicate()
-	# material = csg_sphere_3d.material.duplicate()
-	# csg_sphere_3d.material_override = material
 	play_idle_animation()
 
 
 func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if not is_enabled:
-		print("FriendlyUnit", name, "is disabled")
 		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -55,22 +50,19 @@ func _physics_process(_delta: float) -> void:
 
 func activate() -> void:
 	is_active = true
-	# material.albedo_color = color_active
 	selection_marker.visible = true
 
 
 func deactivate() -> void:
 	is_active = false
-	# material.albedo_color = color_unactive
 	selection_marker.visible = false
 	animation_player.stop()
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	print(name + " entered screen!")
+	pass
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	print(name + " exited screen!")
 	is_lost = true
 	set_physics_process(false)
 	UnitDirector.register_lost_unit(self)

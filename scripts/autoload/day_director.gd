@@ -22,10 +22,8 @@ func handle_resting_place_reached() -> void:
 	current_resting_place_index += 1
 	if current_resting_place_index < resting_places.size():
 		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
-		print("Day: sending new resting place: ", current_resting_place_index)
 	else:
 		SignalBus.on_day_end.emit()
-		print("Day: there is no resting place left, ending day.")
 
 
 func handle_day_end() -> void:

@@ -9,10 +9,8 @@ func _ready() -> void:
 	SignalBus.on_unit_lost.connect(handle_lost_kakapos)
 
 func handle_supply_updated() -> void:
-	print("UI: supply update")
-	berries_count.text = str(Supplies.collected_supplies[Supply.ResoruceType.BERRY])
-	wood_count.text = str(Supplies.collected_supplies[Supply.ResoruceType.WOOD])
+	berries_count.text = str(Supplies.collected_supplies[Supply.SupplyType.BERRY])
+	wood_count.text = str(Supplies.collected_supplies[Supply.SupplyType.WOOD])
 
 func handle_lost_kakapos(_lost_unit: FriendlyUnit) -> void:
-	print("UI: kakapo lost")
 	lost_count.text = str(UnitDirector.lost_units.size())

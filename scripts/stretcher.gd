@@ -2,15 +2,15 @@ extends CharacterBody3D
 class_name Stretcher
 
 # How fast the player moves in meters per second.
-@export var speed = 14
+@export var speed: float = 14
 # The downward acceleration when in the air, in meters per second squared.
-@export var fall_acceleration = 50
+@export var fall_acceleration: float = 50
 
 @onready var camera: Camera3D = $Camera
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_player_parrot: AnimationPlayer = $AnimationPlayerParrot
 
-var target_velocity = Vector3.ZERO
+var target_velocity: Vector3 = Vector3.ZERO
 
 var distance_check: float = 30.0
 var visibility_distance: float = 15.0
@@ -34,7 +34,6 @@ func _physics_process(delta):
 		var distance_to_target = self.global_position.distance_squared_to(current_target.global_position)
 		animation_player.play("wheel_anim")
 		animation_player_parrot.play("root|pull")
-		#print(distance_to_target)
 		if (distance_to_target < distance_check):
 			SignalBus.resting_place_reached.emit()
 			automove = false
@@ -44,8 +43,6 @@ func _physics_process(delta):
 
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		# Setting the basis property will affect the rotation of the node.
-		#$Nositka.basis = Basis.looking_at(direction)
 
 	# Ground Velocity
 	target_velocity.x = direction.x * speed
@@ -68,7 +65,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Resource"):
 		if area is Supply:
 			area.activate()
-			#print("found supply of value: ", area.value)
 
 
 func _on_area_3d_area_exited(area: Area3D) -> void:

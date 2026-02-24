@@ -31,7 +31,6 @@ func start_night_transition() -> void:
 	camera_tween.tween_callback(self.night_camera_move_finished)
 
 func night_camera_move_finished() -> void:
-	print("camera move to night location finished")
 	SignalBus.on_night_transition_finished.emit()
 
 func handle_got_it_pressed() -> void:
