@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var next_level: String = "uid://day083c7paac0"
-@export var next_level: String = "uid://ccreditsscreen1"
 @export var startup_wait: float = 2
 
 @onready var rich_text_label: RichTextLabel = $UI/Panel/RichTextLabel
@@ -25,9 +24,6 @@ func _ready() -> void:
 	await get_tree().create_timer(startup_wait).timeout
 	animation_player.play("camera_move")
 	animation_player_parrot.play("Parrot/parrot_idle")
-
-
-
 
 func handle_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "camera_move" and not is_done:
