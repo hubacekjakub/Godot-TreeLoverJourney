@@ -16,7 +16,6 @@ const NIGHT_LEVEL = "uid://b5rwrjnjnbf1c"
 @onready var main_audio_stream_player: AudioStreamPlayer = $MainAudioStreamPlayer
 @onready var sound_effect_audio_stream_player: AudioStreamPlayer = $SoundEffectAudioStreamPlayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main_audio_stream_player.stream = main_menu_sound
 	SignalBus.map_loaded.connect(handle_level_loaded)
@@ -25,7 +24,7 @@ func _ready() -> void:
 	play_music()
 
 
-func handle_level_loaded(map_name: String):
+func handle_level_loaded(map_name: String) -> void:
 	if map_name == MAIN_MENU and main_audio_stream_player.stream != main_menu_sound:
 		main_audio_stream_player.stream = main_menu_sound
 		play_music()
@@ -58,7 +57,7 @@ func handle_night_start(_level: int) -> void:
 func handle_resource_collected(supply: Supply, _amount: int) -> void:
 	if supply.type == 0: # berries
 		sound_effect_audio_stream_player.stream = food_picked_sound
-	elif supply.type ==  1: # wood
+	elif supply.type == 1: # wood
 		sound_effect_audio_stream_player.stream = wood_picked_sound
 
 	sound_effect_audio_stream_player.play()

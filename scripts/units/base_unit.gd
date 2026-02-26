@@ -13,7 +13,7 @@ var is_gathering: bool = false
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
-func set_movement_target(movement_target: Vector3):
+func set_movement_target(movement_target: Vector3) -> void:
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta: float) -> void:

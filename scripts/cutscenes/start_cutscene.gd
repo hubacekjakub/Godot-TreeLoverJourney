@@ -13,7 +13,6 @@ var text_lines: Array[String]
 var line_index: int = 0
 var is_done: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	panel.visible = false
 	timer.timeout.connect(handle_timeout)
@@ -54,7 +53,7 @@ func handle_animation_movement_finished(anim_name: StringName) -> void:
 func init_text_lines() -> void:
 	text_lines.append("[center]It was a calm day in the forest. It seemed that nothing interesting is going to happen.[/center]")
 	text_lines.append("[center]But then there was Brian. The embodiment of all prejudice towards kakapo parrots.[/center]")
-	text_lines.append("[center]To put it simply Brain was an idiot.[/center]")
+	text_lines.append("[center]To put it simply, Brian was an idiot.[/center]")
 	text_lines.append("[center]And it was on this calm day, that Brian decided to climb on a tree. And to his own surprise he succeeded.[/center]")
 	text_lines.append("[center]The problem came when he wanted to get back down and realized he cannot fly. So he just jumped.[/center]")
 	text_lines.append("[center]The tree was fairly high and Brian broke both his legs and one of his wings.[/center]")

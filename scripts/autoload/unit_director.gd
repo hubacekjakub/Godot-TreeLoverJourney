@@ -1,6 +1,6 @@
 extends Node
 
-var mouse_marker_scene : PackedScene = preload("uid://26t2mwuomtis")
+var mouse_marker_scene: PackedScene = preload("uid://26t2mwuomtis")
 
 var day_units: Array[FriendlyUnit]
 var night_units: Array[FriendlyUnit]
@@ -129,7 +129,7 @@ func show_marker() -> void:
 func hide_marker() -> void:
 	mouse_marker.visible = false
 
-func set_all_units_state(unit_type: FriendlyUnit.UnitType, state : bool) -> void:
+func set_all_units_state(unit_type: FriendlyUnit.UnitType, state: bool) -> void:
 	if unit_type == FriendlyUnit.UnitType.DAY:
 		for unit in day_units:
 			unit.is_enabled = state

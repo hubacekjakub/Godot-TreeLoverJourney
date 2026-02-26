@@ -3,7 +3,7 @@ class_name Level
 
 @export var config: LevelConfig
 @export var resting_places: Array[RestingPlace]
-@export var nositka: Stretcher
+@export var stretcher: Stretcher
 @export var level_camera: Camera3D
 
 @onready var got_it_button: Button = %GotItButton
@@ -27,7 +27,7 @@ func _ready() -> void:
 # prepares level for night gameplay
 func start_night_transition() -> void:
 	var night_location_transform = level_camera.global_transform
-	level_camera.transform = nositka.get_camera_transform()
+	level_camera.transform = stretcher.get_camera_transform()
 	level_camera.current = true
 
 	camera_tween = get_tree().create_tween()

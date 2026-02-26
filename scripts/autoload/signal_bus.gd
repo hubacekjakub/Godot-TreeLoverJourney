@@ -15,7 +15,7 @@ signal new_resting_place_set(new_resting_place: RestingPlace)
 @warning_ignore("unused_signal")
 signal map_loaded(map_name: String)
 
-#UnitDirector
+# UnitDirector
 
 # called when new unit is selected
 @warning_ignore("unused_signal")
@@ -25,11 +25,11 @@ signal on_unit_selected(unit: FriendlyUnit)
 @warning_ignore("unused_signal")
 signal on_unit_deselected(unit: FriendlyUnit)
 
-# called when unit is lost of the screen
+# called when unit is lost off the screen
 @warning_ignore("unused_signal")
 signal on_unit_lost(unit: FriendlyUnit)
 
-#DayDirector (but there is no day director, so it is here)
+# DayDirector
 
 # called when day starts
 @warning_ignore("unused_signal")
@@ -39,7 +39,7 @@ signal on_day_start()
 @warning_ignore("unused_signal")
 signal on_day_end()
 
-#NightDirector
+# NightDirector
 
 # called when transition to night starts
 @warning_ignore("unused_signal")
@@ -61,7 +61,7 @@ signal on_night_end(success: bool)
 @warning_ignore("unused_signal")
 signal on_enemy_purged(enemy_unit: EnemyUnit)
 
-#Resources
+# Resources
 
 # called when a supply is collected
 @warning_ignore("unused_signal")
@@ -75,7 +75,7 @@ signal on_supply_stolen(supply: Supply, amount: int)
 @warning_ignore("unused_signal")
 signal on_supply_updated()
 
-#SceneChanger
+# SceneChanger
 @warning_ignore("unused_signal")
 signal just_fade_out_finished()
 

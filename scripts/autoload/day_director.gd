@@ -25,7 +25,6 @@ func handle_resting_place_reached() -> void:
 	else:
 		SignalBus.on_day_end.emit()
 
-
 func handle_day_end() -> void:
 	resting_places.clear()
 	current_resting_place_index = 0

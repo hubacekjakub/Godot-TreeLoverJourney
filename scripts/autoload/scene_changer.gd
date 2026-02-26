@@ -2,10 +2,9 @@ extends CanvasLayer
 
 @onready var animation_player = $AnimationPlayer
 
-var current_scene : Node = null
+var current_scene: Node = null
 var load_level: String = ""
 var load_map_path: String = ""
-
 
 func _ready() -> void:
 	var root = get_tree().root
@@ -16,7 +15,6 @@ func _ready() -> void:
 	# Connect the animation finished signal to the function
 	animation_player.animation_finished.connect(_on_animation_finished)
 	SignalBus.map_loaded.connect(_handle_map_loaded)
-
 
 func goto_scene(map_name: String) -> void:
 	# This function will usually be called from a signal callback,
@@ -31,8 +29,6 @@ func goto_scene(map_name: String) -> void:
 
 	animation_player.play("fade_in")
 
-
-
 func restart_current_scene() -> void:
 	animation_player.play("fade_in")
 
@@ -42,10 +38,8 @@ func goto_main_menu() -> void:
 func fade_in() -> void:
 	animation_player.play("just_fade_in")
 
-
 func fade_out() -> void:
 	animation_player.play("just_fade_out")
-
 
 func _deferred_goto_scene(path: String) -> void:
 	# It is now safe to remove the current scene.
@@ -65,7 +59,6 @@ func _deferred_goto_scene(path: String) -> void:
 	get_tree().current_scene = current_scene
 	SignalBus.map_loaded.emit(load_level)
 
-
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_in":
 		call_deferred("_deferred_goto_scene", load_level)
@@ -73,7 +66,6 @@ func _on_animation_finished(anim_name: String) -> void:
 		SignalBus.just_fade_out_finished.emit()
 	elif anim_name == "just_fade_in":
 		SignalBus.just_fade_in_finished.emit()
-
 
 func _handle_map_loaded(_map_path: String) -> void:
 	animation_player.play("fade_out")

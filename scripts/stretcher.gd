@@ -24,7 +24,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	SignalBus.new_resting_place_set.connect(handle_new_resting_place_set)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	var direction = Vector3.ZERO
 
 	if automove:
@@ -34,12 +34,11 @@ func _physics_process(delta):
 		var distance_to_target = self.global_position.distance_squared_to(current_target.global_position)
 		animation_player.play("wheel_anim")
 		animation_player_parrot.play("root|pull")
-		if (distance_to_target < distance_check):
+		if distance_to_target < distance_check:
 			SignalBus.resting_place_reached.emit()
 			automove = false
 			animation_player.stop()
 			animation_player_parrot.stop()
-
 
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
@@ -56,7 +55,7 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 
-func handle_new_resting_place_set(new_resting_place: RestingPlace):
+func handle_new_resting_place_set(new_resting_place: RestingPlace) -> void:
 	current_target = new_resting_place
 	automove = true
 

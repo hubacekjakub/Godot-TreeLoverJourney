@@ -21,7 +21,7 @@ func set_config(config: LevelConfig) -> void:
 func night_timer_finished() -> void:
 	SignalBus.on_night_end.emit(true)
 
-# starts the night game play
+# Starts the night gameplay
 func handle_night_start(_level: int) -> void:
 	is_night_active = true
 	start_timer()

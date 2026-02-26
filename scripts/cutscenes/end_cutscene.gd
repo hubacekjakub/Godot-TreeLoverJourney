@@ -13,7 +13,6 @@ var text_lines: Array[String]
 var line_index: int = 0
 var is_done: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	panel.visible = false
 	timer.timeout.connect(handle_timeout)

@@ -68,11 +68,11 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	UnitDirector.register_lost_unit(self)
 
 
-func play_idle_animation():
+func play_idle_animation() -> void:
 	animation_player.play("Parrot/parrot_idle")
 
-func play_run_animation():
+func play_run_animation() -> void:
 	animation_player.play("Parrot/parrot_run")
 
-func play_gather_animation():
+func play_gather_animation() -> void:
 	animation_player.play("Parrot/parrot_gather")

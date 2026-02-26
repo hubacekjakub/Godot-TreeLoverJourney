@@ -13,7 +13,7 @@ enum SupplyType {BERRY = 0, WOOD = 1}
 @export_group("Timers")
 ## How long it takes one unit to collect the resource
 @export_range(0, 10) var collection_time: float = 4.0
-## How fast after collecting is interupted will the timer reset
+## How fast after collecting is interrupted will the timer reset
 @export_range(0, 5) var interrupt_time: float = 1.0
 
 @onready var csg_cylinder_3d: CSGCylinder3D = $CSGCylinder3D
@@ -31,15 +31,15 @@ func _ready() -> void:
 	csg_cylinder_3d.material_override = material
 	progress_bar.visible = false
 
-func activate():
+func activate() -> void:
 	active = true
 	material.albedo_color = color_active
 
-func deactivate():
+func deactivate() -> void:
 	active = false
 	material.albedo_color = color_inactive
 
-func start_collecting():
+func start_collecting() -> void:
 	if progress_tween:
 		progress_tween.kill()
 		progress_tween = null
@@ -51,7 +51,7 @@ func start_collecting():
 		progress_tween.tween_method(progress_bar.set_progress, current_progress, 100, collection_time)
 		progress_tween.tween_callback(self.collecting_finished)
 
-func stop_collecting():
+func stop_collecting() -> void:
 	if progress_tween:
 		progress_tween.kill()
 		progress_tween = get_tree().create_tween()
