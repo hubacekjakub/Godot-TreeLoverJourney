@@ -36,6 +36,9 @@ func goto_scene(map_name: String) -> void:
 func restart_current_scene() -> void:
 	animation_player.play("fade_in")
 
+func goto_main_menu() -> void:
+	goto_scene("uid://day083c7paac0")
+
 func fade_in() -> void:
 	animation_player.play("just_fade_in")
 

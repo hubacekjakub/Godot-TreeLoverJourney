@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var next_level: String = "uid://day083c7paac0"
+@export var next_level: String = "uid://ccreditsscreen1"
 @export var startup_wait: float = 2
 
 @onready var rich_text_label: RichTextLabel = $UI/Panel/RichTextLabel

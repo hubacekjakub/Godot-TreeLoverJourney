@@ -90,6 +90,14 @@ theme_override_styles/normal = ExtResource("2_6ymyu")
 theme_override_styles/hover = ExtResource("3_7rktv")
 text = "Start"
 
+[node name="CreditsButton" type="Button" parent="UI/MarginContainer/HBoxContainer/MiddleHBoxContainer/VBoxContainer/ButtonsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_6ymyu")
+theme_override_styles/hover = ExtResource("3_7rktv")
+text = "Credits"
+
 [node name="QuitButton" type="Button" parent="UI/MarginContainer/HBoxContainer/MiddleHBoxContainer/VBoxContainer/ButtonsContainer" unique_id=648328990]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 50)
