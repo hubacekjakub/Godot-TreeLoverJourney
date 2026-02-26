@@ -4,6 +4,10 @@ extends CanvasLayer
 @onready var restart_button: Button = %RestartButton
 @onready var main_menu_button: Button = %MainMenuButton
 @onready var quit_button: Button = %QuitButton
+@onready var panel_container: MarginContainer = $PanelContainer
+@onready var overlay: ColorRect = $Overlay
+
+var _tween: Tween = null
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -30,10 +34,23 @@ func _toggle_pause() -> void:
 		_pause()
 
 func _pause() -> void:
-	visible = true
 	get_tree().paused = true
+	visible = true
+
+	if _tween:
+		_tween.kill()
+	_tween = create_tween().set_parallel(true)
+	_tween.tween_property(panel_container, "position:y", panel_container.position.y, 0.35).from(-panel_container.size.y).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(panel_container, "modulate:a", 1.0, 0.25).from(0.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(overlay, "modulate:a", 1.0, 0.25).from(0.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func _unpause() -> void:
+	if _tween:
+		_tween.kill()
+	_tween = create_tween().set_parallel(true)
+	_tween.tween_property(panel_container, "modulate:a", 0.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	_tween.tween_property(overlay, "modulate:a", 0.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	await _tween.finished
 	visible = false
 	get_tree().paused = false
 
