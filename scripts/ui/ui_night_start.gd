@@ -19,4 +19,4 @@ func handle_night_transition_finished() -> void:
 func handle_night_start_button_down() -> void:
 	self.visible = false
 	await get_tree().create_timer(1).timeout
-	SignalBus.on_night_start.emit(NightDirector.current_night_level)
+	Global.start_night()

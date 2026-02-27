@@ -61,14 +61,12 @@ func stop_collecting() -> void:
 
 func collecting_finished() -> void:
 	Supplies.supply_collected(self, amount)
-	SignalBus.on_supply_collected.emit(self, amount)
 	collision_shape_3d.disabled = true
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
 
 func enemy_picked() -> void:
 	Supplies.supply_stolen(self, amount)
-	SignalBus.on_supply_stolen.emit(self, amount)
 	collision_shape_3d.disabled = true
 	await get_tree().create_timer(0.1).timeout
 	queue_free()

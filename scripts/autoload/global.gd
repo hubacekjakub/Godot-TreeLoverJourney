@@ -49,6 +49,10 @@ func handle_day_end() -> void:
 	current_state = GameState.TRANSITION_TO_NIGHT
 	SignalBus.on_night_transition_start.emit()
 
+func start_night() -> void:
+	if current_state == GameState.TRANSITION_TO_NIGHT:
+		SignalBus.on_night_start.emit(current_level_index + 1)
+
 func handle_night_start(_level: int) -> void:
 	current_state = GameState.NIGHT
 
