@@ -3,6 +3,7 @@ extends Node
 var enemy_bases: Array[EnemyBase] = []
 var enemies_purged: int = 0
 var is_night_active: bool = false
+var campfire: Campfire
 
 var current_config: LevelConfig = null
 var timer: Timer
@@ -35,6 +36,9 @@ func handle_night_end(_is_success: bool) -> void:
 
 func register_enemy_base(enemy_base: EnemyBase) -> void:
 	enemy_bases.append(enemy_base)
+
+func register_campfire(new_campfire: Campfire) -> void:
+	campfire = new_campfire
 
 func start_timer() -> void:
 	var delay := current_config.start_up_delay if current_config else 5.0

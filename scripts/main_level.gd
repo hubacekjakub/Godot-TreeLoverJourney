@@ -2,7 +2,6 @@ extends Node3D
 class_name Level
 
 @export var config: LevelConfig
-@export var resting_places: Array[RestingPlace]
 @export var stretcher: Stretcher
 @export var level_camera: Camera3D
 
@@ -17,7 +16,6 @@ func _get_begin_wait_time() -> float:
 func _ready() -> void:
 	if config:
 		NightDirector.set_config(config)
-	DayDirector.initialize_day(resting_places)
 	SignalBus.on_night_transition_start.connect(start_night_transition)
 
 	await get_tree().create_timer(_get_begin_wait_time()).timeout

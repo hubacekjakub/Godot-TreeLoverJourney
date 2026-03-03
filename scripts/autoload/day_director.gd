@@ -1,30 +1,17 @@
 extends Node
 
-var resting_places: Array[RestingPlace] = []
-var current_resting_place_index: int = 0
+var stretcher: Stretcher
 
 func _ready() -> void:
-	SignalBus.on_day_start.connect(handle_day_start)
-	SignalBus.on_day_end.connect(handle_day_end)
-	SignalBus.resting_place_reached.connect(handle_resting_place_reached)
+	SignalBus.on_day_start.connect(_on_day_start)
 
-func initialize_day(places: Array[RestingPlace]) -> void:
-	resting_places = places
-	current_resting_place_index = 0
+func register_stretcher(new_stretcher: Stretcher) -> void:
+	stretcher = new_stretcher
 
-func handle_day_start() -> void:
-	if resting_places.size() > 0:
-		SignalBus.new_resting_place_set.emit(resting_places[0])
-	else:
-		SignalBus.on_day_end.emit()
+func _on_day_start() -> void:
+	if stretcher:
+		stretcher.march_finished.connect(_on_march_finished, CONNECT_ONE_SHOT)
+		stretcher.start_march()
 
-func handle_resting_place_reached() -> void:
-	current_resting_place_index += 1
-	if current_resting_place_index < resting_places.size():
-		SignalBus.new_resting_place_set.emit(resting_places[current_resting_place_index])
-	else:
-		SignalBus.on_day_end.emit()
-
-func handle_day_end() -> void:
-	resting_places.clear()
-	current_resting_place_index = 0
+func _on_march_finished() -> void:
+	SignalBus.on_day_end.emit()

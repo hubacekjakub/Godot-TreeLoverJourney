@@ -1,80 +1,83 @@
 extends CharacterBody3D
 class_name Stretcher
 
-# How fast the player moves in meters per second.
+signal march_finished
+
+# Max cruising speed in m/s along the path
 @export var speed: float = 14
+# Acceleration/deceleration rate in m/s²
+@export var acceleration: float = 5.0
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration: float = 50
+
+@export var on_path: bool = false
 
 @onready var camera: Camera3D = $Camera
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_player_parrot: AnimationPlayer = $AnimationPlayerParrot
+@onready var navigation_obstacle: NavigationObstacle3D = $NavigationObstacle3D
 
 var target_velocity: Vector3 = Vector3.ZERO
-
-var distance_check: float = 30.0
 var visibility_distance: float = 15.0
-
-@export var on_path: bool = false
-var automove: bool = false
-var current_target: RestingPlace
-
-@onready var navigation_obstacle: NavigationObstacle3D = $NavigationObstacle3D
 var last_position: Vector3 = Vector3.ZERO
 
+var path_follow: PathFollow3D = null
+var current_speed: float = 0.0
+var marching: bool = false
+
 func _enter_tree() -> void:
-	UnitDirector.register_stretcher(self )
+	DayDirector.register_stretcher(self)
 
 func _ready() -> void:
-	SignalBus.new_resting_place_set.connect(handle_new_resting_place_set)
+	if on_path:
+		path_follow = get_parent() as PathFollow3D
 
-func _physics_process(delta: float) -> void:
-	var direction = Vector3.ZERO
-	var current_position = global_position
-
-	if automove and not on_path:
-		var direction_to_target = self.global_position.direction_to(current_target.global_position)
-		direction = direction_to_target
-
-		var distance_to_target = self.global_position.distance_squared_to(current_target.global_position)
+func start_march() -> void:
+	if on_path and path_follow:
+		marching = true
+		current_speed = 0.0
 		animation_player.play("wheel_anim")
 		animation_player_parrot.play("root|pull")
-		if distance_to_target < distance_check:
-			SignalBus.resting_place_reached.emit()
-			automove = false
-			animation_player.stop()
-			animation_player_parrot.stop()
 
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+func stop_march() -> void:
+	marching = false
+	current_speed = 0.0
+	animation_player.stop()
+	animation_player_parrot.stop()
 
-	# Ground Velocity
-	target_velocity.x = direction.x * speed
-	target_velocity.z = direction.z * speed
+func _physics_process(delta: float) -> void:
+	var current_position = global_position
 
-	if not on_path:
-		# Vertical Velocity
-		if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-			target_velocity.y = target_velocity.y - (fall_acceleration * delta)
+	if on_path:
+		if marching:
+			var curve_length = path_follow.get_parent().curve.get_baked_length()
+			var remaining = curve_length - path_follow.progress
+			# Distance needed to decelerate from current_speed to 0: v²/(2a)
+			var stopping_distance = (current_speed * current_speed) / (2.0 * acceleration)
 
-		# Moving the Character normally
+			if remaining <= stopping_distance:
+				# Decelerate
+				current_speed = maxf(current_speed - acceleration * delta, 0.0)
+			else:
+				# Accelerate toward max speed
+				current_speed = minf(current_speed + acceleration * delta, speed)
+
+			path_follow.progress += current_speed * delta
+
+			if path_follow.progress_ratio >= 1.0:
+				stop_march()
+				march_finished.emit()
+
+		velocity = (current_position - last_position) / delta
+	else:
+		if not is_on_floor():
+			target_velocity.y -= fall_acceleration * delta
 		velocity = target_velocity
 		move_and_slide()
-	else:
-		# When on path, we are moved by PathFollow3D.
-		# We just need to calculate our effective velocity so NavigationObstacle3D can broadcast it.
-		velocity = (current_position - last_position) / delta
 
 	if navigation_obstacle:
 		navigation_obstacle.velocity = velocity
-
 	last_position = current_position
-
-func handle_new_resting_place_set(new_resting_place: RestingPlace) -> void:
-	current_target = new_resting_place
-	automove = true
-	on_path = false
-
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Resource"):

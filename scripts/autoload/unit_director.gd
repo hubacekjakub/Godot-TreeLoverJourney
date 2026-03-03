@@ -7,8 +7,6 @@ var night_units: Array[FriendlyUnit]
 
 var lost_units: Array[FriendlyUnit]
 var active_unit: FriendlyUnit
-var stretcher: Stretcher
-var campfire: Campfire
 
 var mouse_marker: Node3D = null
 var marker_timer: SceneTreeTimer = null
@@ -54,31 +52,21 @@ func show_marker_at(position: Vector3) -> void:
 
 func get_ground_position() -> Vector3:
 	if NightDirector.is_night_active:
-		assert(campfire)
-		return campfire.global_position
+		return NightDirector.campfire.global_position
 	else:
-		assert(stretcher)
-		return stretcher.global_position
+		return DayDirector.stretcher.global_position
 
 func get_visibility_distance() -> float:
 	if NightDirector.is_night_active:
-		assert(campfire)
-		return campfire.visibility_distance
+		return NightDirector.campfire.visibility_distance
 	else:
-		assert(stretcher)
-		return stretcher.visibility_distance
+		return DayDirector.stretcher.visibility_distance
 
 func register_unit(new_unit: FriendlyUnit) -> void:
 	if new_unit.type == FriendlyUnit.UnitType.DAY:
 		day_units.append(new_unit)
 	else:
 		night_units.append(new_unit)
-
-func register_stretcher(new_stretcher: Stretcher) -> void:
-	stretcher = new_stretcher
-
-func register_campfire(new_campfire: Campfire) -> void:
-	campfire = new_campfire
 
 func register_lost_unit(lost_unit: FriendlyUnit) -> void:
 	lost_units.append(lost_unit)
@@ -106,8 +94,6 @@ func handle_night_end(_success: bool) -> void:
 	night_units.clear()
 	lost_units.clear()
 	active_unit = null
-	stretcher = null
-	campfire = null
 
 func deselect_all_units() -> void:
 	for unit in day_units:
