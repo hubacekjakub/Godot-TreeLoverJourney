@@ -51,16 +51,18 @@ func show_marker_at(position: Vector3) -> void:
 	marker_timer.timeout.connect(hide_marker)
 
 func get_ground_position() -> Vector3:
-	if NightDirector.is_night_active:
+	if NightDirector.is_night_active and NightDirector.campfire:
 		return NightDirector.campfire.global_position
-	else:
+	elif DayDirector.stretcher:
 		return DayDirector.stretcher.global_position
+	return Vector3.ZERO
 
 func get_visibility_distance() -> float:
-	if NightDirector.is_night_active:
+	if NightDirector.is_night_active and NightDirector.campfire:
 		return NightDirector.campfire.visibility_distance
-	else:
+	elif DayDirector.stretcher:
 		return DayDirector.stretcher.visibility_distance
+	return 15.0
 
 func register_unit(new_unit: FriendlyUnit) -> void:
 	if new_unit.type == FriendlyUnit.UnitType.DAY:

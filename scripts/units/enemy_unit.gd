@@ -23,7 +23,9 @@ func set_base(new_base: EnemyBase) -> void:
 	self.base = new_base
 
 func set_supply_target(supply: Supply) -> void:
-	assert(supply != null, "Supply target is null!")
+	if supply == null:
+		push_error("Supply target is null!")
+		return
 	supply_target = supply
 	set_movement_target(supply.global_position)
 

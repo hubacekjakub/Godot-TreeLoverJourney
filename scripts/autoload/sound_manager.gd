@@ -55,9 +55,9 @@ func handle_night_start(_level: int) -> void:
 
 
 func handle_resource_collected(supply: Supply, _amount: int) -> void:
-	if supply.type == 0: # berries
+	if supply.type == Supply.SupplyType.BERRY:
 		sound_effect_audio_stream_player.stream = food_picked_sound
-	elif supply.type == 1: # wood
+	elif supply.type == Supply.SupplyType.WOOD:
 		sound_effect_audio_stream_player.stream = wood_picked_sound
 
 	sound_effect_audio_stream_player.play()
