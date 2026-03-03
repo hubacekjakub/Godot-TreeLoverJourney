@@ -31,13 +31,6 @@ func handle_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "writing" and not is_done:
 		timer.start()
 
-func handle_animation_movement_finished(anim_name: StringName) -> void:
-	if anim_name == "climbing":
-		animation_player_parrot.play("Parrot/parrot_idle")
-
-	if anim_name == "walking":
-		animation_player_parrot.play("Parrot/parrot_idle")
-
 
 func init_text_lines() -> void:
 	text_lines.append("[center]The parrots made it against all odds through the forest.[/center]")

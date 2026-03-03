@@ -15,7 +15,6 @@ enum UnitType {
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var selection_marker: Node3D = $SelectionMarker
 
-var material: StandardMaterial3D
 var is_active: bool = false
 var is_lost: bool = false
 
@@ -57,9 +56,6 @@ func deactivate() -> void:
 	is_active = false
 	selection_marker.visible = false
 	animation_player.stop()
-
-func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	pass
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
