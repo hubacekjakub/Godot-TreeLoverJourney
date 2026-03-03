@@ -15,19 +15,24 @@ var target_velocity: Vector3 = Vector3.ZERO
 var distance_check: float = 30.0
 var visibility_distance: float = 15.0
 
+@export var on_path: bool = false
 var automove: bool = false
 var current_target: RestingPlace
 
+@onready var navigation_obstacle: NavigationObstacle3D = $NavigationObstacle3D
+var last_position: Vector3 = Vector3.ZERO
+
 func _enter_tree() -> void:
-	UnitDirector.register_stretcher(self)
+	UnitDirector.register_stretcher(self )
 
 func _ready() -> void:
 	SignalBus.new_resting_place_set.connect(handle_new_resting_place_set)
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector3.ZERO
+	var current_position = global_position
 
-	if automove:
+	if automove and not on_path:
 		var direction_to_target = self.global_position.direction_to(current_target.global_position)
 		direction = direction_to_target
 
@@ -47,17 +52,28 @@ func _physics_process(delta: float) -> void:
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
 
-	# Vertical Velocity
-	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
+	if not on_path:
+		# Vertical Velocity
+		if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+			target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 
-	# Moving the Character
-	velocity = target_velocity
-	move_and_slide()
+		# Moving the Character normally
+		velocity = target_velocity
+		move_and_slide()
+	else:
+		# When on path, we are moved by PathFollow3D.
+		# We just need to calculate our effective velocity so NavigationObstacle3D can broadcast it.
+		velocity = (current_position - last_position) / delta
+
+	if navigation_obstacle:
+		navigation_obstacle.velocity = velocity
+
+	last_position = current_position
 
 func handle_new_resting_place_set(new_resting_place: RestingPlace) -> void:
 	current_target = new_resting_place
 	automove = true
+	on_path = false
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

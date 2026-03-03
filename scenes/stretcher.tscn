@@ -967,6 +967,11 @@ _data = {
 [node name="Stretcher" type="CharacterBody3D" unique_id=1286089619]
 script = ExtResource("1_72okn")
 
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." unique_id=892345612]
+avoidance_enabled = true
+radius = 1.5
+use_3d_avoidance = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=648671913]
 shape = SubResource("SphereShape3D_hkwxo")
 
