@@ -59,6 +59,7 @@ func activate_enemy_spawn() -> void:
 
 func handle_enemy_purged(_enemy_unit: EnemyUnit) -> void:
 	enemies_purged += 1
+	SignalBus.on_enemy_kill_count_changed.emit(enemies_purged)
 
 func get_night_difficulty() -> int:
 	return current_config.enemy_difficulty if current_config else 1

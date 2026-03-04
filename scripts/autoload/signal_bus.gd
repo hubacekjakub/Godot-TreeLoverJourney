@@ -53,6 +53,10 @@ signal on_night_end(success: bool)
 @warning_ignore("unused_signal")
 signal on_enemy_purged(enemy_unit: EnemyUnit)
 
+# called when the enemies purged count changes (for HUD display)
+@warning_ignore("unused_signal")
+signal on_enemy_kill_count_changed(count: int)
+
 # Resources
 
 # called when a supply is collected

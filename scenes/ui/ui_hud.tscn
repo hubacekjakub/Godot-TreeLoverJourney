@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://dra85yrala56h"]
+
+[ext_resource type="Script" uid="uid://b43egplsidphs" path="res://scripts/ui/ui_hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://b2tgekh5vlcqg" path="res://scripts/ui/ui_supplies.gd" id="2_sup"]
+[ext_resource type="PackedScene" uid="uid://bfptgb3o7ippw" path="res://scenes/ui/ui_level_result.tscn" id="3_lvlres"]
+[ext_resource type="Texture2D" uid="uid://bh04disds0rdx" path="res://assets/sprites/berries-icon.png" id="4_bicon"]
+[ext_resource type="Texture2D" uid="uid://buv63e2uuvl6i" path="res://assets/sprites/wood-icon.png" id="5_wicon"]
+[ext_resource type="PackedScene" uid="uid://dkyefmi6y80sr" path="res://scenes/ui/ui_night_timer.tscn" id="6_ntimer"]
+[ext_resource type="PackedScene" uid="uid://cinellujdmr1f" path="res://scenes/ui/ui_night_start.tscn" id="7_nstart"]
+[ext_resource type="PackedScene" uid="uid://cpausemenu001" path="res://scenes/ui/ui_pause_menu.tscn" id="8_pause"]
+[ext_resource type="PackedScene" uid="uid://djtykd02vne2k" path="res://scenes/ui/ui_selected_unit.tscn" id="9_selunit"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="TopLeft" type="MarginContainer" parent="."]
+offset_right = 330.0
+offset_bottom = 105.0
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="Background" type="ColorRect" parent="TopLeft"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.85)
+
+[node name="Inner" type="MarginContainer" parent="TopLeft"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="TopLeft/Inner"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="LevelLabel" type="Label" parent="TopLeft/Inner/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LEVEL  1"
+uppercase = true
+
+[node name="PhaseLabel" type="Label" parent="TopLeft/Inner/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "DAY"
+uppercase = true
+
+[node name="ResourcesPanel" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_bottom = 260.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+script = ExtResource("2_sup")
+
+[node name="Background" type="ColorRect" parent="ResourcesPanel"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.85)
+
+[node name="Inner" type="MarginContainer" parent="ResourcesPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="ResourcesPanel/Inner"]
+layout_mode = 2
+theme_override_constants/separation = 21
+
+[node name="HeaderLabel" type="Label" parent="ResourcesPanel/Inner/VBox"]
+layout_mode = 2
+text = "COLLECTED"
+uppercase = true
+
+[node name="ResourceRow" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="BerriesContainer" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox/ResourceRow"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="BerriesIcon" type="TextureRect" parent="ResourcesPanel/Inner/VBox/ResourceRow/BerriesContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("4_bicon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BerriesCount" type="Label" parent="ResourcesPanel/Inner/VBox/ResourceRow/BerriesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="WoodContainer" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox/ResourceRow"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="WoodIcon" type="TextureRect" parent="ResourcesPanel/Inner/VBox/ResourceRow/WoodContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("5_wicon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WoodCount" type="Label" parent="ResourcesPanel/Inner/VBox/ResourceRow/WoodContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Divider" type="HSeparator" parent="ResourcesPanel/Inner/VBox"]
+layout_mode = 2
+
+[node name="KakaposSection" type="VBoxContainer" parent="ResourcesPanel/Inner/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="KakaposHeaderLabel" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection"]
+layout_mode = 2
+text = "KAKAPOS"
+uppercase = true
+
+[node name="KakaposRow" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox/KakaposSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="AliveRow" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AliveLabel" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow/AliveRow"]
+layout_mode = 2
+text = "Alive:"
+uppercase = true
+
+[node name="KakaposCount" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow/AliveRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 / 0"
+
+[node name="LostRow" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LostHeaderLabel" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow/LostRow"]
+layout_mode = 2
+text = "Lost:"
+uppercase = true
+
+[node name="LostCount" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow/LostRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="NightTimer" parent="." instance=ExtResource("6_ntimer")]
+
+[node name="NightStart" parent="." instance=ExtResource("7_nstart")]
+
+[node name="LevelResult" parent="." instance=ExtResource("3_lvlres")]
+
+[node name="SelectedUnit" parent="." instance=ExtResource("9_selunit")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_pause")]
