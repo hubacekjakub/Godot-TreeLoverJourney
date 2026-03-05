@@ -5,8 +5,12 @@ extends CanvasLayer
 @onready var night_timer: Control = %NightTimer
 @onready var phase_label: Label = %PhaseLabel
 @onready var level_label: Label = %LevelLabel
+@onready var roster_hbox: HBoxContainer = %RosterHBox
+
+const KAKAPO_CARD_SCENE = preload("uid://c65k1p2x420m")
 
 var _phase_tween: Tween = null
+var _roster_cards: Array = []
 
 func _ready() -> void:
 	SignalBus.on_day_start.connect(_on_day_start)
@@ -14,9 +18,36 @@ func _ready() -> void:
 	SignalBus.on_night_start.connect(_on_night_start)
 	SignalBus.on_night_end.connect(_on_night_end)
 
+	SignalBus.on_unit_registered.connect(_on_unit_registered)
+	SignalBus.on_unit_selected.connect(_on_unit_selected)
+	SignalBus.on_unit_deselected.connect(_on_unit_deselected)
+
 	# Initial state
 	_set_phase_label("DAY")
 	_update_level_label(Global.current_level_index)
+
+	for unit in UnitDirector.day_units:
+		_on_unit_registered(unit)
+	for unit in UnitDirector.night_units:
+		_on_unit_registered(unit)
+
+func _on_unit_registered(unit: FriendlyUnit) -> void:
+	if unit.type != FriendlyUnit.UnitType.DAY:
+		return
+	var card = KAKAPO_CARD_SCENE.instantiate()
+	roster_hbox.add_child(card)
+	card.setup(unit)
+	_roster_cards.append(card)
+
+func _on_unit_selected(unit: FriendlyUnit) -> void:
+	for card in _roster_cards:
+		if is_instance_valid(card):
+			card.set_active(card.unit == unit)
+
+func _on_unit_deselected(_unit: FriendlyUnit) -> void:
+	for card in _roster_cards:
+		if is_instance_valid(card):
+			card.set_active(false)
 
 
 func _on_day_start() -> void:

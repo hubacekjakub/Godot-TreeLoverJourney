@@ -9,6 +9,10 @@ signal map_loaded(map_name: String)
 
 # UnitDirector
 
+# called when new unit is registered
+@warning_ignore("unused_signal")
+signal on_unit_registered(unit: FriendlyUnit)
+
 # called when new unit is selected
 @warning_ignore("unused_signal")
 signal on_unit_selected(unit: FriendlyUnit)

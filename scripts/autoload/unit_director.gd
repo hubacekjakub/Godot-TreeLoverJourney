@@ -13,6 +13,7 @@ var marker_timer: SceneTreeTimer = null
 
 func _ready() -> void:
 	SignalBus.on_unit_selected.connect(handle_unit_selected)
+	SignalBus.on_unit_deselected.connect(handle_unit_deselected)
 	SignalBus.on_night_transition_start.connect(handle_night_transition_start)
 	SignalBus.on_night_start.connect(handle_night_start)
 	SignalBus.on_night_end.connect(handle_night_end)
@@ -21,6 +22,10 @@ func _ready() -> void:
 	add_child(mouse_marker)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+		if event.keycode >= KEY_1 and event.keycode <= KEY_4:
+			handle_number_key(event.keycode)
+
 	if not active_unit:
 		return
 
@@ -31,6 +36,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		handle_right_click()
+
+func handle_number_key(keycode) -> void:
+	var index: int = keycode - KEY_1
+	if index < day_units.size():
+		var target_unit = day_units[index]
+		if is_instance_valid(target_unit) and not target_unit.is_lost:
+			if active_unit == target_unit:
+				SignalBus.on_unit_deselected.emit(target_unit)
+			else:
+				SignalBus.on_unit_selected.emit(target_unit)
+			get_viewport().set_input_as_handled()
 
 func handle_right_click() -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -69,6 +85,7 @@ func register_unit(new_unit: FriendlyUnit) -> void:
 		day_units.append(new_unit)
 	else:
 		night_units.append(new_unit)
+	SignalBus.on_unit_registered.emit(new_unit)
 
 func register_lost_unit(lost_unit: FriendlyUnit) -> void:
 	lost_units.append(lost_unit)
@@ -90,6 +107,11 @@ func handle_unit_selected(selected_unit: FriendlyUnit) -> void:
 			unit.activate()
 		else:
 			unit.deactivate()
+
+func handle_unit_deselected(unit: FriendlyUnit) -> void:
+	if active_unit == unit:
+		active_unit.deactivate()
+		active_unit = null
 
 func handle_night_end(_success: bool) -> void:
 	day_units.clear()

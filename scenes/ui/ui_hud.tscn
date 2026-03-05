@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dkyefmi6y80sr" path="res://scenes/ui/ui_night_timer.tscn" id="6_ntimer"]
 [ext_resource type="PackedScene" uid="uid://cinellujdmr1f" path="res://scenes/ui/ui_night_start.tscn" id="7_nstart"]
 [ext_resource type="PackedScene" uid="uid://cpausemenu001" path="res://scenes/ui/ui_pause_menu.tscn" id="8_pause"]
-[ext_resource type="PackedScene" uid="uid://djtykd02vne2k" path="res://scenes/ui/ui_selected_unit.tscn" id="9_selunit"]
+
+[ext_resource type="PackedScene" uid="uid://cxabctutorial" path="res://scenes/ui/ui_tutorial.tscn" id="10_tutorial"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hud")
@@ -170,6 +171,30 @@ text = "0"
 
 [node name="LevelResult" parent="." instance=ExtResource("3_lvlres")]
 
-[node name="SelectedUnit" parent="." instance=ExtResource("9_selunit")]
+[node name="RosterContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="RosterHBox" type="HBoxContainer" parent="RosterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+
 
 [node name="PauseMenu" parent="." instance=ExtResource("8_pause")]
+
+[node name="Tutorial" parent="." instance=ExtResource("10_tutorial")]

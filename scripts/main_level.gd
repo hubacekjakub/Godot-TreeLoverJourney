@@ -4,9 +4,10 @@ class_name Level
 @export var config: LevelConfig
 @export var stretcher: Stretcher
 @export var level_camera: Camera3D
+@export var show_tutorial: bool = false
 
-@onready var got_it_button: Button = %GotItButton
-@onready var tutorial_canvas: CanvasLayer = %Tutorial
+@onready var tutorial_ui: Tutorial = $HUD/Tutorial
+
 
 var camera_tween: Tween = null
 
@@ -19,8 +20,11 @@ func _ready() -> void:
 	SignalBus.on_night_transition_start.connect(start_night_transition)
 
 	await get_tree().create_timer(_get_begin_wait_time()).timeout
-	got_it_button.pressed.connect(handle_got_it_pressed)
-	tutorial_canvas.visible = true
+	if show_tutorial:
+		tutorial_ui.dismissed.connect(handle_tutorial_dismissed)
+		tutorial_ui.visible = true
+	else:
+		Global.start_day()
 
 # prepares level for night gameplay
 func start_night_transition() -> void:
@@ -35,7 +39,6 @@ func start_night_transition() -> void:
 func night_camera_move_finished() -> void:
 	SignalBus.on_night_transition_finished.emit()
 
-func handle_got_it_pressed() -> void:
-	tutorial_canvas.visible = false
+func handle_tutorial_dismissed() -> void:
 	await get_tree().create_timer(_get_begin_wait_time()).timeout
 	Global.start_day()
