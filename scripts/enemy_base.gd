@@ -20,7 +20,7 @@ func send_enemy_unit() -> void:
 	if random_supply == null:
 		return
 
-	var new_enemy_unit = enemy_unit_scene.instantiate() as EnemyUnit
+	var new_enemy_unit := enemy_unit_scene.instantiate() as EnemyUnit
 
 	if new_enemy_unit:
 		add_child(new_enemy_unit)
@@ -35,7 +35,7 @@ func _on_body_entered(body: Node3D) -> void:
 func get_random_supply_target() -> Supply:
 	if supply_targets.size() == 0:
 		return null
-	var random_index = randi() % supply_targets.size()
+	var random_index := randi() % supply_targets.size()
 
 	if supply_targets[random_index] == null:
 		push_warning("Supply target at index %d is null" % random_index)

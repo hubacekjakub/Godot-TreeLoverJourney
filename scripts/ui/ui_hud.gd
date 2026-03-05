@@ -34,7 +34,7 @@ func _ready() -> void:
 func _on_unit_registered(unit: FriendlyUnit) -> void:
 	if unit.type != FriendlyUnit.UnitType.DAY:
 		return
-	var card = KAKAPO_CARD_SCENE.instantiate()
+	var card := KAKAPO_CARD_SCENE.instantiate()
 	roster_hbox.add_child(card)
 	card.setup(unit)
 	_roster_cards.append(card)

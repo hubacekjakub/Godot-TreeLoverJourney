@@ -46,14 +46,14 @@ func stop_march() -> void:
 	animation_player_parrot.stop()
 
 func _physics_process(delta: float) -> void:
-	var current_position = global_position
+	var current_position := global_position
 
 	if on_path:
 		if marching:
-			var curve_length = path_follow.get_parent().curve.get_baked_length()
-			var remaining = curve_length - path_follow.progress
+			var curve_length := path_follow.get_parent().curve.get_baked_length()
+			var remaining := curve_length - path_follow.progress
 			# Distance needed to decelerate from current_speed to 0: v²/(2a)
-			var stopping_distance = (current_speed * current_speed) / (2.0 * acceleration)
+			var stopping_distance := (current_speed * current_speed) / (2.0 * acceleration)
 
 			if remaining <= stopping_distance:
 				# Decelerate

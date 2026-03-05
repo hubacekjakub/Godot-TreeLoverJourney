@@ -28,7 +28,7 @@ func _ready() -> void:
 
 # prepares level for night gameplay
 func start_night_transition() -> void:
-	var night_location_transform = level_camera.global_transform
+	var night_location_transform := level_camera.global_transform
 	level_camera.transform = stretcher.get_camera_transform()
 	level_camera.current = true
 

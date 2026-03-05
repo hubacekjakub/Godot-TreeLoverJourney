@@ -20,7 +20,7 @@ var is_active: bool = false
 var is_lost: bool = false
 
 func _enter_tree() -> void:
-	UnitDirector.register_unit(self )
+	UnitDirector.register_unit(self)
 
 
 func _ready() -> void:
@@ -34,7 +34,7 @@ func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: 
 		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		SignalBus.on_unit_selected.emit(self )
+		SignalBus.on_unit_selected.emit(self)
 
 
 func _physics_process(_delta: float) -> void:
@@ -62,7 +62,7 @@ func deactivate() -> void:
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	is_lost = true
 	set_physics_process(false)
-	UnitDirector.register_lost_unit(self )
+	UnitDirector.register_lost_unit(self)
 
 
 func play_idle_animation() -> void:

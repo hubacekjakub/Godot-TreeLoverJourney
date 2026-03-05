@@ -7,7 +7,7 @@ var load_level: String = ""
 var load_map_path: String = ""
 
 func _ready() -> void:
-	var root = get_tree().root
+	var root := get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 	load_map_path = current_scene.scene_file_path
 	visible = false
@@ -22,7 +22,6 @@ func goto_scene(map_name: String) -> void:
 	# Deleting the current scene at this point is
 	# a bad idea, because it may still be executing code.
 	# This will result in a crash or unexpected behavior.
-
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
 	load_level = map_name
@@ -46,7 +45,7 @@ func _deferred_goto_scene(path: String) -> void:
 	current_scene.free()
 
 	# Load the new scene.
-	var s = ResourceLoader.load(path)
+	var s := ResourceLoader.load(path)
 
 	# Instance the new scene.
 	current_scene = s.instantiate()

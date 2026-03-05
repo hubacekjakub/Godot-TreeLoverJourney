@@ -37,10 +37,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		handle_right_click()
 
-func handle_number_key(keycode) -> void:
+func handle_number_key(keycode: int) -> void:
 	var index: int = keycode - KEY_1
 	if index < day_units.size():
-		var target_unit = day_units[index]
+		var target_unit := day_units[index]
 		if is_instance_valid(target_unit) and not target_unit.is_lost:
 			if active_unit == target_unit:
 				SignalBus.on_unit_deselected.emit(target_unit)
@@ -49,12 +49,12 @@ func handle_number_key(keycode) -> void:
 			get_viewport().set_input_as_handled()
 
 func handle_right_click() -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
-	var camera = get_viewport().get_camera_3d()
-	var from = camera.project_ray_origin(mouse_pos)
-	var to = camera.project_ray_normal(mouse_pos) * 10000
-	var drop_plane = Plane(Vector3.UP, get_ground_position().y)
-	var cursor_3d_pos = drop_plane.intersects_ray(from, to)
+	var mouse_pos := get_viewport().get_mouse_position()
+	var camera := get_viewport().get_camera_3d()
+	var from := camera.project_ray_origin(mouse_pos)
+	var to := camera.project_ray_normal(mouse_pos) * 10000
+	var drop_plane := Plane(Vector3.UP, get_ground_position().y)
+	var cursor_3d_pos := drop_plane.intersects_ray(from, to)
 	show_marker_at(cursor_3d_pos)
 	set_unit_movement_target(cursor_3d_pos)
 
