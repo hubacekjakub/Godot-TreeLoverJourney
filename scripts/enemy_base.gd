@@ -6,12 +6,10 @@ class_name EnemyBase
 @export var supply_targets: Array[Supply] = []
 
 func _ready() -> void:
-	NightDirector.register_enemy_base(self)
+	NightDirector.register_enemy_base(self )
 	SignalBus.on_supply_stolen.connect(handle_supply_removed)
 	SignalBus.on_supply_collected.connect(handle_supply_removed)
 
-# TODO: add collected_supply and use it instead of central location
-# Send unit to central location of the unit director
 func send_enemy_unit() -> void:
 	if supply_targets.size() == 0:
 		return
@@ -24,7 +22,7 @@ func send_enemy_unit() -> void:
 
 	if new_enemy_unit:
 		add_child(new_enemy_unit)
-		new_enemy_unit.set_base(self)
+		new_enemy_unit.set_base(self )
 		new_enemy_unit.set_supply_target(random_supply)
 
 func _on_body_entered(body: Node3D) -> void:

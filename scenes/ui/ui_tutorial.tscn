@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cxabctutorial"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://cxabctutscript" path="res://scripts/ui/ui_tutorial.gd" id="1_tut"]
+[ext_resource type="Script" path="res://scripts/ui/ui_tutorial.gd" id="1_tut"]
 
 [node name="Tutorial" type="MarginContainer"]
 visible = false

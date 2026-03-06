@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/resources/level_list.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://y6osr473v6x0" path="res://levels/start_cutscene.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://blx447c52b2ay" path="res://levels/end_cutscene.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://levels/level_1.scn" id="4"]
-[ext_resource type="PackedScene" path="res://levels/level_2.scn" id="5"]
-[ext_resource type="PackedScene" path="res://levels/level_3.scn" id="6"]
+[ext_resource type="PackedScene" path="res://levels/level_1.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://levels/level_2.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://levels/level_3.tscn" id="6"]
 
 [resource]
 script = ExtResource("1")

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cyu4cuodbnnga"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://xde64t7rjtfl" path="res://scripts/ui/ui_progress_bar.gd" id="1_46mgc"]
+[ext_resource type="Script" path="res://scripts/ui/ui_progress_bar.gd" id="1_46mgc"]
 
 [node name="ProgressBar" type="Control" unique_id=691584359]
 layout_mode = 3

@@ -31,8 +31,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		SignalBus.on_unit_deselected.emit(active_unit)
-		active_unit.deactivate()
-		active_unit = null
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		handle_right_click()
@@ -54,9 +52,10 @@ func handle_right_click() -> void:
 	var from := camera.project_ray_origin(mouse_pos)
 	var to := camera.project_ray_normal(mouse_pos) * 10000
 	var drop_plane := Plane(Vector3.UP, get_ground_position().y)
-	var cursor_3d_pos := drop_plane.intersects_ray(from, to)
-	show_marker_at(cursor_3d_pos)
-	set_unit_movement_target(cursor_3d_pos)
+	var cursor_3d_pos = drop_plane.intersects_ray(from, to)
+	if cursor_3d_pos != null:
+		show_marker_at(cursor_3d_pos as Vector3)
+		set_unit_movement_target(cursor_3d_pos as Vector3)
 
 func show_marker_at(position: Vector3) -> void:
 	mouse_marker.global_position = position

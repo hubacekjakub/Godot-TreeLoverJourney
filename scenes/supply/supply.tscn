@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djfty110prxa"]
 
 [ext_resource type="Script" uid="uid://bkc00nhi1132x" path="res://scripts/supply.gd" id="1_oixck"]
-[ext_resource type="PackedScene" uid="uid://cyu4cuodbnnga" path="res://scenes/ui/ui_progress_bar.tscn" id="2_v6bgk"]
+[ext_resource type="PackedScene" path="res://scenes/ui/ui_progress_bar.tscn" id="2_v6bgk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wg11f"]
 radius = 2.0

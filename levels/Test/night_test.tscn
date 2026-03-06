@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c4malk8t4rllo" path="res://scenes/campfire.tscn" id="1_hg31t"]
 [ext_resource type="PackedScene" uid="uid://cq7pvrx7p2p6g" path="res://scenes/enemy_base.tscn" id="2_m15dl"]
 [ext_resource type="PackedScene" uid="uid://dsgcxuj5qqn73" path="res://scenes/units/friendly_unit.tscn" id="3_m15dl"]
-[ext_resource type="PackedScene" uid="uid://dra85yrala56h" path="res://scenes/ui/hud_prototype.tscn" id="6_6aqh8"]
+[ext_resource type="PackedScene" uid="uid://dra85yrala56h" path="res://scenes/ui/ui_hud.tscn" id="6_6aqh8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx02y"]
 sky_top_color = Color(0.09900001, 0.28691673, 0.55, 1)

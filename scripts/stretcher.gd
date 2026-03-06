@@ -12,7 +12,7 @@ signal march_finished
 
 @export var on_path: bool = false
 
-@onready var camera: Camera3D = $Camera
+@onready var camera_target: Marker3D = $CameraTargetMarker
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_player_parrot: AnimationPlayer = $AnimationPlayerParrot
 @onready var navigation_obstacle: NavigationObstacle3D = $NavigationObstacle3D
@@ -26,7 +26,7 @@ var current_speed: float = 0.0
 var marching: bool = false
 
 func _enter_tree() -> void:
-	DayDirector.register_stretcher(self)
+	DayDirector.register_stretcher(self )
 
 func _ready() -> void:
 	if on_path:
@@ -50,8 +50,9 @@ func _physics_process(delta: float) -> void:
 
 	if on_path:
 		if marching:
-			var curve_length := path_follow.get_parent().curve.get_baked_length()
-			var remaining := curve_length - path_follow.progress
+			var parent_path := path_follow.get_parent() as Path3D
+			var curve_length: float = parent_path.curve.get_baked_length() if parent_path and parent_path.curve else 0.0
+			var remaining: float = curve_length - path_follow.progress
 			# Distance needed to decelerate from current_speed to 0: v²/(2a)
 			var stopping_distance := (current_speed * current_speed) / (2.0 * acceleration)
 
@@ -91,4 +92,4 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 			area.deactivate()
 
 func get_camera_transform() -> Transform3D:
-	return camera.global_transform
+	return camera_target.global_transform

@@ -2,7 +2,6 @@ extends CanvasLayer
 ## Central HUD controller. Coordinates panel visibility and phase transitions.
 
 @onready var resources_panel: Control = %ResourcesPanel
-@onready var night_timer: Control = %NightTimer
 @onready var phase_label: Label = %PhaseLabel
 @onready var level_label: Label = %LevelLabel
 @onready var roster_hbox: HBoxContainer = %RosterHBox

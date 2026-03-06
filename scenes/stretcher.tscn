@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn6wyhkgg5766" path="res://scripts/stretcher.gd" id="1_72okn"]
 [ext_resource type="Material" uid="uid://b5df6xsu4npsa" path="res://assets/materials/stretcher/stretcher_1.tres" id="2_kk8wc"]
-[ext_resource type="Material" uid="uid://cgywv2yuqlx0f" path="res://assets/materials/body/eye2.tres" id="3_5v6i2"]
+[ext_resource type="Material" path="res://assets/materials/body/eye2.tres" id="3_5v6i2"]
 [ext_resource type="Material" uid="uid://cbifiper6kcvc" path="res://assets/materials/body/body2.tres" id="4_g6itv"]
 [ext_resource type="Material" uid="uid://d1vvvqvr2dtch" path="res://assets/materials/body/tile.tres" id="5_fqxp3"]
 [ext_resource type="Material" uid="uid://po4milbpx26j" path="res://assets/materials/body/black.tres" id="6_rhbjp"]
@@ -975,10 +975,8 @@ use_3d_avoidance = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=648671913]
 shape = SubResource("SphereShape3D_hkwxo")
 
-[node name="Camera" type="Camera3D" parent="." unique_id=646657817]
+[node name="CameraTargetMarker" type="Marker3D" parent="." unique_id=646657817 groups=["CameraTarget"]]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 12, 20)
-projection = 1
-size = 10.0
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1926936205]
 visible = false
