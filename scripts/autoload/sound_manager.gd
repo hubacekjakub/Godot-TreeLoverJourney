@@ -18,7 +18,7 @@ const NIGHT_LEVEL = "uid://b5rwrjnjnbf1c"
 
 func _ready() -> void:
 	main_audio_stream_player.stream = main_menu_sound
-	SignalBus.map_loaded.connect(handle_level_loaded)
+	SignalBus.on_map_loaded.connect(handle_level_loaded)
 	SignalBus.on_night_start.connect(handle_night_start)
 	SignalBus.on_supply_collected.connect(handle_resource_collected)
 	play_music()
@@ -61,4 +61,3 @@ func handle_resource_collected(supply: Supply, _amount: int) -> void:
 		sound_effect_audio_stream_player.stream = wood_picked_sound
 
 	sound_effect_audio_stream_player.play()
-

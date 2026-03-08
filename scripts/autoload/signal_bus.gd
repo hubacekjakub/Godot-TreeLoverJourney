@@ -5,7 +5,7 @@ extends Node
 
 # called when new map is loaded
 @warning_ignore("unused_signal")
-signal map_loaded(map_name: String)
+signal on_map_loaded(map_name: String)
 
 # UnitDirector
 
@@ -77,7 +77,7 @@ signal on_supply_updated()
 
 # SceneChanger
 @warning_ignore("unused_signal")
-signal just_fade_out_finished()
+signal on_fade_out_finished()
 
 @warning_ignore("unused_signal")
-signal just_fade_in_finished()
+signal on_fade_in_finished()

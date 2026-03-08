@@ -14,7 +14,7 @@ func _ready() -> void:
 
 	# Connect the animation finished signal to the function
 	animation_player.animation_finished.connect(_on_animation_finished)
-	SignalBus.map_loaded.connect(_handle_map_loaded)
+	SignalBus.on_map_loaded.connect(_handle_map_loaded)
 
 func goto_scene(map_name: String) -> void:
 	# This function will usually be called from a signal callback,
@@ -56,15 +56,15 @@ func _deferred_goto_scene(path: String) -> void:
 
 	# Optionally, to make it compatible with the SceneTree.change_scene_to_file() API.
 	get_tree().current_scene = current_scene
-	SignalBus.map_loaded.emit(load_level)
+	SignalBus.on_map_loaded.emit(load_level)
 
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_in":
 		call_deferred("_deferred_goto_scene", load_level)
 	elif anim_name == "just_fade_out":
-		SignalBus.just_fade_out_finished.emit()
+		SignalBus.on_fade_out_finished.emit()
 	elif anim_name == "just_fade_in":
-		SignalBus.just_fade_in_finished.emit()
+		SignalBus.on_fade_in_finished.emit()
 
 func _handle_map_loaded(_map_path: String) -> void:
 	animation_player.play("fade_out")

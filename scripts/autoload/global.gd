@@ -15,7 +15,7 @@ func _ready() -> void:
 	SignalBus.on_day_end.connect(handle_day_end)
 	SignalBus.on_night_start.connect(handle_night_start)
 	SignalBus.on_night_end.connect(handle_night_end)
-	SignalBus.map_loaded.connect(_handle_map_loaded)
+	SignalBus.on_map_loaded.connect(_handle_map_loaded)
 
 func get_game_version() -> Variant:
 	return ProjectSettings.get_setting("application/config/version")
