@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bfptgb3o7ippw"]
 
 [ext_resource type="Script" uid="uid://drycfu45cn0yh" path="res://scripts/ui/ui_level_result.gd" id="1_cnbu6"]
+[ext_resource type="StyleBox" uid="uid://fm38m4ndr7q0" path="res://assets/resources/normal_button.tres" id="2_nbtn"]
+[ext_resource type="StyleBox" uid="uid://dsw4tlgaid35y" path="res://assets/resources/hover_button.tres" id="3_hbtn"]
 
 [node name="LevelResult" type="MarginContainer" unique_id=304357917]
 anchors_preset = 8
@@ -64,4 +66,6 @@ layout_mode = 2
 [node name="NextLevel" type="Button" parent="MarginContainer/VBoxContainer/VBox" unique_id=1645419733]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/normal = ExtResource("2_nbtn")
+theme_override_styles/hover = ExtResource("3_hbtn")
 text = "NEXT LEVEL"

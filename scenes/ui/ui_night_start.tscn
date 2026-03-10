@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cinellujdmr1f"]
 
 [ext_resource type="Script" uid="uid://di6isiu24sdn" path="res://scripts/ui/ui_night_start.gd" id="1_u83jq"]
+[ext_resource type="StyleBox" uid="uid://fm38m4ndr7q0" path="res://assets/resources/normal_button.tres" id="2_nbtn"]
+[ext_resource type="StyleBox" uid="uid://dsw4tlgaid35y" path="res://assets/resources/hover_button.tres" id="3_hbtn"]
 
 [node name="NightStart" type="MarginContainer" unique_id=304357917]
 anchors_preset = 8
@@ -65,4 +67,6 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("2_nbtn")
+theme_override_styles/hover = ExtResource("3_hbtn")
 text = "START"
