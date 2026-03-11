@@ -73,6 +73,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		if not is_on_floor():
 			target_velocity.y -= fall_acceleration * delta
+		else:
+			target_velocity.y = 0.0
 		velocity = target_velocity
 		move_and_slide()
 

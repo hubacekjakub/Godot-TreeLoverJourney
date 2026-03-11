@@ -28,10 +28,10 @@ func _process(_delta: float) -> void:
 		return
 
 	var state := "IDLE"
-	if unit.is_gathering:
-		state = "GATHERING"
-	elif unit.is_moving:
+	if unit.is_moving:
 		state = "MOVING"
+	elif unit.is_gathering:
+		state = "GATHERING"
 
 	if action_label.text != state:
 		action_label.text = state

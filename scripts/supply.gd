@@ -18,11 +18,11 @@ enum SupplyType {BERRY = 0, WOOD = 1}
 
 @onready var csg_cylinder_3d: CSGCylinder3D = $CSGCylinder3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
-@onready var collecting_timer: Timer = $CollectingTimer
 @onready var progress_bar: Control = $ProgressBar
 
 var material: StandardMaterial3D
 var active: bool = false
+var units_inside: int = 0
 
 var progress_tween: Tween = null
 
@@ -42,34 +42,35 @@ func deactivate() -> void:
 func start_collecting() -> void:
 	if progress_tween:
 		progress_tween.kill()
-		progress_tween = null
 
-	if progress_tween == null:
-		progress_bar.visible = true
-		progress_tween = get_tree().create_tween()
-		var current_progress: float = progress_bar.get_progress()
-		progress_tween.tween_method(progress_bar.set_progress, current_progress, 100, collection_time)
-		progress_tween.tween_callback(self.collecting_finished)
+	progress_bar.visible = true
+	progress_tween = create_tween()
+	var current_progress: float = progress_bar.get_progress()
+	progress_tween.tween_method(progress_bar.set_progress, current_progress, 100.0, collection_time)
+	progress_tween.tween_callback(self.collecting_finished)
 
 func stop_collecting() -> void:
 	if progress_tween:
 		progress_tween.kill()
-		progress_tween = get_tree().create_tween()
-		var current_progress: float = progress_bar.get_progress()
-		progress_tween.tween_method(progress_bar.set_progress, current_progress, 0, interrupt_time)
-		progress_tween.tween_callback(self.collecting_interrupted)
+
+	progress_tween = create_tween()
+	var current_progress: float = progress_bar.get_progress()
+	progress_tween.tween_method(progress_bar.set_progress, current_progress, 0.0, interrupt_time)
+	progress_tween.tween_callback(self.collecting_interrupted)
 
 func collecting_finished() -> void:
 	Supplies.supply_collected(self, amount)
 	collision_shape_3d.disabled = true
 	await get_tree().create_timer(0.1).timeout
-	queue_free()
+	if is_instance_valid(self):
+		queue_free()
 
 func enemy_picked() -> void:
 	Supplies.supply_stolen(self, amount)
 	collision_shape_3d.disabled = true
 	await get_tree().create_timer(0.1).timeout
-	queue_free()
+	if is_instance_valid(self):
+		queue_free()
 
 func collecting_interrupted() -> void:
 	progress_bar.visible = false
@@ -79,10 +80,15 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 
 	if body is FriendlyUnit:
-		start_collecting()
+		units_inside += 1
+		if units_inside == 1:
+			start_collecting()
 		body.is_gathering = true
 
 func _on_body_exited(body: Node3D) -> void:
 	if body is FriendlyUnit:
-		stop_collecting()
+		units_inside -= 1
+		if units_inside <= 0:
+			units_inside = 0
+			stop_collecting()
 		body.is_gathering = false

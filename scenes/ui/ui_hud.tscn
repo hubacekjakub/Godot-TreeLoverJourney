@@ -120,50 +120,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="Divider" type="HSeparator" parent="ResourcesPanel/Inner/VBox"]
-layout_mode = 2
-
-[node name="KakaposSection" type="VBoxContainer" parent="ResourcesPanel/Inner/VBox"]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="KakaposHeaderLabel" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection"]
-layout_mode = 2
-text = "KAKAPOS"
-uppercase = true
-
-[node name="KakaposRow" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox/KakaposSection"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="AliveRow" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="AliveLabel" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow/AliveRow"]
-layout_mode = 2
-text = "Alive:"
-uppercase = true
-
-[node name="KakaposCount" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow/AliveRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0 / 0"
-
-[node name="LostRow" type="HBoxContainer" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="LostHeaderLabel" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow/LostRow"]
-layout_mode = 2
-text = "Lost:"
-uppercase = true
-
-[node name="LostCount" type="Label" parent="ResourcesPanel/Inner/VBox/KakaposSection/KakaposRow/LostRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
 [node name="NightTimer" parent="." instance=ExtResource("6_ntimer")]
 
 [node name="NightStart" parent="." instance=ExtResource("7_nstart")]

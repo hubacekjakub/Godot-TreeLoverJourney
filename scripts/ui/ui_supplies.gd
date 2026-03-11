@@ -3,8 +3,6 @@ extends Control
 
 @onready var wood_count: Label = %WoodCount
 @onready var berries_count: Label = %BerriesCount
-@onready var lost_count: Label = %LostCount
-@onready var kakapos_count: Label = %KakaposCount
 @onready var berries_icon: TextureRect = %BerriesIcon
 @onready var wood_icon: TextureRect = %WoodIcon
 
@@ -12,13 +10,10 @@ func _ready() -> void:
 	SignalBus.on_supply_updated.connect(_handle_supply_updated)
 	SignalBus.on_supply_collected.connect(_handle_supply_collected)
 	SignalBus.on_supply_stolen.connect(_handle_supply_stolen)
-	SignalBus.on_unit_lost.connect(_handle_unit_lost)
-	SignalBus.on_night_end.connect(_handle_night_end)
 
 func _handle_supply_updated() -> void:
 	berries_count.text = str(Supplies.get_amount(Supply.SupplyType.BERRY))
 	wood_count.text = str(Supplies.get_amount(Supply.SupplyType.WOOD))
-	_update_kakapos_count()
 
 func _handle_supply_collected(supply: Supply, _amount: int) -> void:
 	var icon := berries_icon if supply.type == Supply.SupplyType.BERRY else wood_icon
@@ -28,20 +23,6 @@ func _handle_supply_stolen(supply: Supply, _amount: int) -> void:
 	var icon := berries_icon if supply.type == Supply.SupplyType.BERRY else wood_icon
 	_animate_icon_stolen(icon)
 	_flash_panel_red()
-
-func _handle_unit_lost(_lost_unit: FriendlyUnit) -> void:
-	lost_count.text = str(UnitDirector.lost_units.size())
-	_animate_label_pulse(lost_count, Color(1.0, 0.3, 0.3))
-	_update_kakapos_count()
-
-func _handle_night_end(_success: bool) -> void:
-	_update_kakapos_count()
-
-func _update_kakapos_count() -> void:
-	var total := UnitDirector.day_units.size() + UnitDirector.night_units.size()
-	var alive := total - UnitDirector.lost_units.size()
-	kakapos_count.text = "%d / %d" % [alive, total]
-
 
 func _animate_icon_collect(icon: TextureRect) -> void:
 	var t := create_tween().set_parallel(true)

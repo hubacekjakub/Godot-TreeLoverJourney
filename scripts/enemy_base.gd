@@ -21,7 +21,8 @@ func send_enemy_unit() -> void:
 	var new_enemy_unit := enemy_unit_scene.instantiate() as EnemyUnit
 
 	if new_enemy_unit:
-		add_child(new_enemy_unit)
+		get_tree().current_scene.add_child(new_enemy_unit)
+		new_enemy_unit.global_position = self.global_position
 		new_enemy_unit.set_base(self )
 		new_enemy_unit.set_supply_target(random_supply)
 

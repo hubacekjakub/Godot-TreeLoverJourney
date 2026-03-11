@@ -32,7 +32,7 @@ func start_night_transition() -> void:
 	level_camera.transform = stretcher.get_camera_transform()
 	level_camera.current = true
 
-	camera_tween = get_tree().create_tween()
+	camera_tween = create_tween()
 	camera_tween.tween_property(level_camera, "transform", night_location_transform, 1.5).set_ease(Tween.EASE_IN_OUT)
 	camera_tween.tween_callback(self.night_camera_move_finished)
 

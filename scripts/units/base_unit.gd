@@ -19,8 +19,7 @@ func set_movement_target(movement_target: Vector3) -> void:
 func _physics_process(delta: float) -> void:
 	# Vertical Velocity — always apply gravity even when disabled
 	if not is_on_floor():
-		var fall_velocity := Vector3(0, self.velocity.y - (fall_acceleration * delta), 0)
-		velocity = fall_velocity
+		velocity.y -= fall_acceleration * delta
 		move_and_slide()
 		return
 

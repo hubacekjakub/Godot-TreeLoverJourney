@@ -16,7 +16,7 @@ func handle_night_start(_level: int) -> void:
 		night_timer_tween.kill()
 	progress_bar.value = 0
 	var night_duration := NightDirector.get_night_duration()
-	night_timer_tween = get_tree().create_tween()
+	night_timer_tween = create_tween()
 	night_timer_tween.tween_method(_update_bar, 0.0, 100.0, night_duration).set_ease(Tween.EASE_IN_OUT)
 	night_timer_tween.tween_callback(self.night_timer_finished)
 
