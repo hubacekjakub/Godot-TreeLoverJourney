@@ -7,6 +7,8 @@ var _tween: Tween = null
 @onready var next_level: Button = %NextLevel
 @onready var status_label: Label = %Status
 @onready var title_label: Label = %TitleLabel
+@onready var berries_value: Label = %BerriesValue
+@onready var wood_value: Label = %WoodValue
 
 func _ready() -> void:
 	visible = false
@@ -15,6 +17,10 @@ func _ready() -> void:
 
 func handle_night_end(success: bool) -> void:
 	is_success = success
+	
+	berries_value.text = str(Supplies.get_amount(Supply.SupplyType.BERRY))
+	wood_value.text = str(Supplies.get_amount(Supply.SupplyType.WOOD))
+	
 	if is_success:
 		title_label.text = "LEVEL COMPLETE"
 		status_label.text = "You survived the night!"
